@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:panelGroupLayout id="pgl1">
+      <amx:outputText value="Top 10 Outstanding Suppliers" id="ot1" inlineStyle="font-weight:bold; font-size:x-large;"/>
+    </amx:panelGroupLayout>
+    <amx:spacer id="s1" height="20" width="20"/>
+    <amx:panelGroupLayout id="pgl2" inlineStyle="background-color:#C3D2EB;" rendered="false">
+      <amx:listView var="row" value="#{bindings.supplierList.collectionModel}"
+                    fetchSize="#{bindings.supplierList.rangeSize}"
+                    selectedRowKeys="#{bindings.supplierList.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.supplierList.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.supplierList.collectionModel.makeCurrent}"
+                    showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
+                    inlineStyle="background-color:#C3D2EB;">
+        <amx:listItem id="li1" inlineStyle="background-color:#C3D2EB;">
+          <amx:outputText value="#{row.element}" id="ot2"/>
+        </amx:listItem>
+      </amx:listView>
+      <amx:listView var="row" value="#{bindings.supplierList1.collectionModel}"
+                    fetchSize="#{bindings.supplierList1.rangeSize}"
+                    selectedRowKeys="#{bindings.supplierList1.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.supplierList1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.supplierList1.collectionModel.makeCurrent}"
+                    showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2"
+                    inlineStyle="background-color:#C3D2EB;" dividerMode="all">
+        <amx:listItem id="li2" inlineStyle="background-color:#C3D2EB;">
+          <amx:tableLayout id="tl1">
+            <amx:rowLayout id="rl1">
+              <amx:cellFormat id="cf1">
+                <amx:outputText value="#{row.supplier_name}" id="ot4" inlineStyle="font-weight:bolder;"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf3">
+                <amx:spacer id="s2" height="20" width="30" inlineStyle="margin-right: 200px"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf2">
+                <amx:outputText value="#{row.supp_amt}" id="ot5"
+                                inlineStyle="font-weight:bolder; color:Red;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:listItem>
+      </amx:listView>
+    </amx:panelGroupLayout>
+    <amx:commandButton text="Back" id="cb1" action="__back" styleClass="ProcButton"
+                       inlineStyle="color:White; background-color:#8cb4cd;"/>
+    <amx:panelGroupLayout id="pgl3" rendered="false">
+      <amx:listView var="row" value="#{bindings.resultData.collectionModel}"
+                    fetchSize="#{bindings.resultData.rangeSize}"
+                    selectedRowKeys="#{bindings.resultData.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.resultData.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.resultData.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                    bufferStrategy="viewport" id="lv3">
+        <amx:listItem id="li3">
+          <amx:outputText value="#{row.param1}" id="ot3"/>
+        </amx:listItem>
+      </amx:listView>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

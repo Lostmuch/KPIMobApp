@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.33" id="resultPGPageDef"
+                Package="xxxx.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="KPIObject" id="KPIObjectIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EditKpiControl" id="EditKpiControlIterator"/>
+    <accessorIterator MasterBinding="EditKpiControlIterator" Binds="kpis" RangeSize="25" DataControl="EditKpiControl"
+                      BeanClass="xxxx.mobile.KPIObject" id="kpisIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EditKpiControl1" id="EditKpiControl1Iterator"/>
+    <accessorIterator MasterBinding="EditKpiControl1Iterator" Binds="addedKPIS" RangeSize="25"
+                      DataControl="EditKpiControl1" BeanClass="xxxx.mobile.KPIObject" id="addedKPISIterator"/>
+    <accessorIterator MasterBinding="EditKpiControl1Iterator" Binds="kpis" RangeSize="25" DataControl="EditKpiControl1"
+                      BeanClass="xxxx.mobile.KPIObject" id="kpisIterator1"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EditKpiControl3" id="EditKpiControl3Iterator"/>
+    <accessorIterator MasterBinding="EditKpiControl3Iterator" Binds="a" RangeSize="25" DataControl="EditKpiControl3"
+                      BeanClass="xxxx.mobile.KPIObject" id="aIterator"/>
+    <accessorIterator MasterBinding="EditKpiControl3Iterator" Binds="addedKPIS" RangeSize="25"
+                      DataControl="EditKpiControl3" BeanClass="java.util.ArrayList" id="addedKPISIterator1"/>
+    <accessorIterator MasterBinding="EditKpiControlIterator" Binds="a" RangeSize="25" DataControl="EditKpiControl"
+                      BeanClass="xxxx.mobile.KPIObject" id="aIterator1"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EditKpiControl5" id="EditKpiControl5Iterator"/>
+    <accessorIterator MasterBinding="EditKpiControl5Iterator" Binds="customerDispuetdPayment" RangeSize="-1"
+                      DataControl="EditKpiControl5" BeanClass="xxxx.mobile.KPIObject"
+                      id="customerDispuetdPaymentIterator1"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ResultControl" id="ResultControlIterator"/>
+    <accessorIterator MasterBinding="ResultControlIterator" Binds="resultData" RangeSize="25"
+                      DataControl="ResultControl" BeanClass="xxxx.mobile.GenericObject" id="resultDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="kpisIterator" id="kpis">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis0">
+        <AttrNames>
+          <Item Value="actual_value"/>
+          <Item Value="value_difference"/>
+          <Item Value="target_value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="kpisIterator" id="kpis1">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis10">
+        <AttrNames>
+          <Item Value="priority"/>
+          <Item Value="name"/>
+          <Item Value="target_value"/>
+          <Item Value="actual_value"/>
+          <Item Value="value_difference"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="kpisIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="kpisIterator" id="kpis2">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis20">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="priority"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="kpisIterator" id="kpis3">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis30">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="priority"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="addedKPISIterator" id="addedKPIS">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="addedKPIS0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="priority"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="kpisIterator1" id="kpis4">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis40">
+        <AttrNames>
+          <Item Value="priority"/>
+          <Item Value="name"/>
+          <Item Value="type"/>
+          <Item Value="time"/>
+          <Item Value="org_scope"/>
+          <Item Value="org_value"/>
+          <Item Value="target_type"/>
+          <Item Value="target_value"/>
+          <Item Value="notification_req"/>
+          <Item Value="actual_value"/>
+          <Item Value="report_name"/>
+          <Item Value="value_difference"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="addedKPISIterator1" id="addedKPIS1">
+      <nodeDefinition Name="addedKPIS10">
+        <AttrNames>
+          <Item Value="element"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="addedKPIS" Name="addedKPIS10">
+        <AttrNames>
+          <Item Value="element"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="aIterator" id="a7">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="a70">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="kpisIterator1" id="kpis5">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis50">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="aIterator1" id="a8">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="a80">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="actual_value"/>
+          <Item Value="notification_req"/>
+          <Item Value="org_scope"/>
+          <Item Value="org_value"/>
+          <Item Value="priority"/>
+          <Item Value="report_name"/>
+          <Item Value="target_type"/>
+          <Item Value="target_value"/>
+          <Item Value="time"/>
+          <Item Value="type"/>
+          <Item Value="value_difference"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="addedKPISIterator" id="addedKPIS2">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="addedKPIS20">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="name"/>
+          <Item Value="actual_value"/>
+          <Item Value="notification_req"/>
+          <Item Value="org_scope"/>
+          <Item Value="org_value"/>
+          <Item Value="priority"/>
+          <Item Value="report_name"/>
+          <Item Value="target_type"/>
+          <Item Value="target_value"/>
+          <Item Value="time"/>
+          <Item Value="value_difference"/>
+          <Item Value="image_icon"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="customerDispuetdPaymentIterator1" id="customerDispuetdPayment1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="customerDispuetdPayment1">
+        <AttrNames>
+          <Item Value="supp_amt"/>
+          <Item Value="supplier_name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="resultDataIterator" id="resultData">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData0">
+        <AttrNames>
+          <Item Value="param2"/>
+          <Item Value="param1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

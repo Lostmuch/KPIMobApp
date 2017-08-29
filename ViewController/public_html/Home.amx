@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1" inlineStyle="background-color:White;">
+        <amx:flexLayout id="fl1" orientation="vertical" itemAlignment="stretch" itemFlexibility="flexible"
+                        itemJustification="center">
+            <amx:tableLayout id="tl3" halign="center" width="100%" cellPadding="20">
+                <amx:rowLayout id="rl3">
+                    <amx:cellFormat id="cf3" halign="center" valign="middle" width="100%" height="30%">
+                        <amx:image id="i2" source="/Images/deloitte.png"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:panelGroupLayout id="pgl1" styleClass="LoginImage">
+                <amx:image id="i1" source="/Images/CloudImg.png"/>
+                <amx:outputText value="Cloud Mobility" id="ot2"
+                                inlineStyle="font-size:large; text-align:center; margin-left:-30px;"/>
+            </amx:panelGroupLayout>
+        </amx:flexLayout>
+        <amx:panelGroupLayout id="pgl2" styleClass="HomeButton">
+            <amx:commandButton id="cb-dashboard" inlineStyle="width:100%; border-color:White; background-color:White;" icon="/resources/images/Dashboard1.png"/>
+            <amx:commandButton id="cb-kpi" icon="/resources/images/SelectKPI1.png" inlineStyle="width:100%; "
+                               action="EditKPI"/>
+            <amx:commandButton id="cb-notif" icon="/resources/images/NotificationsD1.png"
+                               inlineStyle="width:100%;"/>
+        </amx:panelGroupLayout>
+    </amx:panelPage>
+</amx:view>

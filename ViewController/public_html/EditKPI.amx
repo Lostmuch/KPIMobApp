@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1"
+                 inlineStyle="border-left-color:InfoText; border-left-width:medium; border-left-style:solid; border-right-color:InfoText; border-right-style:solid; background-color:White; min-height:0%;">
+    
+    <amx:image id="i1"
+               source="/Images/deloitte.png" inlineStyle="margin-left:5px; margin-top:5px;" rendered="false"/>
+    <amx:panelGroupLayout id="pgl9" styleClass="EditKPIHomePanel">
+      <amx:image id="i2" source="/resources/images/House_Large_NEG_lo.png"
+                 inlineStyle="margin-right:5px; height:50px; width:auto;"/>
+      <amx:outputText value="Home" id="ot1"/>
+    </amx:panelGroupLayout>
+    <amx:commandLink text="Edit KPIs" id="EditKPIlnk" inlineStyle="text-decoration:none solid currentColor; font-size:x-large; font-style:normal; font-weight:bolder;"
+        />
+    <amx:outputText value="Procurement" id="ot2" inlineStyle="font-size:x-large; font-weight:bold;" rendered="false"/>
+    <amx:panelGroupLayout id="pgl10" scrollPolicy="scroll" rendered="false">
+      <amx:panelGroupLayout id="pgl3" styleClass="EditKPIPanel">
+        <amx:commandButton id="cb3" icon="/resources/images/Pending PR_new.png"
+                           action="#{pageFlowScope.toggleBean.changePendingOpacity}"
+                           styleClass="#{pageFlowScope.toggleBean.chnopa}"/>
+        <amx:outputText value="Pending PR" id="ot3" inlineStyle="font:normal normal normal medium/normal;"/>
+      </amx:panelGroupLayout>
+      <amx:panelGroupLayout id="pgl4" styleClass="EditKPIPanel">
+        <amx:commandButton id="cb4"
+                           action="#{pageFlowScope.toggleBean.changePoOpacity}"
+                           styleClass="#{pageFlowScope.toggleBean.chnPOopa}" icon="/resources/images/Open PO_new.png"/>
+        <amx:outputText value="Open PO" id="ot4"/>
+      </amx:panelGroupLayout>
+      <amx:panelGroupLayout id="pgl5" styleClass="EditKPIPanel">
+        <amx:commandButton id="cb5" icon="/resources/images/Expiring BPA.png"
+                           action="#{pageFlowScope.toggleBean.changeBpaOpacity}"
+                           styleClass="#{pageFlowScope.toggleBean.chnBPAopa}"/>
+        <amx:outputText value="Expiring BPA" id="ot5"/>
+      </amx:panelGroupLayout>
+      <amx:panelGroupLayout id="pgl1" styleClass="EditKPIPanel">
+        <amx:commandButton id="cb6" icon="/resources/images/Invoice pending_new.png"
+                           action="#{pageFlowScope.toggleBean.changeInvPenOpacity}"
+                           styleClass="#{pageFlowScope.toggleBean.chnInvopa}"/>
+        <amx:outputText value="Invoice Pending" id="ot6"/>
+      </amx:panelGroupLayout>
+    </amx:panelGroupLayout>
+    <amx:outputText value="Inventory" id="ot7" inlineStyle="font-size:x-large; font-weight:bold;"
+                    styleClass="EditKPIInvTab"/>
+    <amx:panelGroupLayout id="pgl6" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb7"
+                         action="#{pageFlowScope.toggleBean.changeInventOpacity}"
+                         styleClass="#{pageFlowScope.toggleBean.chnInvntopa}"
+                         icon="/resources/images/Inventory TO_new.png"/>
+      <amx:outputText value="Inventory T/O" id="ot8"/>
+    </amx:panelGroupLayout>
+    
+    <amx:panelGroupLayout id="pgl7" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb8" icon="/resources/images/Inv to sales.png"
+                         action="#{pageFlowScope.toggleBean.chnInvSalesOpacity}"
+                         styleClass="#{pageFlowScope.toggleBean.chnInvSalesopa}"/>
+      <amx:outputText value="Inventory to Sales Ratio" id="ot9"/>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl8" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb9"
+                         action="#{pageFlowScope.toggleBean.changeStkOpacity}"
+                         styleClass="#{pageFlowScope.toggleBean.chnStkopa}" icon="/resources/images/Stock out new.png"/>
+      <amx:outputText value="Stock Out" id="ot10"/>
+    </amx:panelGroupLayout>
+    
+    <amx:panelGroupLayout id="pgl2" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb10"
+                         action="#{pageFlowScope.toggleBean.changeObsoloteOpacity}"
+                         styleClass="#{pageFlowScope.toggleBean.chnObsoleteopa}"
+                         icon="/resources/images/Obsolete_inv_new.png"/>
+      <amx:outputText value="Obsolete Inventory" id="ot11"/>
+    </amx:panelGroupLayout>
+    <amx:outputText value="Shipping" id="ot12" inlineStyle="font-size:x-large; font-weight:bold;"/>
+    <amx:panelGroupLayout id="pgl11" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb11"
+                         action="#{pageFlowScope.toggleBean.changeOrdersYTDOpacity}"
+                         styleClass="#{pageFlowScope.toggleBean.chnYTDOpa}"
+                         icon="/resources/images/Obsolete_inv_new.png"/>
+      <amx:outputText value="Orders Booked YTD" id="ot13"/>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl12" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb12" icon="/resources/images/Inv to sales.png"
+                         action="#{pageFlowScope.toggleBean.changeYTDValueOpacity}"/>
+      <amx:outputText value="Value of Shipment YTD" id="ot14"/>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl13" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb13" icon="/resources/images/Stock out new.png"/>
+      <amx:outputText value="Late Shipments" id="ot15"/>
+    </amx:panelGroupLayout>
+    <amx:outputText value="Account Payables" id="ot16" inlineStyle="font-size:x-large; font-weight:bold;"
+                    styleClass="EditKPIInvTab"/>
+    <amx:panelGroupLayout id="pgl14" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb14" icon="/resources/images/Stock out new.png"
+                         action="#{pageFlowScope.toggleBean.changeOutSuppOpacity}"
+                         styleClass="#{pageFlowScope.toggleBean.chnSuppOpa}"/>
+      <amx:outputText value="OutStanding Suppliers" id="ot17"/>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl16" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb16" icon="/resources/images/Stock out new.png"
+                         action="#{pageFlowScope.toggleBean.changeOutAgingOpacity}"
+                         styleClass="#{pageFlowScope.toggleBean.chnAgingOpa}"/>
+      <amx:outputText value="AP Aging Analysis" id="ot20"/>
+    </amx:panelGroupLayout>
+    <amx:outputText id="ot18" value="Account Receivables" styleClass="EditKPIInvTab"
+                    inlineStyle="font-size:x-large; font-weight:bold;"/>
+    <amx:panelGroupLayout id="pgl15" styleClass="EditKPIPanel">
+      <amx:commandButton id="cb15" icon="/resources/images/Stock out new.png"
+                         action="#{pageFlowScope.toggleBean.changeDisCustOpacity}"
+                         styleClass="#{pageFlowScope.toggleBean.chnDisCustOpa}"/>
+      <amx:outputText value="Disputed Customer Payments" id="ot19"/>
+    </amx:panelGroupLayout>
+    <amx:commandButton text="Cancel" id="cb1" inlineStyle="color:White; background-color:#5b9bd5;" action="__back"
+                         styleClass="EditKPIButton"/>
+                          <amx:commandButton text="Submit" id="cb2" inlineStyle="color:White; background-color:#70ad47;"
+                   action="*show_proc_kpi" styleClass="EditKPIButton"
+                         actionListener="#{pageFlowScope.toggleBean.onSubmit}"/>
+    
+  </amx:panelPage>
+  
+</amx:view>
