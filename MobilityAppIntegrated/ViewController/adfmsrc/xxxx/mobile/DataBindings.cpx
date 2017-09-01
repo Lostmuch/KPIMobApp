@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.33" id="DataBindings"
+             SeparateXMLFiles="false" Package="xxxx.mobile" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/proc_KPI1.amx" usageId="xxxx_mobile_proc_KPI1PageDef"/>
+    <page path="/resultPG.amx" usageId="xxxx_mobile_resultPGPageDef"/>
+    <page path="/APResultPG.amx" usageId="xxxx_mobile_APResultPGPageDef"/>
+    <page path="/ARResultPG.amx" usageId="xxxx_mobile_ARResultPGPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="xxxx_mobile_proc_KPI1PageDef" path="xxxx.mobile.pageDefs.proc_KPI1PageDef"/>
+    <page id="xxxx_mobile_resultPGPageDef" path="xxxx.mobile.pageDefs.resultPGPageDef"/>
+    <page id="xxxx_mobile_APResultPGPageDef" path="xxxx.mobile.pageDefs.APResultPGPageDef"/>
+    <page id="xxxx_mobile_ARResultPGPageDef" path="xxxx.mobile.pageDefs.ARResultPGPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="InvOrganizationDC" path="xxxx.mobile.InvOrganizationDC"/>
+    <dc id="ResultControl1" path="xxxx.mobile.ResultControl1"/>
+    <dc id="ResultControl" path="xxxx.mobile.ResultControl"/>
+    <dc id="EditKpiControl5" path="xxxx.mobile.EditKpiControl5"/>
+    <dc id="Mylist" path="xxxx.mobile.Mylist"/>
+    <dc id="SupplierList" path="xxxx.mobile.SupplierList"/>
+    <dc id="EditKpiControl4" path="xxxx.mobile.EditKpiControl4"/>
+    <dc id="EditKpiControl3" path="xxxx.mobile.EditKpiControl3"/>
+    <dc id="EditKpiControl1" path="xxxx.mobile.EditKpiControl1"/>
+    <dc id="EditKpiControl" path="xxxx.mobile.EditKpiControl"/>
+    <dc id="KPIObject" path="xxxx.mobile.KPIObject"/>
+    <dc id="BusinessunitDC" path="xxxx.mobile.BusinessunitDC"/>
+  </dataControlUsages>
+</Application>

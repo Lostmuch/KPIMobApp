@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1_res"
+                   inlineStyle="border-left-color:InfoText; border-left-width:medium; border-left-style:solid; border-right-color:InfoText; border-right-style:solid; background-color:White; min-height:0%;">
+                   
+        <amx:image id="i1_res" source="/Images/deloitte.png" inlineStyle="margin-left:5px; margin-top:5px;"/>
+        <amx:panelGroupLayout id="pgl1" styleClass="ResultPg1">
+            <amx:image id="i1" source="/resources/images/Notification.png"
+                       inlineStyle="margin-right:5px; height:50px; width:auto;"/>
+            <amx:outputText value="Notification" id="ot1"/>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl9_res" styleClass="ResultPg">
+            <amx:image id="i2_res" source="/resources/images/House_Large_NEG_lo.png"
+                       inlineStyle="margin-right:5px; height:50px; width:auto;"/>
+            <amx:outputText value="Home" id="ot1_res"/>
+        </amx:panelGroupLayout>
+        <amx:outputText value="My Dash Board" id="ot2"
+                        inlineStyle="font-weight:bold;font-size:x-large;margin-top:19px;text-align:center;"/>
+        <amx:panelGroupLayout id="pgl2" rendered="#{pageFlowScope.toggleBean.payablesrend}">
+            <amx:outputText value="Payables" id="ot11" inlineStyle="font-size:large; font-weight:bolder;"
+                            rendered="false"/>
+            <amx:listView var="row" value="#{bindings.addedKPIS_button.collectionModel}"
+                          fetchSize="#{bindings.addedKPIS_button.rangeSize}"
+                          selectedRowKeys="#{bindings.addedKPIS_button.collectionModel.selectedRow}"
+                          initialScrollRowKeys="#{bindings.addedKPIS_button.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.addedKPIS_button.collectionModel.makeCurrent}"
+                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" rendered="false">
+                <amx:listItem id="li1" rendered="false">
+                    <amx:tableLayout id="tl2" inlineStyle="background-color:#f7f7f7;" styleClass="result_cri"
+                                     rendered="false">
+                        <amx:rowLayout id="rl1">
+                            <amx:cellFormat id="cf1">
+                                <amx:outputText value="#{row.type}" id="ot3"
+                                                inlineStyle="font-size:large; font-weight:bolder;"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl2">
+                            <amx:cellFormat id="cf9">
+                                <amx:outputText value="Top 10 Outsstanding AP Suppliers" id="ot10"
+                                                inlineStyle="font-size:large; font-weight:bolder;" rendered="false"/>
+                                <amx:outputText value="#{bindings.report_name.inputValue}" id="ot4"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl4">
+                            <amx:cellFormat id="cf10">
+                                <amx:commandButton id="cb3"
+                                                   inlineStyle="color:Red;color:White; background-color:#70ad47;"
+                                                   action="showAPResultPG" text="#{pageFlowScope.toggleBean.suppAmt}"
+                                                   actionListener="#{ResultKpiBean.resultKpi}" rendered="false">
+                                    <amx:setPropertyListener id="spl1" from="11" to="#{pageFlowScope.button_click}"/>
+                                </amx:commandButton>
+                            </amx:cellFormat>
+                            <amx:cellFormat id="cf2"/>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
+                </amx:listItem>
+            </amx:listView>
+            <amx:listView var="row" value="#{bindings.addedKPIS_button1.collectionModel}"
+                          fetchSize="#{bindings.addedKPIS_button1.rangeSize}"
+                          selectedRowKeys="#{bindings.addedKPIS_button1.collectionModel.selectedRow}"
+                          initialScrollRowKeys="#{bindings.addedKPIS_button1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.addedKPIS_button1.collectionModel.makeCurrent}" 
+                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2" dividerMode="all"
+                          dividerAttribute="type">
+                <amx:listItem id="li2">
+                    <amx:tableLayout id="tl1">
+                        <amx:rowLayout id="rl7">
+                            <amx:cellFormat id="cf4" rendered="false">
+                                <amx:outputText value="#{row.type}" id="ot7"
+                                                inlineStyle="font-size:large; font-weight:bolder;"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl3">
+                            <amx:cellFormat id="cf3">
+                                <amx:outputText value="#{row.report_name}" id="ot5"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl8">
+                            <amx:cellFormat id="cf5">
+                                <amx:outputText value="#{row.actual_value}" id="ot6"
+                                                inlineStyle="color:Green;"/>
+                                <amx:commandButton id="cb1"
+                                                   actionListener="#{ResultKpiBean.resultKpi}"
+                                                   inlineStyle="color:Red;color:White; background-color:#70ad47;"
+                                                   action="#{ResultKpiBean.getNextPG}"
+                                                   icon="/resources/images/ListIcon.png">
+                                    <amx:setPropertyListener id="spl2" to="#{pageFlowScope.button_click}"
+                                                             from="#{row.page_name}" type="action"/>
+                                    <amx:setPropertyListener id="spl3" to="#{pageFlowScope.res_lay}" type="action"
+                                                             from="#{row.result_layout}"/>
+                                </amx:commandButton>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
+                </amx:listItem>
+            </amx:listView>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl3" rendered="false">
+          <amx:outputText value="Receivables" id="ot113" inlineStyle="font-size:large; font-weight:bolder;"/>
+            <amx:tableLayout id="tl3">
+                <amx:rowLayout id="rl5">
+                    <amx:cellFormat id="cf11">
+                        <amx:outputText value="Total Customer Payments Disputes" id="ot12"
+                                        inlineStyle="font-size:large; font-weight:bolder;"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl6">
+                    <amx:cellFormat id="cf12" halign="#{ResultKpiBean.generic_temp_ar}">
+                        <amx:commandButton id="cb4"
+                                           inlineStyle="color:Red;color:White; background-color:#70ad47;"
+                                           text="#{pageFlowScope.toggleBean.custAmt}" action="showARResultPG"
+                                           actionListener="#{ResultKpiBean.resultKpi}"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        
+    </amx:panelPage>
+</amx:view>
+

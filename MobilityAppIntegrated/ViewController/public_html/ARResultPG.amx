@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:panelGroupLayout id="pgl1">
+      <amx:outputText value="Top 5 Customers Disputed Payments" id="ot1"
+                      inlineStyle="font-weight:bold; font-size:x-large;"/>
+    </amx:panelGroupLayout>
+    <amx:spacer id="s1" height="20" width="20"/>
+    <dvtm:barChart id="barChart1" var="row" value="#{bindings.resultData_ar.collectionModel}">
+      <dvtm:legend rendered="false" id="l1"/>
+      <amx:facet name="dataStamp">
+        <dvtm:chartDataItem id="di1" series="#{bindings.resultData_ar.hints.param3.label}" value="#{row.param3}"
+                            group="#{row.param1}"/>
+      </amx:facet>
+    </dvtm:barChart>
+    <amx:commandButton text="Back" id="cb1" action="__back" inlineStyle="color:White; background-color:#70ad47;"/>
+  </amx:panelPage>
+</amx:view>

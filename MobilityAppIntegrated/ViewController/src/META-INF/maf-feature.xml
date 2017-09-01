@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="xxxx.EditKPI" name="EditKPI">
+    <adfmf:content id="xxxx.EditKPI.1">
+      <adfmf:constraints/>
+      <adfmf:amx file="xxxx.EditKPI/EditKPI-task-flow.xml#EditKPI-task-flow">
+        <adfmf:includes>
+          <adfmf:include type="StyleSheet" file="resources/css/test.css" id="i1"/>
+        </adfmf:includes>
+      </adfmf:amx>
+    </adfmf:content>
+  </adfmf:feature>
+</adfmf:features>

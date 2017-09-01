@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.33" id="proc_KPI1PageDef"
+                Package="xxxx.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="BusinessunitDC" id="BusinessunitDCIterator"/>
+    <accessorIterator MasterBinding="BusinessunitDCIterator" Binds="businessunitLOV" RangeSize="25"
+                      DataControl="BusinessunitDC" BeanClass="xxxx.mobile.parameter.Businessunit"
+                      id="businessunitLOVIterator"/>
+    <accessorIterator MasterBinding="businessunitLOVIterator" Binds="businessunitLovs" RangeSize="25"
+                      DataControl="BusinessunitDC" BeanClass="xxxx.mobile.parameter.BusinessUnitLOV"
+                      id="businessunitLovsIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="InvOrganizationDC" id="InvOrganizationDCIterator"/>
+    <accessorIterator MasterBinding="InvOrganizationDCIterator" Binds="invOrgLov" RangeSize="25"
+                      DataControl="InvOrganizationDC" BeanClass="xxxx.mobile.parameter.InvOrganizationLOV"
+                      id="invOrgLovIterator"/>
+    <accessorIterator MasterBinding="invOrgLovIterator" Binds="invOrgLOV" RangeSize="25" DataControl="InvOrganizationDC"
+                      BeanClass="xxxx.mobile.parameter.InvOrganization" id="invOrgLOVIterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="businessunitLovsIterator" ListOperMode="navigation" ListIter="businessunitLovsIterator"
+          id="businessunitLovs" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="invOrgLOVIterator" ListOperMode="navigation" ListIter="invOrgLOVIterator" id="invOrgLOV"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="invOrg_name"/>
+      </AttrNames>
+    </list>
+  </bindings>
+</pageDefinition>
