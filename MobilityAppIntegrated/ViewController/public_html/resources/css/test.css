@@ -1,24 +1,12 @@
 @charset "windows-1252";
-@import url('../font-awesome-4.6.3/css/font-awesome.css');
 
-.amx-panelPage-header {
-    border-bottom-color: #86BC25;
-    background-color: #000000;
-    border-bottom-width: medium;
-    border-bottom-style: solid;
-}
  .amx-panelPage.loginpage
 {
     background-image: url('../images/login_pg.jpg');
-    background-size:50% 50%;
-    background-position: top left;
+    background-size:100% 100%;
+    background-position: center left;
     background-repeat: no-repeat;
     background-color: #d2d2d2; 
-}
-.headertextwhite {
-    color: #ffffff !important;
-    font-size: xx-large;
-    font-family: "Open Sans";
 }
 .amx-selectManyCheckbox.page2selectmany, .amx-selectManyCheckbox.page2selectmany .selectItemsContainer{
     border:none ;
@@ -202,9 +190,6 @@ margin-top: -18px;
 .ProcRadio
 {
     margin-top : 4px;
-	font-family: "Open Sans";
-    font-size: small;
-    color: #000000;
 }
 
 .field-label{
@@ -218,40 +203,16 @@ padding-left: 0% !important;
 
 .LoginImage
 {
-    padding-left: 80px;
+    padding-left: 166px;
 }
 
 .EditKPIPanel
 {
-  width:100%;
+  width:25%;
   float:left;
   text-align:center;
-  border-style:groove; 
-  border-width: 1px;
 }
 
-.xxSubHeader {
-    font-family: "Open Sans";
-    font-size: x-large;
-    color: #000000;
-}
-.XXtablegroove{
-    border-bottom-style:groove; 
-    border-width: 1px;
-    padding-left: 10px;
-}
-
-.xxOpenSansMed {
-    font-family: "Open Sans";
-    font-size: medium;
-    color: #000000;
-}
-
-.xxOpenSansS {
-    font-family: "Open Sans";
-    font-size: small;
-    color: #000000;
-}
 .EditKPIPanel img
 {
   width:100%;
@@ -259,28 +220,14 @@ padding-left: 0% !important;
 }
 .HomeButton
 {
-  margin-top: 15px;
-  margin-left: 15px;
-  width:90%;
-  height : 100%;
+  margin-top: 65px;
 }
 .HomeButton img
 {
-  width: 70%;
-  height : 75px;
+  width:80%;
+  height : 55px;
 }
 
-MainText
-{
-  font-family: "Open Sans";
-  font-size: 20px;
-}
-.DBBackground
-{
-  background-image: url('../images/Background.png');
-  background-repeat: repeat;
-  background-size:100% 110%;
-}
 .EditKPIInvTab
 {
   padding-top: 25px; 
@@ -301,14 +248,12 @@ MainText
 {
       width: 40%;
       margin-top: 50px;
-      border-radius: 25px;
 }
 
 .ProcButton
 {
    width: 40%;
    margin-top: 50px;
-   border-radius: 25px;
 }
 
 .EditKPIopct
@@ -427,3 +372,14 @@ opacity:1;
     border-radius:10px;
 }
 
+.MainText
+{
+  font-family: "Open Sans";
+  font-size: 20px;
+}
+.DBBackground
+{
+  background-image: url('../images/Background.png');
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+} 
