@@ -37,7 +37,7 @@ public class ReportService {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
             System.out.println("IN TRY");
             if (jsonObject.toString().equals("{}")) {
-                System.out.println("No data found in rpeort");
+                System.out.println("No data found in report");
                 OutputValue = "0";
             } else //if (jsonObject.has("PARAM1"))
             {

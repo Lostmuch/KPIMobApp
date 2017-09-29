@@ -29,14 +29,146 @@ public class EditKpiControl {
     private String chnObsoleteopa = "EditKPIorg";
     private String chnYTDValueOpa = "EditKPIorg";
     private String chnSuppOpa = "EditKPIorg";
-    
+    private String chnship2Opa = "EditKPIorg";
+
+
+    private boolean invkiprend = false;
+    private boolean openPORend = false;
+
+    private final String KPI_PROC1 = "PO BackLog";
+    private final String KPI_PROC2 = "Open PO";
+    private final String KPI_PROC3 = "Expiring BPA";
+    private final String KPI_PROC4 = "Invoice Pending";
+
+    private final String KPI_INV1 = "Inventory T/O";
+    private final String KPI_INV2 = "Inventory To Sales Ratio";
+    private final String KPI_INV3 = "Stock out";
+    private final String KPI_INV4 = "Obsolete Inventory";
+
+    private final String KPI_SHIP1 = "Orders booked";
+    private final String KPI_SHIP2 = "Backlog Summary";
+
+    private final String KPI_AP1 = "Top 10 Outstanding Suppliers";
+
+    private final String KPI_AR1 = "Disputed Customer Payments";
+    private final String KPI_AR2 = "Pending Customer Payments";
+
+    private String kpIText = "abc";
+
     private boolean apTimeRadio = false;
     private String suppAmt = null;
     private String custAmt = null;
+
+    private boolean proBackLogrend;
+
+    //  private boolean timerend;
+
+    private boolean allTimePara = true;
+    private boolean current_timeRadio = false;
+    private boolean orgScoperend;
+    private boolean buChoice = false;
+    private boolean leChoice = false;
     private boolean targettyperend = false;
     private boolean targetValuerend = false;
+
     private boolean payablesrend;
     private boolean recrend;
+
+
+    String image_name;
+    String button_label;
+
+
+    public void setButton_label(String button_label) {
+        this.button_label = button_label;
+    }
+
+    public String getButton_label() {
+        return button_label;
+    }
+
+    private String chnYTDOpa = "EditKPIorg";
+    ArrayList<String> imgArr = new ArrayList<String>();
+    public ArrayList<KPIObject> kpis = new ArrayList<KPIObject>();
+
+    public ArrayList<KPIObject> kpis_target = new ArrayList<KPIObject>();
+    public ArrayList<KPIObject> kpis_button = new ArrayList<KPIObject>();
+    public ArrayList<KPIObject> kpistemp = new ArrayList<KPIObject>();
+    ArrayList<KPIObject> a = new ArrayList<KPIObject>();
+    ArrayList<KPIObject> b = new ArrayList<KPIObject>();
+
+    private String kpi_inv1;
+    private String inv1_ac;
+    private String inv1_t;
+    private String inv1_diff;
+    private String abc = null;
+    private String chnpoBackLogOpa = "EditKPIorg";
+
+    private String chnDisCustOpa = "EditKPIorg";
+    private String chnpendCustpayOpa = "EditKPIorg";
+
+
+    public void setCurrent_timeRadio(boolean current_timeRadio) {
+        boolean oldCurrent_timeRadio = this.current_timeRadio;
+        this.current_timeRadio = current_timeRadio;
+        _propertyChangeSupport.firePropertyChange("current_timeRadio", oldCurrent_timeRadio, current_timeRadio);
+    }
+
+    public boolean isCurrent_timeRadio() {
+        return current_timeRadio;
+    }
+
+
+    public void setBuChoice(boolean buChoice) {
+        boolean oldBuChoice = this.buChoice;
+        this.buChoice = buChoice;
+        _propertyChangeSupport.firePropertyChange("buChoice", oldBuChoice, buChoice);
+    }
+
+    public boolean isBuChoice() {
+        return buChoice;
+    }
+
+    public void setLeChoice(boolean leChoice) {
+        boolean oldLeChoice = this.leChoice;
+        this.leChoice = leChoice;
+        _propertyChangeSupport.firePropertyChange("leChoice", oldLeChoice, leChoice);
+    }
+
+    public boolean isLeChoice() {
+        return leChoice;
+    }
+
+    public void setImage_name(String image_name) {
+        String oldImage_name = this.image_name;
+        this.image_name = image_name;
+        _propertyChangeSupport.firePropertyChange("image_name", oldImage_name, image_name);
+    }
+
+    public String getImage_name() {
+        return image_name;
+    }
+
+
+    public void setChnpendCustpayOpa(String chnpendCustpayOpa) {
+        String oldChnpendCustpayOpa = this.chnpendCustpayOpa;
+        this.chnpendCustpayOpa = chnpendCustpayOpa;
+        _propertyChangeSupport.firePropertyChange("chnpendCustpayOpa", oldChnpendCustpayOpa, chnpendCustpayOpa);
+    }
+
+    public String getChnpendCustpayOpa() {
+        return chnpendCustpayOpa;
+    }
+
+    public void setChnpoBackLogOpa(String chnpoBackLogOpa) {
+        String oldChnpoBackLogOpa = this.chnpoBackLogOpa;
+        this.chnpoBackLogOpa = chnpoBackLogOpa;
+        _propertyChangeSupport.firePropertyChange("chnpoBackLogOpa", oldChnpoBackLogOpa, chnpoBackLogOpa);
+    }
+
+    public String getChnpoBackLogOpa() {
+        return chnpoBackLogOpa;
+    }
 
 
     public void setChnDisCustOpa(String chnDisCustOpa) {
@@ -48,9 +180,6 @@ public class EditKpiControl {
     public String getChnDisCustOpa() {
         return chnDisCustOpa;
     }
-    private boolean allTimePara = true;
-    private String chnDisCustOpa = "EditKPIorg";
-
 
 
     public void setChnSuppOpa(String chnSuppOpa) {
@@ -72,16 +201,7 @@ public class EditKpiControl {
     public String getChnYTDValueOpa() {
         return chnYTDValueOpa;
     }
-    String image_name;
 
-    private String chnYTDOpa = "EditKPIorg";
-    ArrayList<String> imgArr = new ArrayList<String>();
-    public ArrayList<KPIObject> kpis = new ArrayList<KPIObject>();
-
-    public ArrayList<KPIObject> kpis_target = new ArrayList<KPIObject>();
-    public ArrayList<KPIObject> kpis_button = new ArrayList<KPIObject>();
-    public ArrayList<KPIObject> kpistemp = new ArrayList<KPIObject>();
-    ArrayList<KPIObject> a = new ArrayList<KPIObject>();
 
     public void setA(ArrayList<KPIObject> a) {
         ArrayList<KPIObject> oldA = this.a;
@@ -93,11 +213,6 @@ public class EditKpiControl {
         return a;
     }
 
-    private String kpi_inv1;
-    private String inv1_ac;
-    private String inv1_t;
-    private String inv1_diff;
-    private String abc = null;
 
     public void setAbc(String abc) {
         String oldAbc = this.abc;
@@ -149,30 +264,38 @@ public class EditKpiControl {
     public ArrayList<KPIObject> getKpis_button() {
         return kpis_button;
     }
-    private boolean invkiprend = false;
-    private boolean openPORend = false;
-
-    private final String KPI_PROC1 = "Pending PR";
-    private final String KPI_PROC2 = "Open PO";
-    private final String KPI_PROC3 = "Expiring BPA";
-    private final String KPI_PROC4 = "Invoice Pending";
-
-    private final String KPI_INV1 = "Inventory T/O";
-    private final String KPI_INV2 = "Inventory To Sales Ratio";
-    private final String KPI_INV3 = "Stock out";
-    private final String KPI_INV4 = "Obsolete Inventory";
-
-    private final String KPI_SHIP1 = "Orders booked";
-    private final String KPI_SHIP2 = "Value of shipment";
-    
-    private final String KPI_AP1 = "Top 10 Outstanding Suppliers";
-    
-    private final String KPI_AR1 = "Disputed Customer Payments";
-    
-    private String kpIText = "abc";
 
 
     public EditKpiControl() {
+    }
+    
+
+    public String changePendCustPayOpacity() {
+        // Add event code here...
+        System.out.println("Inside changePendCustPayOpacity");
+        if (this.chnpendCustpayOpa.equals("EditKPIorg")) {
+            this.setChnpendCustpayOpa("EditKPIopct");
+            imgArr.add(KPI_AR2);
+        } else {
+            this.setChnpendCustpayOpa("EditKPIorg");
+            imgArr.remove(KPI_AR2);
+        }
+        // Add event code here...
+        return null;
+    }
+    
+    public String changeShip2Opacity() {
+        // Add event code here...
+        System.out.println("Inside changePendCustPayOpacity");
+        if (this.chnship2Opa.equals("EditKPIorg")) {
+            this.setChnship2Opa("EditKPIopct");
+            imgArr.add(KPI_AR2);
+        } else {
+            this.setChnship2Opa("EditKPIorg");
+            imgArr.remove(KPI_AR2);
+        }
+        // Add event code here...
+        return null;
     }
 
     public String changePendingOpacity() {
@@ -376,27 +499,24 @@ public class EditKpiControl {
     }
 
     //KPI_SHIP2
-       public String changeYTDValueOpacity() 
-       {
+    public String changeYTDValueOpacity() {
 
-           System.out.println("Inside changeYTDValueOpacity");
-           if (this.chnYTDValueOpa.equals("EditKPIorg")) 
-           {
-               this.setChnYTDValueOpa("EditKPIopct");
-               imgArr.add(KPI_SHIP2);
-           } else {
-               this.setChnYTDValueOpa("EditKPIorg");
-               imgArr.remove(KPI_SHIP2);
-           }
-           // Add event code here...
-           return null;
-       } 
-       
+        System.out.println("Inside changeYTDValueOpacity");
+        if (this.chnYTDValueOpa.equals("EditKPIorg")) {
+            this.setChnYTDValueOpa("EditKPIopct");
+            imgArr.add(KPI_SHIP2);
+        } else {
+            this.setChnYTDValueOpa("EditKPIorg");
+            imgArr.remove(KPI_SHIP2);
+        }
+        // Add event code here...
+        return null;
+    }
+
     public String changeOutSuppOpacity() {
         // Add event code here...
         System.out.println("Inside changeOutSuppOpacity");
-        if (this.chnSuppOpa.equals("EditKPIorg")) 
-        {
+        if (this.chnSuppOpa.equals("EditKPIorg")) {
             this.setChnSuppOpa("EditKPIopct");
             imgArr.add(KPI_AP1);
         } else {
@@ -406,17 +526,30 @@ public class EditKpiControl {
         // Add event code here...
         return null;
     }
-    
+
     public String changeDisCustOpacity() {
         // Add event code here...
         System.out.println("Inside changeDisCust");
-        if (this.chnDisCustOpa.equals("EditKPIorg")) 
-        {
+        if (this.chnDisCustOpa.equals("EditKPIorg")) {
             this.setChnDisCustOpa("EditKPIopct");
             imgArr.add(KPI_AR1);
         } else {
             this.setChnDisCustOpa("EditKPIorg");
             imgArr.remove(KPI_AR1);
+        }
+        // Add event code here...
+        return null;
+    }
+
+    public String changepoBackLogOpacity() {
+        // Add event code here...
+        System.out.println("Inside changepoBackLogOpacity");
+        if (this.chnpoBackLogOpa.equals("EditKPIorg")) {
+            this.setChnpoBackLogOpa("EditKPIopct");
+            imgArr.add(KPI_PROC1);
+        } else {
+            this.setChnpoBackLogOpa("EditKPIorg");
+            imgArr.remove(KPI_PROC1);
         }
         // Add event code here...
         return null;
@@ -441,8 +574,7 @@ public class EditKpiControl {
     public String getChnYTDOpa() {
         return chnYTDOpa;
     }
-    
-    
+
 
     public void setInvkiprend(boolean invkiprend) {
         //this.invkiprend = invkiprend;
@@ -468,232 +600,6 @@ public class EditKpiControl {
     }
 
 
-    public String nextKpiPG() 
-    {
-        // Add event code here...
-        //http://ussltcsnl3432.solutions.glbsnet.com:7004/GetBICloud-ReportsData-context-root/resources/SCCloudReportService/result/AP_Total_Supplier_Balances_Report/CURRENT/GLOBAL/999/999/999 
-        System.out.println("Inside nextKpiPG page ");
-        String currrentKpiname = kpistemp.get(0).getName();
-        System.out.println("currrentKpiname value *** " + currrentKpiname);
-        System.out.println("Size of Kpi list ****** " + kpis.size());
-        int indexKpi = -1;
-        for (int i = 0; i < kpis.size(); i++) {
-            System.out.println("Inside for");
-            if (currrentKpiname.equalsIgnoreCase(kpis.get(i).getName())) {
-
-                System.out.println("Value if i *** " + i);
-                indexKpi = i;
-                System.out.println("Value of indexKpi** " + indexKpi);
-                break;
-            }
-        }
-        
-       
-        //int indexKpi = kpis.indexOf(currrentKpiname);
-        System.out.println("Index value ----------- " + indexKpi);
-        if (AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.timeRadio}") != null) {
-            Object time = (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.timeRadio}");
-            System.out.println("Value of timme radio button*** " + time);
-            kpis.get(indexKpi).setTime(time.toString());
-            System.out.println("Value after setting ***********" + kpis.get(indexKpi).getTime());
-        }
-
-        System.out.println("Value of Organization Scope Radio button**********  " +
-                           AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}"));
-        if (AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}") != null) 
-        {
-            Object org = (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}");
-            System.out.println("Value of Scope radio button*** " + org);
-            kpis.get(indexKpi).setOrg_scope(org.toString());
-            System.out.println("Value after setting ***********" + kpis.get(indexKpi).getOrg_scope());
-
-            if ((AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}")).equals("Global"))
-            {
-                System.out.println("Inside GLOBAL if");
-                kpis.get(indexKpi).setOrg_value("GLOBAL");
-                System.out.println("Operating Value after setting ***********" + kpis.get(indexKpi).getOrg_scope());
-            }
-            else
-            {    
-            if ((AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}")).equals("Operating Unit")) 
-            {
-                Object org_val2 =
-                    (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.scopeRadioValue2}");
-                //"#{bindings.businessunitLovs.inputValue}" 
-                Object ou_value = (Object)AdfmfJavaUtilities.getELValue("#{bindings.businessunitLovs.inputValue}");
-                System.out.println("Value of OU LOV*** " + org_val2);
-                System.out.println("New Operating Unit Value ...***..Fectched**"+ou_value);
-                if(ou_value!=null)
-                {
-                    kpis.get(indexKpi).setOrg_value(ou_value.toString());
-                }
-                //AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.scopeRadioValue2}", null);
-                System.out.println("Operating Value after setting ***********" + kpis.get(indexKpi).getOrg_scope());
-            } 
-            else 
-            {
-                Object org_val1 =
-                    (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.scopeRadioValue1}");
-                System.out.println("Value of Organization LOV*** " + org_val1);
-                if(org_val1!=null)
-                kpis.get(indexKpi).setOrg_value(org_val1.toString());
-                //AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.scopeRadioValue1}", null);
-                System.out.println("Else Value after setting ***********" + kpis.get(indexKpi).getOrg_scope());
-            }
-            }
-            //AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.currentRadio}",null);
-        }
-
-
-        if (AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.target}") != null) {
-            Object target = (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.target}");
-            System.out.println("Value of target radio button*** " + target);
-            kpis.get(indexKpi).setTarget_value(target.toString());
-            System.out.println("Value after setting ***********" + kpis.get(indexKpi).getTarget_value());
-            AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.target}", null);
-        }
-        System.out.println("Main Array Value******* " + kpis);
-
-        for (int i = 0; i < kpis.size(); i++) 
-        {
-            System.out.println("Inside for");
-            System.out.println("Value of KPI Name** " + kpis.get(i).getName());
-            System.out.println("Value of Time Name** " + kpis.get(i).getTime());
-            System.out.println("Value of Org Name** " + kpis.get(i).getOrg_scope());
-            System.out.println("Value of Target Name** " + kpis.get(i).getTarget_value());
-
-        }
-
-
-        kpistemp.remove(0);
-        String requestURI = null;
-        String actual_value = null;
-        if (kpistemp.isEmpty()) 
-        {
-            SubmitService ss = new SubmitService();
-            System.out.println("List is Empty");
-            Float value_difference;
-            String ap_total_supp = null;
-            String ar_total_dis_amt = null;
-            for (int i = 0; i < kpis.size(); i++) 
-            {
-                System.out.println("Inside for List Empty");
-                System.out.println("Value of KPI Name** " + kpis.get(i).getName());
-                //Addedby maitri
-                //String requestURI = "/ShippedOrder_Report/YTD/Global/9999999";
-                
-                if("AP_Total_Supplier_Balances_Report".equalsIgnoreCase(kpis.get(i).getReport_name())) 
-                {
-                    System.out.println("AP_Total_Supplier_Balances_Report");
-                    String org_scpe = kpis.get(i).getOrg_scope(); 
-                    System.out.println("ORG Scope Value ..."+org_scpe);
-                    //requestURI =  "/" + kpis.get(i).getReport_name() + "/" + "CURRENT"  + "/" + "GLOBAL"  + "/" + "999";
-                    requestURI =  "/" + kpis.get(i).getReport_name() + "/" + "CURRENT"  + "/" + kpis.get(i).getOrg_scope() + "/" + "999";
-                    actual_value = ss.getOutputValue(requestURI);
-                     kpis.get(i).setActual_value(actual_value);
-                     kpis_button.add(kpis.get(i));
-                     System.out.println("kpis_button value ........"+kpis_button);
-                     //kpis_button.get(i).setReport_name(kpis.get(i).getReport_name());
-                     //kpis_button.get(i).setType(kpis.get(i).getType());
-                    System.out.println("Amount value "+actual_value);
-                    suppAmt = actual_value + "M$";
-                    System.out.println("suppAmt value new********"+suppAmt);
-                    ap_total_supp = "y";
-                    this.setSuppAmt(suppAmt);
-                    this.setPayablesrend(true);
-                    //AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.suppAmt}",suppAmt);
-                    
-                    /*requestURI =
-                        "/" + kpis.get(i).getReport_name() + "/" + kpis.get(i).getTime() + "/" +
-                        kpis.get(i).getOrg_value() + "/999999";*/
-                 }
-                else 
-                {
-                    if("y".equalsIgnoreCase(ap_total_supp)) 
-                    {
-                        //AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.suppAmt}",suppAmt);
-                        System.out.println("Inside Y");
-                        this.setSuppAmt(suppAmt);
-                        this.setPayablesrend(true);
-                    }
-                    else 
-                    {
-                        System.out.println("Inside not y");
-                        //String chnsuppAmt = "set";
-                        //this.setSuppAmt(suppAmt);
-                        this.setPayablesrend(false);
-                    }
-                }
-                
-              if("AR_Total_Dispute_Amount_Report".equalsIgnoreCase(kpis.get(i).getReport_name())) 
-                    {
-                        System.out.println("AR_Total_Dispute_Amount_Report");
-                        System.out.println("Inside Toatl Disputes.");
-                        //requestURI =  "/" + kpis.get(i).getReport_name() + "/" + "GLOBAL"  + "/" + "GLOBAL"  + "/" + "999";
-                        requestURI = "/AR_Total_Dispute_Amount_Report/CURRENT/GLOBAL/GLOBAL";
-                        actual_value = ss.getOutputValue(requestURI);
-                       
-                        kpis.get(i).setActual_value(actual_value);
-                        kpis_button.add(kpis.get(i));
-                        System.out.println("AR kpis_button value *****........"+kpis_button);
-                        System.out.println("Amount value "+actual_value);
-                        custAmt = actual_value;
-                        System.out.println("custAmt value ********"+custAmt);
-                        //AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.custAmt}",custAmt);
-                        System.out.println("NEW *** custAmt value ********"+custAmt);
-                        ar_total_dis_amt = "y";
-                        //this.setCustAmt(custAmt);
-                        this.setRecrend(true);
-                    }
-                    
-                    else
-                    {
-                      if("y".equalsIgnoreCase(ar_total_dis_amt)) 
-                      {
-                          this.setCustAmt(custAmt);
-                          this.setRecrend(true);
-                      }
-                      else 
-                      {
-                         this.setRecrend(false);
-                      }
-                   
-                    }
-            }
-            
-            System.out.println("KPIS Size in " + kpis.size());
-            System.out.println("KPIS " + kpis);
-            System.out.println("suppAmt *** value "+suppAmt);
-
-            return "*showResPG";
-        } 
-        else {
-            System.out.println("list is not empty");
-            String name = kpistemp.get(0).getName().concat("-").concat(kpistemp.get(0).getType());
-            if("Account Payables".equalsIgnoreCase(kpistemp.get(0).getType()) || "Account Receivables".equalsIgnoreCase(kpistemp.get(0).getType()))//
-
-            {
-                System.out.println("inside payables nextKPI");
-                this.setApTimeRadio(true);
-                this.setAllTimePara(false);
-                this.setTargettyperend(false);
-                this.setTargetValuerend(false);
-            }
-            else 
-            {
-                System.out.println("else not payables nextKPI");
-                this.setApTimeRadio(false);
-                this.setAllTimePara(true);
-                this.setTargettyperend(true);
-                this.setTargetValuerend(true);
-            }
-            System.out.println("Name value Inside nextKpiPG****** " + name);
-            this.setKpIText(name);
-            return "*proc_back";
-        }
-
-    }
-
     public void onSubmit(ActionEvent actionEvent) {
         // Add event code here...
 
@@ -702,17 +608,25 @@ public class EditKpiControl {
         System.out.println("Image Array Value***************************************** " + imgArr);
         kpis.removeAll(kpis);
         kpistemp.removeAll(kpistemp);
-        for (String kpi : imgArr) 
-        {
+        for (String kpi : imgArr) {
             KPIObject obj = new KPIObject();
             switch (kpi) {
             case KPI_PROC1:
                 System.out.println("****************Inside KPI PROC1");
                 obj.setName(KPI_PROC1);
                 obj.setType("Procurement");
-                obj.setReport_name("ShippedOrder_Report");
-                obj.setResult_flag("A");
+                obj.setResult_layout("table");
+                obj.setResult_flag("B");
+                obj.setReport_name("Total_po_backlog_amount");
+                obj.setPage_name("showPOBackLog");
                 obj.setPriority(1);
+                obj.setShowTimeRadio(false);
+                obj.setShowCurrent(false);
+                obj.setShowOrgRadio(false);
+                obj.setShowTargetType(false);
+                obj.setShowTargetValue(false);
+                obj.setShowBUChoice(true);
+                obj.setShowLEChoice(false);
                 break;
             case KPI_PROC2:
                 System.out.println("*******************Inside KPI PROC2");
@@ -766,42 +680,93 @@ public class EditKpiControl {
                 obj.setType("Shipping");
                 obj.setPriority(9);
                 obj.setReport_name("BookedOrder_Report");
+                obj.setResult_flag("A");
+                obj.setResult_layout("table");
+                obj.setPage_name("showBookedOrder");
+                obj.setShowTimeRadio(true);
+                obj.setShowCurrent(false);
+                obj.setShowOrgRadio(true);
+                obj.setShowTargetType(true);
+                obj.setShowTargetValue(true);
+                obj.setShowBUChoice(false);
+                obj.setShowLEChoice(false);
                 break;
             case KPI_SHIP2:
 
                 obj.setName(KPI_SHIP2);
                 obj.setType("Shipping");
                 obj.setPriority(10);
-                obj.setReport_name("ShippedOrder_Report");
+                obj.setReport_name("Shipping_Backlog_Summary_Report");
+                obj.setResult_flag("A");
+                obj.setResult_layout("table");
+                obj.setPage_name("showBacklogSummary");
+                obj.setShowTimeRadio(false);
+                obj.setShowCurrent(true);
+                obj.setShowOrgRadio(true);
+                obj.setShowTargetType(true);
+                obj.setShowTargetValue(true);
+                obj.setShowBUChoice(false);
+                obj.setShowLEChoice(false);
                 break;
-            
-                case KPI_AP1:
 
-                    obj.setName(KPI_AP1);
-                    obj.setType("Account Payables");
-                    obj.setPriority(11);
-                    obj.setReport_name("AP_Total_Supplier_Balances_Report");
-                    obj.setResult_flag("B");
-                    obj.setResult_layout("table");
-                    obj.setPage_name("showAPResultPG");
-                    break;
-            
-                
-                case KPI_AR1:
+            case KPI_AP1:
 
-                    obj.setName(KPI_AR1);
-                    obj.setType("Account Receivables");
-                    obj.setPriority(12);
-                    obj.setReport_name("AR_Total_Dispute_Amount_Report");
-                    obj.setResult_flag("B");
-                    obj.setResult_layout("graph");
-                    obj.setPage_name("showARResultPG");
-                    break;
-            
+                obj.setName(KPI_AP1);
+                obj.setType("Account Payables");
+                obj.setPriority(11);
+                obj.setReport_name("AP_Total_Supplier_Balances_Report");
+                obj.setResult_flag("B");
+                obj.setResult_layout("table");
+                obj.setPage_name("showAPResultPG");
+                obj.setShowTimeRadio(false);
+                obj.setShowCurrent(true);
+                obj.setShowOrgRadio(true);
+                obj.setShowTargetType(false);
+                obj.setShowTargetValue(false);
+                obj.setShowBUChoice(false);
+                obj.setShowLEChoice(false);
+                break;
+
+
+            case KPI_AR1:
+
+                obj.setName(KPI_AR1);
+                obj.setType("Account Receivables");
+                obj.setPriority(12);
+                obj.setReport_name("AR_Total_Dispute_Amount_Report");
+                obj.setResult_flag("B");
+                obj.setResult_layout("graph");
+                obj.setPage_name("showARResultPG");
+                obj.setShowTimeRadio(false);
+                obj.setShowCurrent(true);
+                obj.setShowOrgRadio(false);
+                obj.setShowTargetType(false);
+                obj.setShowTargetValue(false);
+                obj.setShowBUChoice(true);
+                obj.setShowLEChoice(true);
+                break;
+
+            case KPI_AR2:
+
+                obj.setName(KPI_AR2);
+                obj.setType("Account Receivables");
+                obj.setPriority(13);
+                obj.setReport_name("AR_Total_Pending_Amount_Report");
+                obj.setResult_flag("B");
+                obj.setResult_layout("graph");
+                obj.setPage_name("showPendingPG");
+                obj.setShowTimeRadio(false);
+                obj.setShowCurrent(true);
+                obj.setShowOrgRadio(false);
+                obj.setShowTargetType(false);
+                obj.setShowTargetValue(false);
+                obj.setShowBUChoice(true);
+                obj.setShowLEChoice(true);
+                break;
+
             }
-            
-            
-            
+
+
             kpis.add(obj);
             kpis.sort(new Comparator<KPIObject>() {
                 @Override
@@ -811,34 +776,439 @@ public class EditKpiControl {
                 }
             });
 
-
+          
         }
         kpistemp.addAll(kpis);
+        if (kpistemp.size() == 1) {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.button_label}", "Submit");
+
+        } else if (kpistemp.size() > 1)  {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.button_label}", "Next KPI");
+
+        }
+   
         System.out.println("Data in Temp Array**** " + kpistemp);
         System.out.println("No of Items Items in the Array list*************** " + kpis.size());
         //System.out.println(kpis);
-        String name = kpistemp.get(0).getType().concat("-").concat(kpistemp.get(0).getName());
-        
-        if("Account Payables".equalsIgnoreCase(kpistemp.get(0).getType()) || "Account Receivables".equalsIgnoreCase(kpistemp.get(0).getType()))
-        {
+        String name = kpistemp.get(0).getName();//kpistemp.get(0).getType().concat("-").concat(kpistemp.get(0).getName());
+
+        /*
+         *
+         *
+
+        if ("Account Payables".equalsIgnoreCase(kpistemp.get(0).getType()) ||
+            "Account Receivables".equalsIgnoreCase(kpistemp.get(0).getType())) {
             System.out.println("inside payables");
             this.setApTimeRadio(true);
             this.setAllTimePara(false);
             this.setTargettyperend(false);
+            this.setOrgScoperend(true);
             this.setTargetValuerend(false);
-        }
-        else 
-        {
+            this.setTimerend(true);
+        } else {
             System.out.println("not payables");
             this.setApTimeRadio(false);
             this.setAllTimePara(true);
             this.setTargettyperend(true);
+            this.setOrgScoperend(true);
             this.setTargetValuerend(true);
+            this.setTimerend(true);
         }
+        //setProBackLogrend
+        if ("Procurement".equalsIgnoreCase(kpistemp.get(0).getType())) {
+            System.out.println("inside Procurement");
+            this.setApTimeRadio(false);
+            this.setAllTimePara(false);
+            this.setTargettyperend(false);
+            this.setTargetValuerend(false);
+            this.setOrgScoperend(false);
+            this.setProBackLogrend(true);
+            this.setTimerend(false);
+        }
+        */
+        this.setAllTimePara(kpistemp.get(0).getShowTimeRadio());
+        this.setCurrent_timeRadio(kpistemp.get(0).getShowCurrent());
+        this.setOrgScoperend(kpistemp.get(0).getShowOrgRadio());
+        this.setTargettyperend(kpistemp.get(0).getShowTargetType());
+        this.setTargetValuerend(kpistemp.get(0).getShowTargetValue());
+        this.setLeChoice(kpistemp.get(0).getShowLEChoice());
+        this.setBuChoice(kpistemp.get(0).getShowBUChoice());
+
+        // this.setTimerend(true);
+
         System.out.println("Name value " + name);
         this.setKpIText(name);
 
     }
+
+
+    public String nextKpiPG() {
+        // Add event code here...
+        //http://ussltcsnl3432.solutions.glbsnet.com:7004/GetBICloud-ReportsData-context-root/resources/SCCloudReportService/result/AP_Total_Supplier_Balances_Report/CURRENT/GLOBAL/999/999/999
+        System.out.println("Inside nextKpiPG page ");
+        String currrentKpiname = kpistemp.get(0).getName();
+        System.out.println("currrentKpiname value *** " + currrentKpiname);
+        System.out.println("Size of Kpi list ****** " + kpis.size());
+        int indexKpi = -1;
+        for (int i = 0; i < kpis.size(); i++) {
+            System.out.println("Inside for");
+            if (currrentKpiname.equalsIgnoreCase(kpis.get(i).getName())) {
+
+                System.out.println("Value if i *** " + i);
+                indexKpi = i;
+                System.out.println("Value of indexKpi** " + indexKpi);
+                break;
+            }
+        }
+
+
+        //int indexKpi = kpis.indexOf(currrentKpiname);
+        System.out.println("Index value ----------- " + indexKpi);
+        if (AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.timeRadio}") != null) {
+            Object time = (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.timeRadio}");
+            System.out.println("Value of timme radio button*** " + time);
+            kpis.get(indexKpi).setTime(time.toString());
+            System.out.println("Value after setting ***********" + kpis.get(indexKpi).getTime());
+        }
+
+        System.out.println("Value of Organization Scope Radio button**********  " +
+                           AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}"));
+        if (AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}") != null) {
+            Object org = (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}");
+            System.out.println("Value of Scope radio button*** " + org);
+            kpis.get(indexKpi).setOrg_scope(org.toString());
+            System.out.println("Value after setting ***********" + kpis.get(indexKpi).getOrg_scope());
+
+            if ((AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}")).equals("GLOBAL")) {
+                System.out.println("Inside GLOBAL if");
+                kpis.get(indexKpi).setOrg_value("GLOBAL");
+                kpis.get(indexKpi).setOrg_scope("GLOBAL");
+                System.out.println("Operating Value after setting ***********" + kpis.get(indexKpi).getOrg_scope());
+            } else {
+                if ((AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.currentRadio}")).equals("Operating Unit")) {
+                    kpis.get(indexKpi).setOrg_scope("Operating Unit");
+                    Object org_val2 =
+                        (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.scopeRadioValue2}");
+                    //"#{bindings.businessunitLovs.inputValue}"
+                    Object ou_value = (Object) AdfmfJavaUtilities.getELValue("#{bindings.businessunitLovs.inputValue}");
+                    System.out.println("Value of OU LOV*** " + org_val2);
+                    System.out.println("New Operating Unit Value ...***..Fectched**" + ou_value);
+                    if (ou_value != null) {
+                        kpis.get(indexKpi).setOrg_value(ou_value.toString());
+                    }
+                    //AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.scopeRadioValue2}", null);
+                    System.out.println("Operating Value after setting ***********" + kpis.get(indexKpi).getOrg_value());
+                } else {
+                    kpis.get(indexKpi).setOrg_scope("Organization");
+                    Object org_val1 =
+                        (Object) AdfmfJavaUtilities.getELValue("#{bindings.invOrgLOV.inputValue}");
+                    System.out.println("Value of Organization LOV*** " + org_val1);
+                    if (org_val1 != null)
+                        kpis.get(indexKpi).setOrg_value(org_val1.toString());
+                    //AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.scopeRadioValue1}", null);
+                    System.out.println("Else Value after setting ***********" + kpis.get(indexKpi).getOrg_value());
+                }
+            }
+            //AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.currentRadio}",null);
+        }
+
+
+        if (AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.target}") != null) {
+            Object target = (Object) AdfmfJavaUtilities.getELValue("#{applicationScope.editKPIParam.target}");
+            System.out.println("Value of target radio button*** " + target);
+            kpis.get(indexKpi).setTarget_value(target.toString());
+            System.out.println("Value after setting ***********" + kpis.get(indexKpi).getTarget_value());
+            AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.target}", null);
+        }
+
+        if ("KPI_PROC1".equalsIgnoreCase(kpistemp.get(0).getName())) {
+
+            System.out.println("Inside Proc Buss Lov");
+            Object bu_value_backlog = (Object) AdfmfJavaUtilities.getELValue("#{bindings.businessunitLovs.inputValue}");
+            System.out.println("bu_value_backlog value " + bu_value_backlog);
+            if (bu_value_backlog != null) {
+                kpis.get(indexKpi).setOrg_value(bu_value_backlog.toString());
+            }
+
+        }
+        
+        if (kpis.get(indexKpi).getShowBUChoice()) {
+                   Object bu_value = (Object) AdfmfJavaUtilities.getELValue("#{bindings.businessunitLovs.inputValue}");
+                   System.out.println("Value of BU Choice*** " + bu_value);
+                   System.out.println("New Business Unit Value ...***..Fectched**" + bu_value);
+                   if (bu_value != null) {
+                    //   kpis.get(indexKpi).setOrg_value(bu_value.toString());
+                       kpis.get(indexKpi).setBu_name(bu_value.toString());
+                   }
+                   //AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.scopeRadioValue2}", null);
+                   System.out.println("Operating Value after setting ***********" + kpis.get(indexKpi).getBu_name());
+               }
+        
+        if (kpis.get(indexKpi).getShowLEChoice()) {
+                   Object le_value = (Object) AdfmfJavaUtilities.getELValue("#{bindings.legalEntityLOV.inputValue}");
+                   System.out.println("Value of LE Choice*** " + le_value);
+                   System.out.println("New Business Unit Value ...***..Fectched**" + le_value);
+                   if (le_value != null) {
+                   // kpis.get(indexKpi).setLe_name(le_name);
+                       kpis.get(indexKpi).setLe_name(le_value.toString());
+                   }
+                   //AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.scopeRadioValue2}", null);
+                   System.out.println("Operating Value after setting ***********" + kpis.get(indexKpi).getLe_name());
+               }
+        
+        
+        System.out.println("Main Array Value******* " + kpis);
+
+        kpistemp.remove(0);
+        String requestURI = null;
+        String actual_value = null;
+        
+        if (kpistemp.isEmpty()) {
+            SubmitService ss = new SubmitService();
+            System.out.println("List is Empty");
+            Float value_difference;
+            String ap_total_supp = null;
+            String ar_total_dis_amt = null;
+            String po_total_amt = null;
+            String pend_cust_pay = null;
+            for (int i = 0; i < kpis.size(); i++) {
+                System.out.println("Inside for List Empty");
+                System.out.println("Value of KPI Name** " + kpis.get(i).getName());
+                System.out.println("Value of result flag..." + kpis.get(i).getResult_flag());
+                //Addedby maitri
+                //String requestURI = "/ShippedOrder_Report/YTD/Global/9999999";
+                if ("A".equalsIgnoreCase(kpis.get(i).getResult_flag())) {
+                    requestURI =
+                        "/" + kpis.get(i).getReport_name() + "/" + kpis.get(i).getTime() + "/" +
+                        kpis.get(i).getOrg_value() + "/999999";
+                    actual_value = null;
+                    actual_value = ss.getOutputValue(requestURI);
+
+                    kpis.get(i).setActual_value(actual_value);
+                    System.out.println("Actual value set in KPI object :" + kpis.get(i).getActual_value());
+
+                    value_difference =
+                        Float.parseFloat(kpis.get(i).getActual_value()) -
+                        Float.parseFloat(kpis.get(i).getTarget_value());
+
+                    kpis.get(i).setValue_difference(Float.toString(value_difference));
+                    if (value_difference >= 0) {
+                        image_name = "/resources/images/upTriangle.png";
+                    } else {
+                        image_name = "/resources/images/downTriangle.png";
+                    }
+                    kpis.get(i).setImage_icon(image_name);
+
+                    System.out.println("Actual value** " + kpis.get(i).getActual_value());
+                    System.out.println("Value Difference** " + kpis.get(i).getValue_difference());
+                    //end if changes by maitri
+                }
+           // Check this code -Maitri
+              //  if ("B".equalsIgnoreCase(kpis.get(i).getResult_flag())) {
+
+                if ("AP_Total_Supplier_Balances_Report".equalsIgnoreCase(kpis.get(i).getReport_name())) 
+                {
+                    System.out.println("AP_Total_Supplier_Balances_Report");
+                    String org_scpe = kpis.get(i).getOrg_scope();
+                    System.out.println("ORG Scope Value ..." + org_scpe);
+                    //requestURI =  "/" + kpis.get(i).getReport_name() + "/" + "CURRENT"  + "/" + "GLOBAL"  + "/" + "999";
+                    requestURI =
+                        "/" + kpis.get(i).getReport_name() + "/" + "CURRENT" + "/" + kpis.get(i).getOrg_value() + "/" +
+                        "999";
+                
+                    actual_value = ss.getOutputValue(requestURI);
+                    kpis.get(i).setActual_value(actual_value);
+                    kpis_button.add(kpis.get(i));
+                    System.out.println("kpis_button value ........" + kpis_button);
+                    //kpis_button.get(i).setReport_name(kpis.get(i).getReport_name());
+                    //kpis_button.get(i).setType(kpis.get(i).getType());
+                    System.out.println("Amount value " + actual_value);
+                    suppAmt = actual_value + "M$";
+                    System.out.println("suppAmt value new********" + suppAmt);
+                    ap_total_supp = "y";
+                    ///this.setSuppAmt(suppAmt);
+                    this.setPayablesrend(true);
+                    //AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.suppAmt}",suppAmt);
+
+                    /*requestURI =
+                        "/" + kpis.get(i).getReport_name() + "/" + kpis.get(i).getTime() + "/" +
+                        kpis.get(i).getOrg_value() + "/999999";*/
+                } else {
+                    System.out.println("Inside else AP_Total_Supplier_Balances_Report");
+                    if ("y".equalsIgnoreCase(ap_total_supp)) {
+                        //AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.suppAmt}",suppAmt);
+                        System.out.println("Inside Y");
+                        ///this.setSuppAmt(suppAmt);
+                        this.setPayablesrend(true);
+                    } else {
+                        System.out.println("Inside not y");
+                        //String chnsuppAmt = "set";
+                        //this.setSuppAmt(suppAmt);
+                        this.setPayablesrend(false);
+                    }
+                }
+
+                if ("AR_Total_Dispute_Amount_Report".equalsIgnoreCase(kpis.get(i).getReport_name())) {
+                    System.out.println("AR_Total_Dispute_Amount_Report");
+                    System.out.println("Inside Toatl Disputes.");
+                    //requestURI =  "/" + kpis.get(i).getReport_name() + "/" + "GLOBAL"  + "/" + "GLOBAL"  + "/" + "999";
+                    //requestURI = "/AR_Total_Dispute_Amount_Report/CURRENT/GLOBAL/GLOBAL";
+                    requestURI =  "/" + kpis.get(i).getReport_name() + "/" + "CURRENT"  + "/" + kpis.get(i).getBu_name()  + "/" + kpis.get(i).getLe_name();
+                    actual_value = ss.getOutputValue(requestURI);
+
+                    kpis.get(i).setActual_value(actual_value);
+                    kpis_button.add(kpis.get(i));
+                    System.out.println("AR kpis_button value *****........" + kpis_button);
+                    System.out.println("Amount value " + actual_value);
+                    custAmt = actual_value;
+                    System.out.println("custAmt value ********" + custAmt);
+                    //AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.custAmt}",custAmt);
+                    System.out.println("NEW *** custAmt value ********" + custAmt);
+                    ar_total_dis_amt = "y";
+                    //this.setCustAmt(custAmt);
+                    //this.setRecrend(true);
+                    this.setPayablesrend(true);
+                }
+
+                else {
+                    if ("y".equalsIgnoreCase(ar_total_dis_amt)) {
+                        //this.setCustAmt(custAmt);
+                        //this.setRecrend(true);
+                        this.setPayablesrend(true);
+                    } else {
+                        //this.setRecrend(false);
+                        this.setPayablesrend(false);
+                    }
+
+                }
+
+                //Pending Customer payments
+                if ("AR_Total_Pending_Amount_Report".equalsIgnoreCase(kpis.get(i).getReport_name())) {
+                    System.out.println("AR_Total_Pending_Amount_Report");
+
+                    //requestURI =  "/" + kpis.get(i).getReport_name() + "/" + "GLOBAL"  + "/" + "GLOBAL"  + "/" + "999";
+                   // requestURI = "/AR_Total_Pending_Amount_Report/CURRENT/GLOBAL/GLOBAL";
+                    requestURI =  "/" + kpis.get(i).getReport_name() + "/" + "CURRENT"  + "/" + kpis.get(i).getBu_name()  + "/" + kpis.get(i).getLe_name();
+                    actual_value = ss.getOutputValue(requestURI);
+
+                    kpis.get(i).setActual_value(actual_value);
+                    kpis_button.add(kpis.get(i));
+                    System.out.println("AR_Total_Pending_Amount_Report kpis_button value *****........" + kpis_button);
+                    System.out.println("Pending Amount value " + actual_value);
+                    custAmt = actual_value;
+                    System.out.println("custAmt value ********" + custAmt);
+                    //AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.custAmt}",custAmt);
+                    System.out.println("NEW *** custAmt value ********" + custAmt);
+                    pend_cust_pay = "y";
+                    //this.setCustAmt(custAmt);
+                    //this.setRecrend(true);
+                    this.setPayablesrend(true);
+                }
+
+                else {
+                    if ("y".equalsIgnoreCase(pend_cust_pay)) {
+                        //this.setCustAmt(custAmt);
+                        //this.setRecrend(true);
+                        this.setPayablesrend(true);
+                    } else {
+                        //this.setRecrend(false);
+                        this.setPayablesrend(false);
+                    }
+
+                }
+                //End of pending Customer
+
+                if ("Total_po_backlog_amount".equalsIgnoreCase(kpis.get(i).getReport_name())) {
+
+                    String org_val = kpis.get(i).getBu_name();
+                    System.out.println("Inside total po backlog........." + org_val);
+                    //requestURI = "/Total_po_backlog_amount/DELHITECH_US_BUSINESS_UNIT/GLOBAL/999";
+                    requestURI =  "/" + kpis.get(i).getReport_name() + "/" + kpis.get(i).getBu_name()  + "/" + "999" + "/" + "999";
+                    String po_backlog = ss.getOutputValue(requestURI);
+                    System.out.println("po_backlog value" + po_backlog);
+
+                    kpis.get(i).setActual_value(po_backlog);
+                    kpis_button.add(kpis.get(i));
+                    System.out.println("PO Backlog kpis_button value *****........" + kpis_button);
+                    System.out.println("Amount value " + po_backlog);
+                    custAmt = po_backlog;
+                    System.out.println("custAmt value ********" + custAmt);
+                    //AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.custAmt}",custAmt);
+                    System.out.println("NEW *** custAmt value ********" + custAmt);
+                    po_total_amt = "y";
+                    //this.setCustAmt(custAmt);
+                    this.setPayablesrend(true);
+                    this.setRecrend(true);
+                }
+
+
+            }
+
+
+            System.out.println("KPIS Size in " + kpis.size());
+            System.out.println("KPIS " + kpis);
+            System.out.println("suppAmt *** value " + suppAmt);
+            for (int i = 0; i < kpis.size(); i++) {
+                System.out.println("Inside for");
+                System.out.println("Value of KPI Name** " + kpis.get(i).getName());
+                System.out.println("Value of Time Name** " + kpis.get(i).getTime());
+                System.out.println("Value of Org Name** " + kpis.get(i).getOrg_scope());
+                System.out.println("Value of Target Name** " + kpis.get(i).getTarget_value());
+
+            }
+
+            return "*showResPG";
+        } else {
+            System.out.println("list is not empty");
+            //fetching the button name
+            if (kpistemp.size() == 1) {
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.button_label}", "Submit");
+
+            } else {
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.button_label}", "Next KPI");
+
+            }
+            String name = kpistemp.get(0).getName();//kpistemp.get(0).getType().concat("-").concat(kpistemp.get(0).getName());
+            /*
+            if ("Account Payables".equalsIgnoreCase(kpistemp.get(0).getType()) ||
+                "Account Receivables".equalsIgnoreCase(kpistemp.get(0).getType())) //
+            {
+                System.out.println("inside payables nextKPI ******************************");
+                this.setApTimeRadio(true);
+                this.setAllTimePara(false);
+                this.setTargettyperend(false);
+                this.setProBackLogrend(false);
+                this.setOrgScoperend(true);
+                this.setTargetValuerend(false);
+                this.setTimerend(true);
+
+            }
+            if ("Procurement".equalsIgnoreCase(kpistemp.get(0).getType())) {
+                System.out.println("inside Procurement *************************");
+                this.setApTimeRadio(false);
+                this.setAllTimePara(false);
+                this.setTargettyperend(false);
+                this.setTargetValuerend(false);
+                this.setOrgScoperend(false);
+                this.setProBackLogrend(true);
+                this.setTimerend(false);
+            }
+*/
+            this.setAllTimePara(kpistemp.get(0).getShowTimeRadio());
+            this.setCurrent_timeRadio(kpistemp.get(0).getShowCurrent());
+            this.setOrgScoperend(kpistemp.get(0).getShowOrgRadio());
+            this.setTargettyperend(kpistemp.get(0).getShowTargetType());
+            this.setTargetValuerend(kpistemp.get(0).getShowTargetValue());
+            this.setLeChoice(kpistemp.get(0).getShowLEChoice());
+            this.setBuChoice(kpistemp.get(0).getShowBUChoice());
+
+            System.out.println("Name value Inside nextKpiPG****** " + name);
+            this.setKpIText(name);
+            return "*proc_back";
+        }
+
+    }
+
 
     public void setKpIText(String kpIText) {
 
@@ -890,19 +1260,16 @@ public class EditKpiControl {
     public String getInv1_diff() {
         return inv1_diff;
     }
-  
 
 
     public KPIObject[] getAddedKPIS() {
+        System.out.println("Inside addedkpis method");
         KPIObject[] addedKpis = null;
-        // ArrayList a = new ArrayList();
-        
         System.out.println("KPI Size :" + kpis.size());
         addedKpis = (KPIObject[]) kpis.toArray(new KPIObject[kpis.size()]);
         System.out.println("In getAddedKPIS abc:" + AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.abc}"));
         a = (ArrayList) AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis}");
         System.out.println("Array List value " + a);
-        //addedKpis =  (KPIObject[])AdfmfJavaUtilities.getELValue(kpis);
         addedKpis = a.toArray(new KPIObject[a.size()]);
 
 
@@ -910,47 +1277,53 @@ public class EditKpiControl {
         System.out.println("In getAddedKPIS kpis:" + AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis}"));
         return addedKpis;
     }
-    
-    public KPIObject[] getAddedKPIS_button() 
-    {
-        KPIObject[] addedKpis_button = null; 
+
+    public KPIObject[] getAddedKPIS_button() {
+        System.out.println("Inside _button method");
+        KPIObject[] addedKpis_button = null;
         ArrayList<KPIObject> added_butt = new ArrayList<KPIObject>();
+        // added_butt.removeAll(kpis_button);
         //a = (ArrayList) AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis}");
-        System.out.println("Added Button value...."+AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis_button}"));
-        added_butt = (ArrayList)AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis_button}");
+        System.out.println("Added Button value...." +
+                           AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis_button}"));
+        added_butt = (ArrayList) AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis_button}");
         //addedKpis_button = (ArrayList<KPIObject>) AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis_button}");
         addedKpis_button = added_butt.toArray(new KPIObject[added_butt.size()]);
-        System.out.println("addedKpis_button ............."+addedKpis_button);
+        System.out.println("addedKpis_button ............." + addedKpis_button);
         return addedKpis_button;
     }
-    
-    
-    public  KPIObject[] getCustomerDispuetdPayment()
-    {
-        KPIObject obj = new KPIObject();
-        KPIObject obj1 = new KPIObject();
-        obj.setSupplier_name("Customer1");
-        obj.setSupp_amt(10000);
-        obj1.setSupplier_name("Customer2");
-        obj1.setSupp_amt(11000);
-        ArrayList<KPIObject> SupplierList = new ArrayList<KPIObject>();
-          SupplierList.add(obj);
-          SupplierList.add(obj1);
-        KPIObject[] addedKpis = null;
-        // ArrayList a = new ArrayList();
 
-        System.out.println("KPI Size :" + kpis.size());
-        addedKpis = (KPIObject[]) kpis.toArray(new KPIObject[kpis.size()]);
-        
-        
-        addedKpis = SupplierList.toArray(new KPIObject[a.size()]);
-        //  SupplierList = addedKpis;
-        System.out.println("addeKpis value......."+addedKpis);
-        
-        return addedKpis;
-        
+    //Added by Maitri
+    public KPIObject[] getAddedKPIS_dashboard() {
+        System.out.println("Inside _dasboard method");
+        KPIObject[] addedKpis_dashboard = null;
+        // ArrayList a = new ArrayList();
+        ArrayList<KPIObject> b_temp = new ArrayList<KPIObject>();
+
+        System.out.println("KPI Size in dashboard DC:" + kpis.size());
+        // addedKpis_dashboard = (KPIObject[]) kpis.toArray(new KPIObject[kpis.size()]);
+
+        b = (ArrayList) AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis}");
+        System.out.println("Array List value " + b);
+
+        //addedKpis =  (KPIObject[])AdfmfJavaUtilities.getELValue(kpis);
+        for (int i = 0; i < b.size(); i++) {
+            if (b.get(i).getResult_flag().equals("A")) {
+                b_temp.add(b.get(i));
+            }
+        }
+        addedKpis_dashboard = b_temp.toArray(new KPIObject[b_temp.size()]);
+
+
+        System.out.println("AddedKPI_dashboard Size :" + addedKpis_dashboard.length);
+
+
+        System.out.println("Length of final dashboard array " + addedKpis_dashboard.length);
+        return addedKpis_dashboard;
     }
-    
+    // End of Maitri
+
+
     public void setApTimeRadio(boolean apTimeRadio) {
         boolean oldApTimeRadio = this.apTimeRadio;
         this.apTimeRadio = apTimeRadio;
@@ -975,8 +1348,8 @@ public class EditKpiControl {
     public void setSuppAmt(String suppAmt) {
         String oldSuppAmt = this.suppAmt;
         this.suppAmt = suppAmt;
-        System.out.println("inside method value "+suppAmt);
-        System.out.println("this value.."+this.suppAmt);
+        System.out.println("inside method value " + suppAmt);
+        System.out.println("this value.." + this.suppAmt);
         _propertyChangeSupport.firePropertyChange("suppAmt", oldSuppAmt, suppAmt);
     }
 
@@ -1037,4 +1410,36 @@ public class EditKpiControl {
         return recrend;
     }
 
+
+    public void setProBackLogrend(boolean proBackLogrend) {
+        boolean oldProBackLogrend = this.proBackLogrend;
+        this.proBackLogrend = proBackLogrend;
+        _propertyChangeSupport.firePropertyChange("proBackLogrend", oldProBackLogrend, proBackLogrend);
+    }
+
+    public boolean isProBackLogrend() {
+        return proBackLogrend;
+    }
+
+
+    public void setOrgScoperend(boolean orgScoperend) {
+        boolean oldOrgScoperend = this.orgScoperend;
+        this.orgScoperend = orgScoperend;
+        _propertyChangeSupport.firePropertyChange("orgScoperend", oldOrgScoperend, orgScoperend);
+    }
+
+    public boolean isOrgScoperend() {
+        return orgScoperend;
+    }
+
+
+    public void setChnship2Opa(String chnship2Opa) {
+        String oldChnship2Opa = this.chnship2Opa;
+        this.chnship2Opa = chnship2Opa;
+        _propertyChangeSupport.firePropertyChange("chnship2Opa", oldChnship2Opa, chnship2Opa);
+    }
+
+    public String getChnship2Opa() {
+        return chnship2Opa;
+    }
 }

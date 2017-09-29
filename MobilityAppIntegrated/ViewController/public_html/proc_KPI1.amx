@@ -1,93 +1,233 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="KPIPanel"
-                 inlineStyle="border-left-color:InfoText; border-left-width:medium; border-left-style:solid; border-right-color:InfoText; border-right-style:solid; background-color:White; min-height:0%;">
-    <amx:image id="i1"
-               source="/resources/images/deloitte.png" inlineStyle="margin-left:5px; margin-top:5px;" rendered="false"/>
-    <amx:panelGroupLayout id="pgl9" styleClass="ProcureHome">
-      <amx:image id="i2" source="/resources/images/House_Large_NEG_lo.png"
-                 inlineStyle="margin-right:5px; height:50px; width:auto;"/>
-      <amx:outputText value="Home" id="ot1"/>
-    </amx:panelGroupLayout>
-    <amx:panelGroupLayout id="pgl1" rendered="true" styleClass="ProcMain">
-      <amx:outputText id="otmain"
-                      inlineStyle="font-size:x-large; font-weight:bolder; padding:10px 10px 20%;"
-                      value="#{pageFlowScope.toggleBean.kpIText}"/>
-      <amx:panelGroupLayout id="pgl2" styleClass="PanelProc">
-        <amx:outputText value="Time" id="ot2" inlineStyle="font-size:large; font-weight:bold;"/>
-        <amx:selectOneRadio label="" id="sor1"
-                            inlineStyle="text-decoration:none solid transparent !important; background-color:White;"
-                            styleClass="ProcRadio" value="#{applicationScope.editKPIParam.timeRadio}"
-                            rendered="#{pageFlowScope.toggleBean.allTimePara}">
-          <amx:selectItem id="si1" label="YTD" value="YTD"/>
-          <amx:selectItem id="si2" label="Monthly" value="Monthly"/>
-          <amx:selectItem id="si3" label="Current" value="Current"/>
-        </amx:selectOneRadio>
-        <amx:selectOneRadio id="sor3" styleClass="ProcRadio"
-                            inlineStyle="text-decoration:none solid transparent !important; background-color:White;"
-                            rendered="#{pageFlowScope.toggleBean.apTimeRadio}">
-          <amx:selectItem id="si12" label="Current" value="APCurrent"/>
-        </amx:selectOneRadio>
-      </amx:panelGroupLayout>
-      <amx:panelGroupLayout id="pgl3" styleClass="PanelProc">
-        <amx:outputText value="Organization Scope" id="ot3" inlineStyle="font-size:large; font-weight:bold;"/>
-        <amx:selectOneRadio label="" id="sor2"
-                            inlineStyle="color:White; text-radioCheck:none solid transparent !important; font-size:small; background-color:White;"
-                            valueChangeListener="#{editKPIParam.radioCheck}"
-                            value="#{applicationScope.editKPIParam.currentRadio}" styleClass="ProcRadio">
-          <amx:selectItem id="si4" label="Global" value="GLOBAL"/>
-          <amx:selectItem id="si5" label="Organization" value="Organization"/>
-          <amx:selectItem id="si6" label="Business Unit" value="Operating Unit"/>
-        </amx:selectOneRadio>
-        <amx:selectOneChoice value="#{bindings.businessunitLovs.inputValue}" 
-                             id="soc4" rendered="#{editKPIParam.loV2_rendered}"  styleClass="ProcChoice">
-          <amx:selectItems value="#{bindings.businessunitLovs.items}" id="si13"/>
-        </amx:selectOneChoice>
-        <amx:selectOneChoice value="#{bindings.invOrgLOV.inputValue}" label="#{bindings.invOrgLOV.label}" id="soc3"
-        rendered="#{editKPIParam.loV1_rendered}" styleClass="ProcChoice">
-          <amx:selectItems value="#{bindings.invOrgLOV.items}" id="si11"/>
-        </amx:selectOneChoice>
-        <amx:selectOneChoice id="soc1" rendered="#{editKPIParam.loV1_rendered}" styleClass="ProcChoice"
-                             value="#{applicationScope.editKPIParam.scopeRadioValue1}">
-          <amx:selectItem id="si7" label="ORG1" value="ORG1"/>
-          <amx:selectItem id="si8" label="ORG2" value="ORG2"/>
-        </amx:selectOneChoice>
-        <amx:selectOneChoice id="soc2" rendered="false" styleClass="ProcChoice"
-        value = "#{applicationScope.editKPIParam.scopeRadioValue2}" inlineStyle="background-color:White;">
-          <amx:selectItem id="si9" label="OU1" value="OU1"/>
-          <amx:selectItem id="si10" label="OU2" value="OU2"/>
-        </amx:selectOneChoice>
-      </amx:panelGroupLayout>
-      <amx:panelGroupLayout id="pgl4" styleClass="PanelProc" rendered="#{pageFlowScope.toggleBean.targettyperend}">
-        <amx:outputText value="Target Type" id="ottarget" inlineStyle="font-size:large; font-weight:bold;"/>
-        <amx:selectOneRadio label="" id="sor2target"
-                            inlineStyle="color:White; text-decoration:none solid transparent !important; font-size:small; background-color:White;"
-                            styleClass="ProcRadio">
-          <amx:selectItem id="si4target" label="Value" value=""/>
-          <amx:selectItem id="si5target" label="Percentage" value=""/>
-        </amx:selectOneRadio>
-      </amx:panelGroupLayout>
-      <amx:panelGroupLayout id="pgl6" styleClass="PanelProc" rendered="#{pageFlowScope.toggleBean.targetValuerend}">
-        <amx:inputText label="Target Value" id="ittarget" rendered="true" inputType="number"
-                       inlineStyle="font-size:x-large; font-weight:bold;" styleClass="ProcIttarget"
-                       value="#{applicationScope.editKPIParam.target}"/>
-      </amx:panelGroupLayout>
-      <amx:panelGroupLayout id="pgl5" styleClass="PanelProc">
-        <amx:outputText value="Notifications" id="otNotify" inlineStyle="font-size:large; font-weight:bold;"/>
-        <amx:selectOneRadio label="" id="sor2Notify"
-                            inlineStyle="color:White; text-decoration:none solid transparent !important;"
-                            styleClass="ProcRadio">
-          <amx:selectItem id="si4Notify" label="Yes" value="Y"/>
-          <amx:selectItem id="si5Notify" label="No" value="N"/>
-        </amx:selectOneRadio>
-      </amx:panelGroupLayout>
-    </amx:panelGroupLayout>
-    <amx:commandButton text="Cancel" id="cb1" inlineStyle="color:White; background-color:#5b9bd5;" action="__back"
-                       styleClass="ProcButton"/>
-    <amx:commandButton text="Next KPI" id="cb2" inlineStyle="color:White; background-color:#70ad47;"
-                       action="#{pageFlowScope.toggleBean.nextKpiPG}" styleClass="ProcButton"/>
-  </amx:panelPage>
-  
+    <amx:panelPage id="KPIPanel"
+                   inlineStyle="border-left-color:InfoText; border-left-width:medium; border-left-style:solid; border-right-color:InfoText; border-right-style:solid; background-color:White; min-height:0%;">
+        <?audit suppress oracle.ide.xml.wellformedness-error?>
+        <amx:facet name="header">
+            <amx:panelGroupLayout id="pgl9" styleClass="EditKPIHomePanel">
+                <amx:tableLayout id="tl2" width="100%" halign="center">
+                    <amx:rowLayout id="rl2">
+                        <amx:cellFormat id="cf3" width="10%" halign="start" valign="middle">
+                            <amx:commandLink id="cl1" action="__back">
+                                <amx:outputHtml id="oh1" styleClass="fa fa-home  fa-2x" inlineStyle="color:#ffffff;"/>
+                            </amx:commandLink>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf5" width="110%" halign="center" valign="middle">
+                            <amx:outputText value="Parameters" id="ot7" styleClass="headertextwhite"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+        </amx:facet>
+        <amx:panelGroupLayout id="pgl1" rendered="true" styleClass="ProcMain">
+            <amx:tableLayout id="tl1" width="100%" halign="center" cellPadding="10">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat id="cf" width="100%" halign="start" valign="middle"
+                                    inlineStyle="border-style:groove; border-width: 1px">
+                        <amx:outputText id="otmain" inlineStyle="padding:10px 10px 20%;" styleClass="xxSubHeader"
+                                        value="#{pageFlowScope.toggleBean.kpIText}"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:panelGroupLayout id="pgl2" styleClass="PanelProc" rendered="#{pageFlowScope.toggleBean.allTimePara}">
+                <amx:tableLayout id="tl3" width="90%" halign="start"
+                                >
+                    <amx:rowLayout id="rl8">
+                        <amx:cellFormat id="cf10" width="90%" halign="start" valign="middle">
+                            <amx:outputText value="Time" id="ot2" styleClass="xxOpenSansLarge"
+                                            rendered="#{pageFlowScope.toggleBean.allTimePara}"  inlineStyle="border-bottom-style:groove; border-width: 1px"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:tableLayout id="tl9" width="90%" halign="start">
+                    <amx:rowLayout id="rl9">
+                        <amx:cellFormat id="cf2" width="90%" halign="start" valign="middle">
+                            <amx:selectOneRadio label="" id="sor1"
+                                                inlineStyle="text-decoration:none solid transparent !important; background-color:White; border-bottom-style:groove; border-width:1px; "
+                                                styleClass="ProcRadio"
+                                                value="#{applicationScope.editKPIParam.timeRadio}"
+                                                rendered="#{pageFlowScope.toggleBean.allTimePara}">
+                                <amx:selectItem id="si1" label="YTD" value="YTD"/>
+                                <amx:selectItem id="si2" label="Monthly" value="Monthly"/>
+                                <amx:selectItem id="si3" label="Current" value="Current"/>
+                            </amx:selectOneRadio>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+            
+            <amx:panelGroupLayout id="pgl8" styleClass="PanelProc"
+                                  rendered="#{pageFlowScope.toggleBean.current_timeRadio}">
+                <amx:tableLayout id="tl4" width="90%" halign="start">
+                    <amx:rowLayout id="r6">
+                        <amx:cellFormat id="cf13" width="90%" halign="start" valign="middle" inlineStyle="border-bottom-style:groove; border-width: 1px">
+                            <amx:outputText value="Time" id="ot3" styleClass="xxOpenSansLarge"
+                                            rendered="#{pageFlowScope.toggleBean.current_timeRadio}"  
+                                            />
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:tableLayout id="t20" width="90%" halign="start">
+                    <amx:rowLayout id="r20">
+                        <amx:cellFormat id="cf22" width="90%" halign="start" valign="middle">
+                            <amx:selectOneRadio id="sor3" styleClass="ProcRadio"
+                                                inlineStyle="text-decoration:none solid transparent !important; background-color:White;"
+                                                rendered="#{pageFlowScope.toggleBean.current_timeRadio}">
+                                <amx:selectItem id="si12" label="Current" value="APCurrent"/>
+                            </amx:selectOneRadio>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+            
+            
+            <amx:panelGroupLayout id="pgl3" styleClass="PanelProc" rendered="#{pageFlowScope.toggleBean.orgScoperend}">
+                <amx:tableLayout id="tl5" width="90%" halign="start">
+                    <amx:rowLayout id="rl4">
+                        <amx:cellFormat id="cf4" width="90%" halign="start" valign="middle"
+                                        inlineStyle="border-bottom-style:groove; border-width: 1px">
+                            <amx:outputText value="Organization Scope" id="ot5" styleClass="xxOpenSansLarge"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:tableLayout id="tl10" width="90%" halign="start">
+                    <amx:rowLayout id="rl10">
+                        <amx:cellFormat id="cf6" width="90%" halign="start" valign="middle">
+                            <amx:selectOneRadio label="" id="sor2"
+                                                inlineStyle="color:White; text-decoration:none solid transparent !important; background-color:White"
+                                                valueChangeListener="#{editKPIParam.radioCheck}"
+                                                value="#{applicationScope.editKPIParam.currentRadio}"
+                                                styleClass="ProcRadio">
+                                <amx:selectItem id="si4" label="Global" value="GLOBAL"/>
+                                <amx:selectItem id="si5" label="Organization" value="Organization"/>
+                                <amx:selectItem id="si6" label="Business Unit" value="Operating Unit"/>
+                            </amx:selectOneRadio>
+                            <amx:selectOneChoice value="#{bindings.invOrgLOV.inputValue}" label="Org Name" id="soc2"
+                                                 rendered="#{editKPIParam.loV1_rendered}" styleClass="ProcChoice">
+                                <amx:selectItems value="#{bindings.invOrgLOV.items}" id="si9"/>
+                            </amx:selectOneChoice>
+                            <amx:selectOneChoice value="#{bindings.businessunitLovs.inputValue}" label="BU Name"
+                                                 rendered="#{editKPIParam.loV2_rendered}" styleClass="ProcChoice" inlineStyle="margin-top=10%"
+                                                 id="soc3">
+                                <amx:selectItems value="#{bindings.businessunitLovs.items}" id="si11"/>
+                            </amx:selectOneChoice>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl4" styleClass="PanelProc"
+                                  rendered="#{pageFlowScope.toggleBean.targettyperend}">
+                <amx:tableLayout id="tl6" width="90%" halign="start">
+                    <amx:rowLayout id="rl5">
+                        <amx:cellFormat id="cf7" width="90%" halign="start" valign="middle"
+                                        inlineStyle="border-bottom-style:groove; border-width: 1px">
+                            <amx:outputText value="Target Type" id="ottarget" styleClass="xxOpenSansLarge"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:tableLayout id="tl12" width="90%" halign="start">
+                    <amx:rowLayout id="rl12">
+                        <amx:cellFormat id="cf8" width="90%" halign="start" valign="middle">
+                            <amx:selectOneRadio label="" id="sor2target"
+                                                inlineStyle="color:White; text-decoration:none solid transparent !important; font-size:small; background-color:White;"
+                                                styleClass="ProcRadio">
+                                <amx:selectItem id="si4target" label="Value" value=""/>
+                                <amx:selectItem id="si5target" label="Percentage" value=""/>
+                            </amx:selectOneRadio>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+            
+            
+            <amx:panelGroupLayout id="pgl6" styleClass="PanelProc"
+                                  rendered="#{pageFlowScope.toggleBean.targetValuerend}">
+                <amx:tableLayout id="tl7" width="90%" halign="start">
+                    <amx:rowLayout id="rl6">
+                        <amx:cellFormat id="cf9" width="90%" halign="start" valign="middle">
+                            <amx:inputText label="Target Value" id="ittarget" rendered="true" inputType="number"
+                                           styleClass="ProcChoice"
+                                           value="#{applicationScope.editKPIParam.target}"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+            
+            
+            <amx:panelGroupLayout id="pg24" styleClass="PanelProc" rendered="#{pageFlowScope.toggleBean.buChoice}">
+            <amx:tableLayout id="tl26" width="90%" halign="start">
+                 <amx:rowLayout id="rl26">
+                    <amx:cellFormat id="cf14" width="90%" halign="start" valign="middle" inlineStyle="border-bottom-style:groove; border-width: 1px">
+                      <amx:outputText value="Business Unit" id="ot4" styleClass="xxOpenSansMed" />
+                    </amx:cellFormat>
+                 </amx:rowLayout>
+                    <amx:rowLayout id="rl25">
+                        <amx:cellFormat id="cf15" width="90%" halign="start" valign="middle">
+                            <amx:selectOneChoice value="#{bindings.businessunitLovs.inputValue}" styleClass="ProcChoice"
+                                                 label="" id="soc5">
+                                <amx:selectItems value="#{bindings.businessunitLovs.items}" id="si14"/>
+                            </amx:selectOneChoice>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pg25" styleClass="PanelProc" rendered="#{pageFlowScope.toggleBean.leChoice}">
+            <amx:tableLayout id="tl27" width="90%" halign="start">
+                    <amx:rowLayout id="rl14">
+                    <amx:cellFormat id="cf17" width="90%" halign="start" valign="middle" inlineStyle="border-bottom-style:groove; border-width: 1px">
+                       <amx:outputText value="Legal Entity" id="ot1" styleClass="xxOpenSansMed" />
+                     </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl13">
+                        <amx:cellFormat id="cf16" width="90%" halign="start" valign="middle">
+                            <amx:selectOneChoice value="#{bindings.legalEntityLOV.inputValue}" styleClass="ProcChoice"
+                                                 label="" id="soc4">
+                                <amx:selectItems value="#{bindings.legalEntityLOV.items}" id="si10"/>
+                            </amx:selectOneChoice>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl5" styleClass="PanelProc" rendered="false">
+                <amx:tableLayout id="tl8" width="90%" halign="start">
+                    <amx:rowLayout id="rl7">
+                        <amx:cellFormat id="cf11" width="90%" halign="start" valign="middle"
+                                        inlineStyle="border-bottom-style:groove; border-width: 1px">
+                            <amx:outputText value="Notifications" id="otNotify" styleClass="xxOpenSansLarge"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:tableLayout id="tl11" width="90%" halign="start">
+                    <amx:rowLayout id="rl11">
+                        <amx:cellFormat id="cf12" width="90%" halign="start" valign="middle">
+                            <amx:selectOneRadio label="" id="sor2Notify"
+                                                inlineStyle="color:White; text-decoration:none solid transparent !important;"
+                                                styleClass="ProcRadio">
+                                <amx:selectItem id="si4Notify" label="Yes" value="Y"/>
+                                <amx:selectItem id="si5Notify" label="No" value="N"/>
+                            </amx:selectOneRadio>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:facet name="footer">
+            <amx:panelGroupLayout id="pgl7" styleClass="PanelProc">
+                <amx:tableLayout id="tl13" width="100%" halign="center">
+                    <amx:rowLayout id="rl3">
+                        <amx:cellFormat id="cf1" width="100%" halign="center" valign="middle">
+                            <amx:commandButton text="Cancel" id="cb1"
+                                               inlineStyle="color:White; background-color:#86BC25;" action="__back"
+                                               styleClass="ProcButton"/>
+                            <amx:commandButton id="cb2" inlineStyle="color:White; background-color:#86BC25;"
+                                               action="#{pageFlowScope.toggleBean.nextKpiPG}" styleClass="ProcButton"
+                                               text="#{pageFlowScope.toggleBean.button_label}"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+            </amx:facet>
+    </amx:panelPage>
 </amx:view>
 

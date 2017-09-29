@@ -1,12 +1,27 @@
 @charset "windows-1252";
+@import url('../font-awesome-4.6.3/css/font-awesome.css');
 
+ .amx-panelPage-header {
+    border-bottom-color: #86BC25;
+    background-color: #000000;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.amx-panelPage-header .amx-outputText
+{
+        font-size: 27px;
+}
  .amx-panelPage.loginpage
 {
-    background-image: url('../images/login_pg.jpg');
     background-size:100% 100%;
-    background-position: center left;
+    background-position: top left;
     background-repeat: no-repeat;
-    background-color: #d2d2d2; 
+    background-color: #000000; 
+}
+.headertextwhite {
+    color: #ffffff !important;
+    font-size: 38px;
+    font-family: "Open Sans";
 }
 .amx-selectManyCheckbox.page2selectmany, .amx-selectManyCheckbox.page2selectmany .selectItemsContainer{
     border:none ;
@@ -44,6 +59,7 @@ padding-bottom: 2px;
 
 }
 
+
 .amx-commandButton.notifications .amx-commandButton-icon
 {
 
@@ -79,6 +95,7 @@ html[dir=rtl] .amx-selectManyCheckbox.page2selectmany .checkbox-text {
     margin-right:55%;
     padding-left:2px;
     padding-top:16px;
+    color:White;
 }
 .amx-selectBooleanCheckbox.loginchkb .field-value{
     width:50px;
@@ -149,12 +166,28 @@ div.wrap.amx-wrap-active, div.wrap{
 .selectItemsContainer{
   display: -webkit-inline-box;
   border: none !important;
-  font-size:small
 }
 
+.selectItemsContainer .field-value{
+    overflow:visible ;
+}
+
+.amx-listView-divider {
+    background-color:white;   
+
+}
+
+.amx-listItem.amx-listItem-selected, .amx-listItem:active {
+    background-color:white;
+}
+
+.amx-selectOneRadio .field-value{
+    overflow:visible ;
+}
 .amx-selectOneRadio .selectItemsContainer .amx-selectItem{
   background-color:white;
   padding:3% 0% 0% 0% !important;
+  border-top : none ;
 }
 
 #KPIPanel .amx-selectOneRadio .amx-selectItem div.checkmark
@@ -164,32 +197,48 @@ margin-left: -7px;
 margin-top: -18px;
 }
 
-#KPIPanel #soc3, #KPIPanel #soc4{
+#KPIPanel #soc2, #KPIPanel #soc3 ,#KPIPanel #soc4, #KPIPanel #soc5{
     padding-left:50px;
     width:80%;
 }
 
-#KPIPanel #soc3 .field-label, #KPIPanel #soc4 .field-label{
+#KPIPanel #soc3 .field-label, #KPIPanel #soc4 .field-label ,#KPIPanel #soc2 .field-label, #KPIPanel #soc5 .field-label{
     padding:0px;
 }
-#KPIPanel #soc3 .field-value, #KPIPanel #soc4 .field-value{
+#KPIPanel #soc3 .field-value, #KPIPanel #soc4 .field-value ,#KPIPanel #soc2 .field-value, #KPIPanel #soc5 .field-value{
     width:200px;
     border:1px solid grey;
 }
 
-#KPIPanel #soc3 .field-value select,#KPIPanel #soc4 .field-value select{
+#KPIPanel #soc3 .field-value select,#KPIPanel #soc4 .field-value select ,#KPIPanel #soc2 .field-value select,#KPIPanel #soc5 .field-value select{
     -webkit-appearance: menulist-button;
+}
+
+#pp1_res .amx-commandButton-icon {
+   width:30%;
+   height:60%;
 }
 
 .PanelProc
 {
-    margin-left : 13px;
+    margin-left : 8px;
     margin-top : 6%;
 }
 
 .ProcRadio
 {
     margin-top : 4px;
+    font-family: "Open Sans";
+    font-size: medium;
+    color: #000000;
+}
+
+.ProcChoice
+{
+    margin-top : 6px;
+    font-family: "Open Sans";
+    font-size: medium;
+    color: #000000;
 }
 
 .field-label{
@@ -203,15 +252,76 @@ padding-left: 0% !important;
 
 .LoginImage
 {
-    padding-left: 166px;
+    padding-left: 85px;
 }
 
+.LoginImage1
+{
+    padding-left: 25px;
+}
 .EditKPIPanel
 {
-  width:25%;
+  width:100%;
   float:left;
   text-align:center;
+  margin-top: 5%;
 }
+
+.xxSubHeader {
+    font-family: "Open Sans";
+    font-size: large;
+    color: #000000;
+    margin-top: 10px;
+}
+.xxSubHeaderRes {
+    font-family: "Open Sans";
+    font-size: x-large;
+    color: #000000;
+    margin-top: 10px;
+    font-weight:bold;
+}
+.XXtablegroove{
+    border-bottom-style:groove; 
+    border-width: 1px;
+    padding-left: 10px;
+}
+.XXcellgroove{
+    border-bottom-style:groove; 
+    border-width: 1px;
+    padding-left: 10px;
+}
+.XXicontable{
+    padding-left: 10px;
+    margin-top: 2%;
+}
+
+.xxOpenSansLarge {
+    font-family: "Open Sans";
+    font-size: large;
+    color: #000000;
+    font-weight: bold;
+    margin-top:3%;
+}
+
+.xxOpenSansMed {
+    font-family: "Open Sans";
+    font-size: medium;
+    color: #000000;
+}
+
+.xxOpenSansMedRes {
+    font-family: "Open Sans";
+    font-size: medium;
+    color: #000000;
+    font-weight: bold; 
+}
+
+.xxOpenSansS {
+    font-family: "Open Sans";
+    font-size: small;
+    color: #000000;
+}
+
 
 .EditKPIPanel img
 {
@@ -220,40 +330,49 @@ padding-left: 0% !important;
 }
 .HomeButton
 {
-  margin-top: 65px;
+  margin-top: 15px;
+  margin-left: 15px;
+  width:90%;
+  height : 100%;
 }
 .HomeButton img
 {
-  width:80%;
-  height : 55px;
+  width: 70%;
+  height : 75px;
 }
-
+.MainText
+{
+  font-family: "Open Sans";
+  font-size: 20px;
+}
+.DBBackground
+{
+  background-image: url('../images/Background.png');
+  background-repeat: repeat;
+  background-size:100% 110%;
+}
 .EditKPIInvTab
 {
   padding-top: 25px; 
 }
 
-.selectItemsContainer{
-  display: -webkit-inline-box;
-  border: none !important;
-  font-size:small
-}
-.amx-selectOneRadio .selectItemsContainer .amx-selectItem{
-  background-color:white;
-  padding:3% 0% 0% 0% !important;
-  border-top : none ;
-}
 
 .EditKPIButton
 {
       width: 40%;
-      margin-top: 50px;
+      margin-top: 10px;
+      border-radius: 25px;
+      margin-right: 10px;
 }
 
 .ProcButton
 {
    width: 40%;
-   margin-top: 50px;
+   margin-top: 10px;
+   margin-right: 10px;
+   border-radius: 25px;
+   color:White; 
+   background-color:#86BC25;
 }
 
 .EditKPIopct
@@ -294,7 +413,7 @@ opacity:1;
 } 
 
 .ProcIttarget .field-value{
-    border:3px solid grey;
+    border:1px solid grey;
     width: 115px;
     margin-right: 152px;
     display: -webkit-inline-box;
@@ -304,6 +423,7 @@ opacity:1;
 {
     font-size :16px;
     padding: 6px 0px 17px 1px !important;
+    font-family: "Open Sans";
 }
 
 .ResultPg
@@ -319,9 +439,9 @@ opacity:1;
 .ResultPg1
 {
     float: right;
-    width: 15%;
+    width: 100%;
     text-align: center;     
-    margin-right: 36px;
+    margin-right: 5px;
     margin-top: 4px;
 }
 
@@ -360,7 +480,7 @@ opacity:1;
 .result_cri
 {
         margin-top: 5px;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
 }
 
 #cb-dashboard, #cb-kpi, #cb-notif{
@@ -371,15 +491,3 @@ opacity:1;
     height:75px;
     border-radius:10px;
 }
-
-.MainText
-{
-  font-family: "Open Sans";
-  font-size: 20px;
-}
-.DBBackground
-{
-  background-image: url('../images/Background.png');
-  background-repeat: no-repeat;
-  background-size:100% 100%;
-} 

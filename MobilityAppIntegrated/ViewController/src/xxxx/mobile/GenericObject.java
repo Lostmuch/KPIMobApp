@@ -12,7 +12,7 @@ public class GenericObject {
     String param1;
     String param2;
     int  param3;
-    String param4;
+    Double param4;
     String param5;
 
         public void setParam1(String param1) {
@@ -36,16 +36,14 @@ public class GenericObject {
     }
 
 
-
-    public void setParam4(String param4) {
-        String oldParam4 = this.param4;
+    public void setParam4(Double param4) {
         this.param4 = param4;
-        _propertyChangeSupport.firePropertyChange("param4", oldParam4, param4);
     }
 
-    public String getParam4() {
+    public Double getParam4() {
         return param4;
     }
+
 
     public void setParam5(String param5) {
         String oldParam5 = this.param5;

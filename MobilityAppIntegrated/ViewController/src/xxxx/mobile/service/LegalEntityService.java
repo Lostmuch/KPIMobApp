@@ -39,7 +39,7 @@ public class LegalEntityService {
             
             System.out.println("ENTERING LELOOP");
             for (int i = 0; i < bsize; i++) {
-                System.out.println("LOOP:" + i);
+               // System.out.println("LOOP:" + i);
                 JSONObject temp = buArray.getJSONObject(i);
                 String name = null;
                 if (temp.getString("PARAM1") != null)

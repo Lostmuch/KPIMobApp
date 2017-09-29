@@ -24,7 +24,7 @@ public class BusinessunitService {
         final String requestURI = "Operating_Unit_Report/999/999/999999/99/99";
         RestServiceUtil restServiceUtil = new RestServiceUtil(connectionName);
         String jsonArrayAsString = restServiceUtil.invokeGet(requestURI, null);
-        System.out.println("Value of Operating Unit ....."+jsonArrayAsString);
+        //System.out.println("Value of Operating Unit ....."+jsonArrayAsString);
         System.out.println("ENTERING TRY");
         try {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
@@ -41,7 +41,7 @@ public class BusinessunitService {
             
             System.out.println("ENTERING BULOOP");
             for (int i = 0; i < bsize; i++) {
-                System.out.println("LOOP:" + i);
+               // System.out.println("LOOP:" + i);
                 JSONObject temp = buArray.getJSONObject(i);
                 String name = null;
                 if (temp.getString("PARAM1") != null)

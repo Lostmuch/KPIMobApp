@@ -23,72 +23,21 @@
     <iterator Binds="root" RangeSize="25" DataControl="EditKpiControl5" id="EditKpiControl5Iterator"/>
     <accessorIterator MasterBinding="EditKpiControl5Iterator" Binds="addedKPIS_button" RangeSize="25"
                       DataControl="EditKpiControl5" BeanClass="xxxx.mobile.KPIObject" id="addedKPIS_buttonIterator"/>
+    <accessorIterator MasterBinding="EditKpiControl5Iterator" Binds="addedKPIS_dashboard" RangeSize="25"
+                      DataControl="EditKpiControl5" BeanClass="xxxx.mobile.KPIObject" id="addedKPIS_dashboardIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ResultControl1" id="ResultControl1Iterator"/>
+    <accessorIterator MasterBinding="ResultControl1Iterator" Binds="resultData_ar" RangeSize="-1"
+                      DataControl="ResultControl1" BeanClass="xxxx.mobile.GenericObject" id="resultData_arIterator"/>
+    <accessorIterator MasterBinding="ResultControl1Iterator" Binds="resultData_ar_pen_cust_pay" RangeSize="-1"
+                      DataControl="ResultControl1" BeanClass="xxxx.mobile.GenericObject"
+                      id="resultData_ar_pen_cust_payIterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="kpisIterator" id="kpis">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis0">
-        <AttrNames>
-          <Item Value="actual_value"/>
-          <Item Value="value_difference"/>
-          <Item Value="target_value"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="kpisIterator" id="kpis1">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis10">
-        <AttrNames>
-          <Item Value="priority"/>
-          <Item Value="name"/>
-          <Item Value="target_value"/>
-          <Item Value="actual_value"/>
-          <Item Value="value_difference"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <attributeValues IterBinding="kpisIterator" id="name">
-      <AttrNames>
-        <Item Value="name"/>
-      </AttrNames>
-    </attributeValues>
-    <tree IterBinding="kpisIterator" id="kpis2">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis20">
-        <AttrNames>
-          <Item Value="type"/>
-          <Item Value="priority"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="kpisIterator" id="kpis3">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis30">
-        <AttrNames>
-          <Item Value="type"/>
-          <Item Value="priority"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="addedKPISIterator" id="addedKPIS">
       <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="addedKPIS0">
         <AttrNames>
           <Item Value="type"/>
           <Item Value="priority"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="kpisIterator1" id="kpis4">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis40">
-        <AttrNames>
-          <Item Value="priority"/>
-          <Item Value="name"/>
-          <Item Value="type"/>
-          <Item Value="time"/>
-          <Item Value="org_scope"/>
-          <Item Value="org_value"/>
-          <Item Value="target_type"/>
-          <Item Value="target_value"/>
-          <Item Value="notification_req"/>
-          <Item Value="actual_value"/>
-          <Item Value="report_name"/>
-          <Item Value="value_difference"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -104,52 +53,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="aIterator" id="a7">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="a70">
-        <AttrNames>
-          <Item Value="type"/>
-          <Item Value="name"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="kpisIterator1" id="kpis5">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="kpis50">
-        <AttrNames>
-          <Item Value="type"/>
-          <Item Value="name"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="aIterator1" id="a8">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="a80">
-        <AttrNames>
-          <Item Value="name"/>
-          <Item Value="actual_value"/>
-          <Item Value="notification_req"/>
-          <Item Value="org_scope"/>
-          <Item Value="org_value"/>
-          <Item Value="priority"/>
-          <Item Value="report_name"/>
-          <Item Value="target_type"/>
-          <Item Value="target_value"/>
-          <Item Value="time"/>
-          <Item Value="type"/>
-          <Item Value="value_difference"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="addedKPIS_buttonIterator" id="addedKPIS_button">
-      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="addedKPIS_button0">
-        <AttrNames>
-          <Item Value="type"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <attributeValues IterBinding="addedKPIS_buttonIterator" id="report_name">
-      <AttrNames>
-        <Item Value="report_name"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="addedKPIS_buttonIterator" id="addedKPIS_button1">
       <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="addedKPIS_button10">
         <AttrNames>
@@ -158,6 +61,41 @@
           <Item Value="actual_value"/>
           <Item Value="page_name"/>
           <Item Value="result_layout"/>
+          <Item Value="priority"/>
+          <Item Value="name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="addedKPIS_dashboardIterator" id="addedKPIS_dashboard">
+      <nodeDefinition DefName="xxxx.mobile.KPIObject" Name="addedKPIS_dashboard0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="result_layout"/>
+          <Item Value="actual_value"/>
+          <Item Value="target_value"/>
+          <Item Value="value_difference"/>
+          <Item Value="priority"/>
+          <Item Value="report_name"/>
+          <Item Value="image_icon"/>
+          <Item Value="name"/>
+          <Item Value="page_name"/>
+          <Item Value="result_flag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="resultData_arIterator" id="resultData_ar" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData_ar">
+        <AttrNames>
+          <Item Value="param4"/>
+          <Item Value="param1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="resultData_ar_pen_cust_payIterator" id="resultData_ar_pen_cust_pay" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData_ar_pen_cust_pay">
+        <AttrNames>
+          <Item Value="param4"/>
+          <Item Value="param1"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

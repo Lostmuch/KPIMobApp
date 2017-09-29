@@ -17,10 +17,96 @@ public class KPIObject implements Comparable<KPIObject>{
     private String value_difference;
     private String notification_req;
     private String image_icon ;
-    private String supplier_name;
-    private int supp_amt;
+
     private String result_flag;
     private String result_layout;
+    
+    private Boolean showTimeRadio;
+    private Boolean showCurrent;
+    private Boolean showOrgRadio;
+    private Boolean showTargetType;
+    private Boolean showTargetValue;
+    private Boolean showBUChoice;
+    private Boolean showLEChoice;
+    private Boolean showStartDate;
+    private Boolean showEndDate;
+    //private date  StartDate;
+    
+    
+    private String bu_name;
+    private String le_name;
+
+    public void setShowTimeRadio(Boolean showTimeRadio) {
+        this.showTimeRadio = showTimeRadio;
+    }
+
+    public Boolean getShowTimeRadio() {
+        return showTimeRadio;
+    }
+
+    public void setShowCurrent(Boolean showCurrent) {
+        this.showCurrent = showCurrent;
+    }
+
+    public Boolean getShowCurrent() {
+        return showCurrent;
+    }
+
+    public void setShowOrgRadio(Boolean showOrgRadio) {
+        this.showOrgRadio = showOrgRadio;
+    }
+
+    public Boolean getShowOrgRadio() {
+        return showOrgRadio;
+    }
+
+    public void setShowTargetType(Boolean showTargetType) {
+        this.showTargetType = showTargetType;
+    }
+
+    public Boolean getShowTargetType() {
+        return showTargetType;
+    }
+
+    public void setShowTargetValue(Boolean showTargetValue) {
+        this.showTargetValue = showTargetValue;
+    }
+
+    public Boolean getShowTargetValue() {
+        return showTargetValue;
+    }
+
+    public void setShowBUChoice(Boolean showBUChoice) {
+        this.showBUChoice = showBUChoice;
+    }
+
+    public Boolean getShowBUChoice() {
+        return showBUChoice;
+    }
+
+    public void setShowLEChoice(Boolean showLEChoice) {
+        this.showLEChoice = showLEChoice;
+    }
+
+    public Boolean getShowLEChoice() {
+        return showLEChoice;
+    }
+
+    public void setBu_name(String bu_name) {
+        this.bu_name = bu_name;
+    }
+
+    public String getBu_name() {
+        return bu_name;
+    }
+
+    public void setLe_name(String le_name) {
+        this.le_name = le_name;
+    }
+
+    public String getLe_name() {
+        return le_name;
+    }
 
 
     public void setResult_layout(String result_layout) {
@@ -53,7 +139,7 @@ public class KPIObject implements Comparable<KPIObject>{
     public String getResult_flag() {
         return result_flag;
     }
-
+/*
     public void setSupplier_name(String supplier_name) {
         String oldSupplier_name = this.supplier_name;
         this.supplier_name = supplier_name;
@@ -73,7 +159,7 @@ public class KPIObject implements Comparable<KPIObject>{
     public int getSupp_amt() {
         return supp_amt;
     }
-
+*/
 
     public void setImage_icon(String image_icon) {
         String oldImage_icon = this.image_icon;
@@ -245,4 +331,23 @@ public class KPIObject implements Comparable<KPIObject>{
         return "NamePriorityType-"+name+priority+type +" "+report_name +" "+target_value +" "+actual_value +" "+ value_difference+" "+ org_scope+" "+org_value +" "+time;
     }
 
+    public void setShowStartDate(Boolean showStartDate) {
+        Boolean oldShowStartDate = this.showStartDate;
+        this.showStartDate = showStartDate;
+        _propertyChangeSupport.firePropertyChange("showStartDate", oldShowStartDate, showStartDate);
+    }
+
+    public Boolean getShowStartDate() {
+        return showStartDate;
+    }
+
+    public void setShowEndDate(Boolean showEndDate) {
+        Boolean oldShowEndDate = this.showEndDate;
+        this.showEndDate = showEndDate;
+        _propertyChangeSupport.firePropertyChange("showEndDate", oldShowEndDate, showEndDate);
+    }
+
+    public Boolean getShowEndDate() {
+        return showEndDate;
+    }
 }

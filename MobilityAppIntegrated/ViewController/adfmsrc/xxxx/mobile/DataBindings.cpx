@@ -10,14 +10,21 @@
     <page path="/resultPG.amx" usageId="xxxx_mobile_resultPGPageDef"/>
     <page path="/APResultPG.amx" usageId="xxxx_mobile_APResultPGPageDef"/>
     <page path="/ARResultPG.amx" usageId="xxxx_mobile_ARResultPGPageDef"/>
+    <page path="/POBackLogResultPG.amx" usageId="xxxx_mobile_POBackLogResultPGPageDef"/>
+    <page path="/PendingPaymentsPG.amx" usageId="xxxx_mobile_PendingPaymentsPGPageDef"/>
+    <page path="/BookedOrderPG.amx" usageId="xxxx_mobile_BookedOrderPGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="xxxx_mobile_proc_KPI1PageDef" path="xxxx.mobile.pageDefs.proc_KPI1PageDef"/>
     <page id="xxxx_mobile_resultPGPageDef" path="xxxx.mobile.pageDefs.resultPGPageDef"/>
     <page id="xxxx_mobile_APResultPGPageDef" path="xxxx.mobile.pageDefs.APResultPGPageDef"/>
     <page id="xxxx_mobile_ARResultPGPageDef" path="xxxx.mobile.pageDefs.ARResultPGPageDef"/>
+    <page id="xxxx_mobile_POBackLogResultPGPageDef" path="xxxx.mobile.pageDefs.POBackLogResultPGPageDef"/>
+    <page id="xxxx_mobile_PendingPaymentsPGPageDef" path="xxxx.mobile.pageDefs.PendingPaymentsPGPageDef"/>
+    <page id="xxxx_mobile_BookedOrderPGPageDef" path="xxxx.mobile.pageDefs.BookedOrderPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="LegalEntityDC" path="xxxx.mobile.LegalEntityDC"/>
     <dc id="InvOrganizationDC" path="xxxx.mobile.InvOrganizationDC"/>
     <dc id="ResultControl1" path="xxxx.mobile.ResultControl1"/>
     <dc id="ResultControl" path="xxxx.mobile.ResultControl"/>

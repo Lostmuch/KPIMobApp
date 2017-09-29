@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:panelGroupLayout id="pgl1">
+      <amx:outputText value="Top 5 pending Payments" id="ot1"/>  </amx:panelGroupLayout>   
+     <amx:spacer id="s1" height="20" width="20"/>
+      <dvtm:barChart id="barChart1" var="row" value="#{bindings.resultData_ar_pen_cust_pay.collectionModel}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem id="di1" series="#{bindings.resultData_ar_pen_cust_pay.hints.param4.label}"
+                              value="#{row.param4}" group="#{row.param1}">       
+                              <dvtm:attributeGroups id="ag1" type="color" value="#{row.param1}"/>   
+                              </dvtm:chartDataItem>
+        </amx:facet>
+         <dvtm:legend position="bottom" id="l1"/>
+       
+      </dvtm:barChart>
+      <amx:commandButton text="Back" id="cb1" action="__back" styleClass="ProcButton"
+                         inlineStyle="color:White; background-color:#8cb4cd;"/>
+
+  </amx:panelPage>
+</amx:view>

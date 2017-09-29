@@ -17,6 +17,13 @@
                       id="invOrgLovIterator"/>
     <accessorIterator MasterBinding="invOrgLovIterator" Binds="invOrgLOV" RangeSize="25" DataControl="InvOrganizationDC"
                       BeanClass="xxxx.mobile.parameter.InvOrganization" id="invOrgLOVIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="LegalEntityDC" id="LegalEntityDCIterator"/>
+    <accessorIterator MasterBinding="LegalEntityDCIterator" Binds="legalEntity" RangeSize="25"
+                      DataControl="LegalEntityDC" BeanClass="xxxx.mobile.parameter.LegalEntityLOV"
+                      id="legalEntityIterator"/>
+    <accessorIterator MasterBinding="legalEntityIterator" Binds="legalEntityLOV" RangeSize="25"
+                      DataControl="LegalEntityDC" BeanClass="xxxx.mobile.parameter.LegalEntity"
+                      id="legalEntityLOVIterator"/>
   </executables>
   <bindings>
     <list IterBinding="businessunitLovsIterator" ListOperMode="navigation" ListIter="businessunitLovsIterator"
@@ -29,6 +36,12 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject">
       <AttrNames>
         <Item Value="invOrg_name"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="legalEntityLOVIterator" ListOperMode="navigation" ListIter="legalEntityLOVIterator"
+          id="legalEntityLOV" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="name"/>
       </AttrNames>
     </list>
   </bindings>

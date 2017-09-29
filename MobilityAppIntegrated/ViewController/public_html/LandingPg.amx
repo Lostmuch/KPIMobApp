@@ -3,7 +3,7 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1" inlineStyle="background-color:#d6d6d6;">
   <amx:flexLayout id="fl1" orientation="vertical" itemAlignment="stretch" itemFlexibility="flexible"
-                        itemJustification="center">
+                        itemJustification="center" inlineStyle="background-color: #000000">
             <amx:tableLayout id="tl3" halign="center" width="100%" cellPadding="20">
                 <amx:rowLayout id="rl3">
                     <amx:cellFormat id="cf3" halign="center" valign="middle" width="100%" height="30%">
@@ -12,7 +12,7 @@
                 </amx:rowLayout>
             </amx:tableLayout>
             <amx:panelGroupLayout id="pgl1" styleClass="LoginImage">
-                <amx:image id="i1" source="/Images/CloudImg.png"/>
+                <amx:image id="i1" source="/Images/C0W3YN.jpg"/>
                 <amx:outputText value="Cloud Mobility" id="ot2"
                                 inlineStyle="font-size:large; text-align:center; margin-left:-30px;"/>
             </amx:panelGroupLayout>

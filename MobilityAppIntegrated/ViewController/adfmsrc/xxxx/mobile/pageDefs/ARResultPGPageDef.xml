@@ -7,12 +7,23 @@
     <iterator Binds="root" RangeSize="25" DataControl="ResultControl" id="ResultControlIterator"/>
     <accessorIterator MasterBinding="ResultControlIterator" Binds="resultData_ar" RangeSize="-1"
                       DataControl="ResultControl" BeanClass="xxxx.mobile.GenericObject" id="resultData_arIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ResultControl1" id="ResultControl1Iterator"/>
+    <accessorIterator MasterBinding="ResultControl1Iterator" Binds="resultData_ar" RangeSize="-1"
+                      DataControl="ResultControl1" BeanClass="xxxx.mobile.GenericObject" id="resultData_arIterator1"/>
   </executables>
   <bindings>
     <tree IterBinding="resultData_arIterator" id="resultData_ar" ChangeEventPolicy="ppr">
       <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData_ar">
         <AttrNames>
           <Item Value="param3"/>
+          <Item Value="param1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="resultData_arIterator1" id="resultData_ar1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData_ar1">
+        <AttrNames>
+          <Item Value="param4"/>
           <Item Value="param1"/>
         </AttrNames>
       </nodeDefinition>
