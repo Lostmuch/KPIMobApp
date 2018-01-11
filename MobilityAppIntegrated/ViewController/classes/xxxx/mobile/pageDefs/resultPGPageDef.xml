@@ -31,6 +31,17 @@
     <accessorIterator MasterBinding="ResultControl1Iterator" Binds="resultData_ar_pen_cust_pay" RangeSize="-1"
                       DataControl="ResultControl1" BeanClass="xxxx.mobile.GenericObject"
                       id="resultData_ar_pen_cust_payIterator"/>
+    <accessorIterator MasterBinding="ResultControl1Iterator" Binds="resultData" RangeSize="-1"
+                      DataControl="ResultControl1" BeanClass="xxxx.mobile.GenericObject" id="resultDataIterator"/>
+    <accessorIterator MasterBinding="ResultControl1Iterator" Binds="resultData_backLogPO" RangeSize="-1"
+                      DataControl="ResultControl1" BeanClass="xxxx.mobile.GenericObject"
+                      id="resultData_backLogPOIterator"/>
+    <accessorIterator MasterBinding="ResultControl1Iterator" Binds="resultData_BookedOrder" RangeSize="-1"
+                      DataControl="ResultControl1" BeanClass="xxxx.mobile.GenericObject"
+                      id="resultData_BookedOrderIterator"/>
+    <accessorIterator MasterBinding="ResultControl1Iterator" Binds="revenue" RangeSize="-1" DataControl="ResultControl1"
+                      BeanClass="xxxx.mobile.GenericObject" id="revenueIterator"/>
+    <accessorIterator id="accTurnoverIterator" DataControl="ResultControl1" RangeSize="-1" Binds="accTurnover" BeanClass="xxxx.mobile.GenericObject" MasterBinding="ResultControl1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="addedKPISIterator" id="addedKPIS">
@@ -95,6 +106,55 @@
       <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData_ar_pen_cust_pay">
         <AttrNames>
           <Item Value="param4"/>
+          <Item Value="param1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="resultDataIterator" id="resultData" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData">
+        <AttrNames>
+          <Item Value="param4"/>
+          <Item Value="param1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="resultData_backLogPOIterator" id="resultData_backLogPO" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData_backLogPO">
+        <AttrNames>
+          <Item Value="param4"/>
+          <Item Value="param1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="resultData_BookedOrderIterator" id="resultData_BookedOrder" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="resultData_BookedOrder">
+        <AttrNames>
+          <Item Value="param4"/>
+          <Item Value="param3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="revenueIterator" id="revenue" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="revenue">
+        <AttrNames>
+          <Item Value="param4"/>
+          <Item Value="param1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="revenueIterator" id="revenue1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="revenue1">
+        <AttrNames>
+          <Item Value="param3"/>
+          <Item Value="param1"/>
+          <Item Value="param4"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="accTurnoverIterator" id="accTurnover" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="accTurnover">
+        <AttrNames>
+          <Item Value="param3"/>
           <Item Value="param1"/>
         </AttrNames>
       </nodeDefinition>

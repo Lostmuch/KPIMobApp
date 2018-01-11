@@ -1,6 +1,7 @@
 package xxxx.mobile.service;
 import java.util.ArrayList;
 
+import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONException;
 import oracle.adfmf.json.JSONObject;
@@ -35,7 +36,19 @@ public class BusinessunitService {
             int bsize = buArray.length();
             
             System.out.println("ASSIGNING DEFAULT");
-            String dvalue = "Select Business Unit";
+            //String dvalue = "Select Business Unit";
+            
+            String dvalue =null;
+            if("DELHITECH_US_BUSINESS_UNIT".equals(AdfmfJavaUtilities.getELValue("#{applicationScope.po_back}")))
+            {
+                 System.out.println("INside BU DELHITECH_US_BUSINESS_UNIT");
+                 dvalue = "DELHITECH_US_BUSINESS_UNIT"; 
+            }
+            else
+            {
+                 System.out.println("Inside ELse DELHITECH_US_BUSINESS_UNIT");
+                 dvalue = "GLOBAL";
+            }
             BusinessUnitLOV dobject = new BusinessUnitLOV(dvalue);
             BusinessUnitList.add(dobject);
             

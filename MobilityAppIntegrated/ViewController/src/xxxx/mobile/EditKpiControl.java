@@ -1,9 +1,8 @@
 package xxxx.mobile;
 
+import java.sql.ResultSet;
+
 import java.util.ArrayList;
-
-import java.util.Arrays;
-
 import java.util.Comparator;
 
 import oracle.adfmf.amx.event.ActionEvent;
@@ -11,10 +10,9 @@ import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 
-import oracle.adfmf.json.JSONException;
-import oracle.adfmf.json.JSONObject;
+import xxxx.MobilityApp.DBAdapter;
+import xxxx.MobilityApp.DBAdapter;
 
-import xxxx.mobile.service.ReportService;
 import xxxx.mobile.service.SubmitService;
 
 public class EditKpiControl {
@@ -77,6 +75,12 @@ public class EditKpiControl {
 
     String image_name;
     String button_label;
+    private boolean resultDisCusRend = false;
+    private boolean resultPenCusRend = false;
+    private boolean resultPOBacLogRend = false;
+    private boolean resultAPSupprend = false;
+    private boolean resultKPIShip1rend = false;
+
 
 
     public void setButton_label(String button_label) {
@@ -610,6 +614,7 @@ public class EditKpiControl {
         kpistemp.removeAll(kpistemp);
         for (String kpi : imgArr) {
             KPIObject obj = new KPIObject();
+            editKPIParam paramobj = new editKPIParam(); //Added by Shaswat
             switch (kpi) {
             case KPI_PROC1:
                 System.out.println("****************Inside KPI PROC1");
@@ -619,7 +624,7 @@ public class EditKpiControl {
                 obj.setResult_flag("B");
                 obj.setReport_name("Total_po_backlog_amount");
                 obj.setPage_name("showPOBackLog");
-                obj.setPriority(1);
+                obj.setPriority(14);
                 obj.setShowTimeRadio(false);
                 obj.setShowCurrent(false);
                 obj.setShowOrgRadio(false);
@@ -627,6 +632,7 @@ public class EditKpiControl {
                 obj.setShowTargetValue(false);
                 obj.setShowBUChoice(true);
                 obj.setShowLEChoice(false);
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
             case KPI_PROC2:
                 System.out.println("*******************Inside KPI PROC2");
@@ -634,6 +640,7 @@ public class EditKpiControl {
                 obj.setType("Procurement");
                 obj.setPriority(2);
                 obj.setReport_name("ShippedOrder_Report");
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
             case KPI_PROC3:
 
@@ -641,18 +648,21 @@ public class EditKpiControl {
                 obj.setType("Procurement");
                 obj.setPriority(3);
                 obj.setReport_name("ShippedOrder_Report");
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
             case KPI_PROC4:
                 obj.setName(KPI_PROC4);
                 obj.setType("Procurement");
                 obj.setPriority(4);
                 obj.setReport_name("ShippedOrder_Report");
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
             case KPI_INV1:
                 obj.setName(KPI_INV1);
                 obj.setType("Inventory");
                 obj.setPriority(5);
                 obj.setReport_name("AverageInventory_Report");
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
             case KPI_INV2:
 
@@ -660,12 +670,14 @@ public class EditKpiControl {
                 obj.setType("Inventory");
                 obj.setPriority(6);
                 obj.setReport_name("ShippedOrder_Report");
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
             case KPI_INV3:
                 obj.setName(KPI_INV3);
                 obj.setType("Inventory");
                 obj.setPriority(7);
                 obj.setReport_name("StockOutRate_Report");
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
             case KPI_INV4:
 
@@ -673,6 +685,7 @@ public class EditKpiControl {
                 obj.setType("Inventory");
                 obj.setPriority(8);
                 obj.setReport_name("ShippedOrder_Report");
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
             case KPI_SHIP1:
 
@@ -690,6 +703,13 @@ public class EditKpiControl {
                 obj.setShowTargetValue(true);
                 obj.setShowBUChoice(false);
                 obj.setShowLEChoice(false);
+                //Added by Shaswat
+                System.out.println("Defaulting...");
+                paramobj.setTimeRadio("YTD");
+                paramobj.setCurrentRadio("GLOBAL");
+                paramobj.setTarget("10");
+                paramobj.setTarget_type("Value");
+                obj.setDefParam(paramobj);
                 break;
             case KPI_SHIP2:
 
@@ -707,6 +727,7 @@ public class EditKpiControl {
                 obj.setShowTargetValue(true);
                 obj.setShowBUChoice(false);
                 obj.setShowLEChoice(false);
+                obj.setDefParam(paramobj);//Added by Shaswat
                 break;
 
             case KPI_AP1:
@@ -725,6 +746,11 @@ public class EditKpiControl {
                 obj.setShowTargetValue(false);
                 obj.setShowBUChoice(false);
                 obj.setShowLEChoice(false);
+                //Added by Shaswat
+                System.out.println("Defaulting...");
+                paramobj.setCurrentRadio("GLOBAL");
+                paramobj.setCurrent_timeRadio("APCurrent");
+                obj.setDefParam(paramobj);
                 break;
 
 
@@ -744,6 +770,10 @@ public class EditKpiControl {
                 obj.setShowTargetValue(false);
                 obj.setShowBUChoice(true);
                 obj.setShowLEChoice(true);
+                //Added by Shaswat
+                System.out.println("Defaulting...");
+                paramobj.setCurrent_timeRadio("APCurrent");
+                obj.setDefParam(paramobj);
                 break;
 
             case KPI_AR2:
@@ -762,6 +792,10 @@ public class EditKpiControl {
                 obj.setShowTargetValue(false);
                 obj.setShowBUChoice(true);
                 obj.setShowLEChoice(true);
+                //Added by Shaswat
+                System.out.println("Defaulting...");
+                paramobj.setCurrent_timeRadio("APCurrent");
+                obj.setDefParam(paramobj);
                 break;
 
             }
@@ -786,7 +820,6 @@ public class EditKpiControl {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.toggleBean.button_label}", "Next KPI");
 
         }
-   
         System.out.println("Data in Temp Array**** " + kpistemp);
         System.out.println("No of Items Items in the Array list*************** " + kpis.size());
         //System.out.println(kpis);
@@ -833,11 +866,30 @@ public class EditKpiControl {
         this.setTargetValuerend(kpistemp.get(0).getShowTargetValue());
         this.setLeChoice(kpistemp.get(0).getShowLEChoice());
         this.setBuChoice(kpistemp.get(0).getShowBUChoice());
+        //Added by Shaswat
+        System.out.println("Defaulting...");
+        //System.out.println(kpistemp.get(0).getDefParam().getCurrentRadio());
+        AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.timeRadio}",kpistemp.get(0).getDefParam().getTimeRadio());
+        AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.currentRadio}", kpistemp.get(0).getDefParam().getCurrentRadio());
+        AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.current_timeRadio}", kpistemp.get(0).getDefParam().getCurrent_timeRadio());
+        AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.target}", kpistemp.get(0).getDefParam().getTarget());
+        AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.target_type}", kpistemp.get(0).getDefParam().getTarget_type());
 
         // this.setTimerend(true);
 
         System.out.println("Name value " + name);
         this.setKpIText(name);
+        
+        if("PO BackLog".equals(name))
+        {
+            System.out.println("Inside DELLHITECT"+kpistemp.get(0).getName());
+            AdfmfJavaUtilities.setELValue("#{applicationScope.po_back}", "DELHITECH_US_BUSINESS_UNIT");
+        }
+        else 
+        {
+           System.out.println("Inside else DELLHITECT");
+            AdfmfJavaUtilities.setELValue("#{applicationScope.po_back}", "GLOBAL");    
+        }
 
     }
 
@@ -847,6 +899,8 @@ public class EditKpiControl {
         //http://ussltcsnl3432.solutions.glbsnet.com:7004/GetBICloud-ReportsData-context-root/resources/SCCloudReportService/result/AP_Total_Supplier_Balances_Report/CURRENT/GLOBAL/999/999/999
         System.out.println("Inside nextKpiPG page ");
         String currrentKpiname = kpistemp.get(0).getName();
+        System.out.println("currrentKpiname ..."+currrentKpiname);
+        
         System.out.println("currrentKpiname value *** " + currrentKpiname);
         System.out.println("Size of Kpi list ****** " + kpis.size());
         int indexKpi = -1;
@@ -1145,18 +1199,132 @@ public class EditKpiControl {
             }
 
 
-            System.out.println("KPIS Size in " + kpis.size());
+            System.out.println("EDIT CONTROL KPIS Size in " + kpis.size());
             System.out.println("KPIS " + kpis);
             System.out.println("suppAmt *** value " + suppAmt);
-            for (int i = 0; i < kpis.size(); i++) {
+            boolean distcust_flag = false;
+            boolean pendCust_flag = false;
+            boolean pobacklog_flag = false;
+            boolean apsupp_flag = false;
+           boolean kpiship1_flag = false;
+
+            for (int i = 0; i < kpis.size(); i++) 
+            {
                 System.out.println("Inside for");
                 System.out.println("Value of KPI Name** " + kpis.get(i).getName());
                 System.out.println("Value of Time Name** " + kpis.get(i).getTime());
                 System.out.println("Value of Org Name** " + kpis.get(i).getOrg_scope());
                 System.out.println("Value of Target Name** " + kpis.get(i).getTarget_value());
+                
+                
+                if(12 == (kpis.get(i).getPriority())) 
+                {
+                    System.out.println("Inside this.setResultDisCusRend(true);");
+                    this.setResultDisCusRend(true);
+                    distcust_flag = true;
+                }
+                else 
+                {
+                    if(!distcust_flag)
+                    {
+                    System.out.println("Inside else this.setResultDisCusRend(true);");
+                    this.setResultDisCusRend(false);
+                    }
+                }
+                
+                if(13 == (kpis.get(i).getPriority())) 
+                {
+                    System.out.println("Inside this.setResultPenCusRend(true);");
+                    this.setResultPenCusRend(true);
+                    pendCust_flag = true;
+                }
+                else 
+                {
+                    if(!pendCust_flag)
+                    {
+                        System.out.println("Inside else this.setResultPenCusRend(true);");
+                        this.setResultPenCusRend(false);
+                   }
+                }
+                if(14 == (kpis.get(i).getPriority())) 
+                {
+                    System.out.println("Inside this.setResultPOBacLogRend(true);");
+                    this.setResultPOBacLogRend(true);
+                    pobacklog_flag = true;
+                }
+                else 
+                {
+                    if(!pobacklog_flag)
+                    {
+                        System.out.println("Inside else this.setResultPOBacLogRend(true);");
+                        this.setResultPOBacLogRend(false);
+                    }
+                }
+                
+                if(11 == (kpis.get(i).getPriority())) 
+                {
+                    System.out.println("Inside this.setResultAPSupprend(true);");
+                    this.setResultAPSupprend(true);
+                    apsupp_flag = true;
+                }
+                else 
+                {
+                    if(!apsupp_flag)
+                    {
+                        System.out.println("Inside else this.setResultAPSupprend(true);");
+                        this.setResultAPSupprend(false);
+                    }    
+                }
+              
+              if(9 == (kpis.get(i).getPriority())) 
+              {
+                  this.setResultKPIShip1rend(true);
+                  kpiship1_flag = true;
+              }
+              else 
+              {
+                  if(!kpiship1_flag)
+                  {
+                      this.setResultKPIShip1rend(false);
+                  }    
+              }
 
             }
-
+            //Added by Hardik Shah for Inserting new record
+            DBAdapter db1 = new DBAdapter();
+            System.out.println("Before Insert query");
+            String username = null;
+            username = AdfmfJavaUtilities.getELValue("#{pageFlowScope.username}").toString();
+            System.out.println("username........"+username);
+            if(!"".equals(AdfmfJavaUtilities.getELValue("#{pageFlowScope.username}")))
+            {//AdfmfJavaUtilities.getELValue("#{applicationScope.LoginBean.userName}")
+             username = AdfmfJavaUtilities.getELValue("#{pageFlowScope.username}").toString();//AdfmfJavaUtilities.getELValue("#{applicationScope.LoginBean.userName}").toString();   
+             System.out.println("username inside EDITKpi Control.."+username);
+             
+            } 
+            System.out.println("kpis.size....."+kpis.size());
+            for(int i = 0;i<kpis.size();i++)
+            {
+                System.out.println("kpis Report name ..."+kpis.get(i).getReport_name());
+                try {
+                    System.out.println("Inside try kpis");
+                   ResultSet rs = db1.executeQuery("SELECT USER_NAME,ORG_VALUE,PRIORITY,REPORT_NAME,BU_NAME,LEGAL_ENITY FROM Login_Details WHERE USER_NAME = '"+username+"'");
+                   System.out.println("After resultset............."+rs);
+                   System.out.println("Inside Try...");
+                   boolean rs1 = db1.executeUpdate("INSERT INTO Login_Details (USER_NAME,REPORT_NAME,ORG_VALUE,BU_NAME,LEGAL_ENITY,PRIORITY) VALUES ('"+username+"','"+kpis.get(i).getReport_name()+"','"+kpis.get(i).getOrg_value()+"','"+kpis.get(i).getBu_name()+"','"+kpis.get(i).getLe_name()+"',"+kpis.get(i).getPriority()+")");
+                   
+               } catch (Exception e) {
+                    // TODO: Add catch code
+                    e.printStackTrace();
+                }
+               
+            //CREATE TABLE Login_Details (USER_NAME VARCHAR2(2000),REPORT_NAME VARCHAR2(2000),ORG_VALUE VARCHAR2(2000),BU_NAME VARCHAR2(2000),LEGAL_ENITY VARCHAR2(2000),PRIORITY NUMBER);
+            }
+            System.out.println("After Insert query");
+            ResultControl rc = new ResultControl();
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.priority}","21");
+            System.out.println("Priority value...");
+            rc.resultDefaultKpi(); 
             return "*showResPG";
         } else {
             System.out.println("list is not empty");
@@ -1201,7 +1369,26 @@ public class EditKpiControl {
             this.setTargetValuerend(kpistemp.get(0).getShowTargetValue());
             this.setLeChoice(kpistemp.get(0).getShowLEChoice());
             this.setBuChoice(kpistemp.get(0).getShowBUChoice());
-
+            //Added by Shaswat
+            System.out.println("Defaulting...");
+           System.out.println(kpistemp.get(0).getDefParam().getCurrentRadio());
+            AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.timeRadio}",kpistemp.get(0).getDefParam().getTimeRadio());
+           AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.currentRadio}", kpistemp.get(0).getDefParam().getCurrentRadio());
+           AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.current_timeRadio}", kpistemp.get(0).getDefParam().getCurrent_timeRadio());
+           AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.target}", kpistemp.get(0).getDefParam().getTarget());
+           AdfmfJavaUtilities.setELValue("#{applicationScope.editKPIParam.target_type}", kpistemp.get(0).getDefParam().getTarget_type());
+           
+            if("PO BackLog".equals(name))
+            {
+                System.out.println("Inside DELLHITECT"+kpistemp.get(0).getName());
+                AdfmfJavaUtilities.setELValue("#{applicationScope.po_back}", "DELHITECH_US_BUSINESS_UNIT");
+            }
+            else 
+            {
+               System.out.println("Inside else DELLHITECT");
+                AdfmfJavaUtilities.setELValue("#{applicationScope.po_back}", "GLOBAL");    
+            }
+           
             System.out.println("Name value Inside nextKpiPG****** " + name);
             this.setKpIText(name);
             return "*proc_back";
@@ -1442,4 +1629,61 @@ public class EditKpiControl {
     public String getChnship2Opa() {
         return chnship2Opa;
     }
+
+
+    public void setResultDisCusRend(boolean resultDisCusRend) {
+        boolean oldResultDisCusRend = this.resultDisCusRend;
+        this.resultDisCusRend = resultDisCusRend;
+        _propertyChangeSupport.firePropertyChange("resultDisCusRend", oldResultDisCusRend, resultDisCusRend);
+    }
+
+    public boolean isResultDisCusRend() {
+        return resultDisCusRend;
+    }
+
+
+    public void setResultPenCusRend(boolean resultPenCusRend) {
+        boolean oldResultPenCusRend = this.resultPenCusRend;
+        this.resultPenCusRend = resultPenCusRend;
+        _propertyChangeSupport.firePropertyChange("resultPenCusRend", oldResultPenCusRend, resultPenCusRend);
+    }
+
+    public boolean isResultPenCusRend() {
+        return resultPenCusRend;
+    }
+
+
+    public void setResultPOBacLogRend(boolean resultPOBacLogRend) {
+        boolean oldResultPOBacLogRend = this.resultPOBacLogRend;
+        this.resultPOBacLogRend = resultPOBacLogRend;
+        _propertyChangeSupport.firePropertyChange("resultPOBacLogRend", oldResultPOBacLogRend, resultPOBacLogRend);
+    }
+
+    public boolean isResultPOBacLogRend() {
+        return resultPOBacLogRend;
+    }
+
+
+    public void setResultAPSupprend(boolean resultAPSupprend) 
+    {
+        boolean oldResultAPSupprend = this.resultAPSupprend;
+        this.resultAPSupprend = resultAPSupprend;
+        _propertyChangeSupport.firePropertyChange("resultAPSupprend", oldResultAPSupprend, resultAPSupprend);
+    }
+
+    public boolean isResultAPSupprend() {
+        return resultAPSupprend;
+    }
+
+  public void setResultKPIShip1rend(boolean resultKPIShip1rend)
+  {
+    boolean oldResultKPIShip1rend = this.resultKPIShip1rend;
+    this.resultKPIShip1rend = resultKPIShip1rend;
+    _propertyChangeSupport.firePropertyChange("resultKPIShip1rend", oldResultKPIShip1rend, resultKPIShip1rend);
+  }
+
+  public boolean isResultKPIShip1rend()
+  {
+    return resultKPIShip1rend;
+  }
 }

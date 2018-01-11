@@ -2,6 +2,20 @@ package xxxx.MobilityApp;
 
 import oracle.adfmf.application.LifeCycleListener;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+import java.io.File;
+import SQLite.Trace;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+
+import java.io.InputStreamReader;
+
+import java.sql.Connection;
+
+import java.sql.Statement;
+
+import oracle.adfmf.util.Utility;
+
 
 /**
  * The application life cycle listener provides the basic structure for developers needing
@@ -45,6 +59,7 @@ public class LifeCycleListenerImpl implements LifeCycleListener
 {
   public LifeCycleListenerImpl()
   {
+      
   }
 
   /**
@@ -65,7 +80,75 @@ public class LifeCycleListenerImpl implements LifeCycleListener
     System.out.println("Lifecycle start");
     AdfmfJavaUtilities.setELValue("#{applicationScope.usercheck}", "No");   
     AdfmfJavaUtilities.setELValue("#{applicationScope.pwdcheck}", "No"); 
+      // Add code here...
+      try {
+          initializeDatabaseFromScript();
+        } catch (Exception e) {
+            Utility.ApplicationLogger.severe(e.getMessage());
+            throw new RuntimeException(e);
+        }
   }
+  
+    private void initializeDatabaseFromScript() throws Exception {
+      InputStream scriptStream = null;
+      Connection conn = null;
+
+      try {
+        // ApplicationDirectory returns the private read-write sandbox area
+        // of the mobile device's file system that this application can access.
+        // This is where the database is created
+        String docRoot = AdfmfJavaUtilities.getDirectoryPathRoot(AdfmfJavaUtilities.ApplicationDirectory);
+        String dbName = docRoot + "/MobilityApp.db";
+
+        // Verify whether or not the database exists.
+        // If it does, then it has already been initialized
+        // and no furher actions are required
+        File dbFile = new File(dbName);
+        if (dbFile.exists())
+          return;
+
+        // If the database does not exist, a new database is automatically
+        // created when the SQLite JDBC connection is created
+        conn = new SQLite.JDBCDataSource("jdbc:sqlite:" + docRoot + "/MobilityApp.db").getConnection();
+
+        // To improve performance, the statements are executed
+        // one at a time in the context of a single transaction
+        conn.setAutoCommit(false);
+
+        // Since the SQL script has been packaged as a resource within
+        // the application, the getResourceAsStream method is used
+        scriptStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("META-INF/Logindb.sql");
+        BufferedReader scriptReader = new BufferedReader(new InputStreamReader(scriptStream));
+        String nextLine;
+        StringBuffer nextStatement = new StringBuffer();
+
+        // The while loop iterates over all the lines in the SQL script,
+        // assembling them into valid SQL statements and executing them as
+        // a terminating semicolon is encountered
+        Statement stmt = conn.createStatement();
+        while ((nextLine = scriptReader.readLine()) != null) {
+          // Skipping blank lines, comments, and COMMIT statements
+          if (nextLine.startsWith("REM") || nextLine.startsWith("COMMIT") || nextLine.length() < 1) {
+            continue;
+          }
+
+          nextStatement.append(nextLine);
+
+          if (nextLine.endsWith(";")) {
+            stmt.execute(nextStatement.toString());
+            nextStatement = new StringBuffer();
+          }
+        }
+
+
+      } finally {
+        if (conn != null) {
+          conn.commit();
+          conn.close();
+        }
+      }
+    }
+
 
   /**
    * The stop method will be called at the termination of the application.

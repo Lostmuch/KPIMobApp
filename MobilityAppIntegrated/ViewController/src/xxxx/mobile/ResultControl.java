@@ -1,9 +1,10 @@
 package xxxx.mobile;
 
+import java.math.BigInteger;
+
 import java.util.ArrayList;
 
 import oracle.adfmf.amx.event.ActionEvent;
-import oracle.adf.mbean.share.config.runtime.webcenter.concurrent.Global; 
 
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
@@ -27,7 +28,9 @@ public class ResultControl {
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
     private boolean disCustBarRend = false;
     private boolean dispayBarRend = false;
+    
     private String getActualValue = null;
+    
 
     public ResultControl() {
         super();
@@ -38,6 +41,7 @@ public class ResultControl {
     String Output_ar = null;
     EditKpiControl kpiobj = new EditKpiControl();
     public ArrayList<KPIObject> kpisres = new ArrayList<KPIObject>();
+   
 
     public String getNextPG() {
         // Add event code here...
@@ -48,11 +52,17 @@ public class ResultControl {
         System.out.println("Next PG value..." + nextpg);
         return nextpg;
     }
-
-    public void resultKPI(ActionEvent actionEvent)
+    
+    public void resultKpi(ActionEvent actionEvent) 
     {
         // Add event code here...
+        System.out.println("Inside Result Kpi");
+        resultDefaultKpi();
 
+    }
+    
+    public void resultDefaultKpi() 
+    {
         System.out.println("Inside Result Kpi");
         String report_name = null;
         String org_value = null;
@@ -61,6 +71,8 @@ public class ResultControl {
                            AdfmfJavaUtilities.getELValue("#{pageFlowScope.priority}"));
         String priority1 = (AdfmfJavaUtilities.getELValue("#{pageFlowScope.priority}").toString());
         int priority = 0;
+        String actValue = null;
+        double actualValue = 0;
         if(priority1!=null) 
         {
             priority = Integer.parseInt(priority1);
@@ -70,23 +82,62 @@ public class ResultControl {
         System.out.println("Kpis after priority.."+AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis}"));
         kpisres = null;
         kpisres = (ArrayList) AdfmfJavaUtilities.getELValue("#{pageFlowScope.toggleBean.kpis}");
-        System.out.println("After kpisres"+kpisres);
-
+        System.out.println("After kpisres size"+kpisres.size());
+        int pos = -1;
         for (int i = 0; i < kpisres.size(); i++) 
         {
             int priority_val = kpisres.get(i).getPriority();
+            
             System.out.println("INside for priority_val  ...." + priority_val);
             if (kpisres.get(i).getPriority() == priority) 
             {
                 System.out.println("Inside for if");
                 report_name = kpisres.get(i).getReport_name();
                 System.out.println("Actual Value inside if....."+kpisres.get(i).getActual_value());
-                AdfmfJavaUtilities.setELValue("#{ResultKpiBean.getActualValue}",kpisres.get(i).getActual_value());
+                actValue = kpisres.get(i).getActual_value();
+                System.out.println("actValue ....***"+actValue);
+                if(!"".equals(actValue))
+                {
+                System.out.println("Inside Length....."+actValue.length());
+                actualValue = Double.parseDouble(actValue);
+                System.out.println("AFter Double");
+                actualValue = Math.round(actualValue * 100);
+                System.out.println("After * by 100");
+                actualValue = actualValue/100;
+                System.out.println("After divide by 100");
+                if  (actualValue >= 1000000000)
+                                {
+                                    actualValue = Double.parseDouble(actValue)/1000000000;
+                                    actualValue = Math.round(actualValue * 100);
+                                    actualValue = actualValue/100;
+                                    actValue= String.valueOf(actualValue)+'B';
+                                    AdfmfJavaUtilities.setELValue("#{ResultKpiBean.getActualValue}",actValue);   
+                                }
+                else if  (actualValue >= 1000000)
+                               {
+                                   actualValue = Double.parseDouble(actValue)/1000000;
+                                   actualValue = Math.round(actualValue * 100);
+                                   actualValue = actualValue/100;
+                                   actValue= String.valueOf(actualValue)+'M';
+                                   AdfmfJavaUtilities.setELValue("#{ResultKpiBean.getActualValue}",actValue);   
+                               }
+                else
+                {   System.out.println("VAlue zero else");              
+                    AdfmfJavaUtilities.setELValue("#{ResultKpiBean.getActualValue}",kpisres.get(i).getActual_value());
+                        
+                    }
+                }
+                System.out.println("Actual Value in mil/bil....."+actualValue+" "+actValue);
+                // AdfmfJavaUtilities.setELValue("#{ResultKpiBean.getActualValue}",kpisres.get(i).getActual_value());
+                    
                 System.out.println("Report name value inside for " + report_name);
                 org_value = kpisres.get(i).getOrg_value();
                 System.out.println("Inside if org_value" + org_value);
-
-
+                pos = i;
+                break;
+            }
+        }
+                int i = pos;
                 System.out.println("kpisres ...." + kpisres);
                 // System.out.println("kpisres value........."+kpisres.get(0).getPriority());
                 System.out.println("Name******************* " +
@@ -103,7 +154,7 @@ public class ResultControl {
                     System.out.println(" p_requestURIvalue....." + p_requestURI);
                     Output = reportService.getOutputValue(p_requestURI);
                     System.out.println("After Call ***************");
-                    //System.out.println(Output);
+                    System.out.println(Output);
                     System.out.println("Array Call ***************");
 
                     //genericTable1 = reportService.getArrayListValue(Output);
@@ -166,6 +217,7 @@ public class ResultControl {
                 // ENd of Pending Customer
 
                 if ("Total_po_backlog_amount".equalsIgnoreCase(report_name)) {
+                    System.out.println("Inside PO BAck LOG Total_po_backlog_amount");
                     String p_requestURI_ar =
                         "/Top_Five_Supplier_backlog_poamount/" + kpisres.get(i).getBu_name() + "/999/999/999/999";
                     String Output_po = reportService.getOutputValue(p_requestURI_ar);
@@ -223,24 +275,57 @@ public class ResultControl {
 
                 }
 
-                //break;
-            }
-            
-
-        }
         System.out.println("End of Result KPI");
     }
+    
+    public ArrayList<GenericObject> getRevenue() 
+        {
+            System.out.println("Inside Revenue method");
+            ArrayList<GenericObject> genericTable;
+            genericTable = new ArrayList<GenericObject>();
+            GenericObject obj = new GenericObject();
+            GenericObject obj1 = new GenericObject();
+            GenericObject obj2 = new GenericObject();
+            GenericObject obj3 = new GenericObject();
+            
+            obj.setParam4(479038.00);
+            obj.setParam3(826190);
+            obj.setParam1("AC");
+            
+            obj1.setParam4(192849.00);
+            obj1.setParam3(748299);
+            obj1.setParam1("Refrigerator");
+            
+            obj2.setParam4(320948.00);
+            obj2.setParam3(971930);
+            obj2.setParam1("Washing Machine");
+            
+            
+            obj3.setParam4(209009.00);
+            obj3.setParam3(204830);
+            obj3.setParam1("LED TV");
+            
+            genericTable.add(obj);
+            genericTable.add(obj1);
+            genericTable.add(obj2);
+            genericTable.add(obj3);
+            
+            
+            //obj.setParam2("South");
+            return genericTable;
+        }    
+
 
     public ArrayList<GenericObject> getResultData() {
 
-        System.out.println("Inside getResultdata ******* " +
+        System.out.println("Inside getResultdata AP******* " +
                            AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.generictemp}"));
         String p_jsonArray = null;
         if(AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.generictemp}")!=null)
         {
           p_jsonArray = AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.generictemp}").toString();
         }
-        System.out.println("p_jsonArray " + p_jsonArray);
+        System.out.println("AP p_jsonArray " + p_jsonArray);
         System.out.println("Before Creating Object");
         ArrayList<GenericObject> genericTable;
         genericTable = new ArrayList<GenericObject>();
@@ -257,20 +342,21 @@ public class ResultControl {
             JSONArray arrObj = jsonObj.getJSONArray("record");
             System.out.println("record json array");
 
-            System.out.println("Record Size json:" + arrObj.length());
+            System.out.println("AP Record Size json:" + arrObj.length());
             int i;
             for (i = 0; i < arrObj.length(); i++) {
                 GenericObject obj = new GenericObject();
                 System.out.println("Value for postion i " + i + " is :" + arrObj.getString(i));
-                System.out.println("PAram 1 cha value " + arrObj.getJSONObject(i).getString("PARAM1"));
-                System.out.println("PAram 2 cha value " + arrObj.getJSONObject(i).getString("PARAM2"));
+                System.out.println("AP PAram 1 cha value " + arrObj.getJSONObject(i).getString("PARAM1"));
+                System.out.println("AP PAram 2 cha value " + arrObj.getJSONObject(i).getString("PARAM2"));
                 obj.setParam1(arrObj.getJSONObject(i).getString("PARAM1"));
-                obj.setParam2(arrObj.getJSONObject(i).getString("PARAM2"));
+                //obj.setParam2(arrObj.getJSONObject(i).getString("PARAM2"));
+                obj.setParam4(arrObj.getJSONObject(i).getDouble("PARAM2"));
                 genericTable.add(obj);
                 System.out.println("Arraylist Value genericTable inside for loop " + genericTable);
             }
 
-            System.out.println("Arraylist Value genericTable afetr loop " + genericTable);
+            System.out.println("AP Arraylist Value genericTable afetr loop " + genericTable);
 
         } catch (JSONException e) {
             System.out.println("Exception occureed " + e);
@@ -316,7 +402,11 @@ public class ResultControl {
                 obj.setParam1(arrObj.getJSONObject(i).getString("PARAM1"));
                 //obj.setParam3(arrObj.getJSONObject(i).getInt("PARAM2"));
                 //obj.setParam3(10000);
-                obj.setParam4(arrObj.getJSONObject(i).getDouble("PARAM2"));
+                if ("TEST_CUST_FSI_BU".equalsIgnoreCase(arrObj.getJSONObject(i).getString("PARAM1"))){
+                    obj.setParam4(5210.12);
+                } else {
+                    obj.setParam4(arrObj.getJSONObject(i).getDouble("PARAM2"));
+                }
                 genericTable_ar.add(obj);
                 System.out.println("Arraylist Value genericTable inside for loop " + genericTable_ar);
             }
@@ -381,14 +471,15 @@ public class ResultControl {
     //Start of PO back LOG
     public ArrayList<GenericObject> getResultData_backLogPO() {
 
-       /* System.out.println("Inside getResultData_backLogPO third ******* " +
-                           AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.generic_temp_backLog}"));
-        String p_jsonArray =
-            AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.generic_temp_backLog}").toString();
-        System.out.println("PO p_jsonArray " + p_jsonArray);
-        System.out.println("PO Before Creating Object");
+        System.out.println("Inside getResultData_backLogPO third ******* " +AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.generic_temp_backLog}"));
         ArrayList<GenericObject> genericTable_po;
         genericTable_po = new ArrayList<GenericObject>();
+        if("#{applicationScope.ResultKpiBean.generic_temp_backLog}"!=null)
+        {
+        String p_jsonArray = AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.generic_temp_backLog}").toString();
+        System.out.println("PO p_jsonArray " + p_jsonArray);
+        System.out.println("PO Before Creating Object");
+        
         System.out.println("PO AFter creating object");
         try {
             System.out.println("PO Inside Try");
@@ -409,7 +500,8 @@ public class ResultControl {
                 System.out.println("po PAram 1 cha value " + arrObj.getJSONObject(i).getString("PARAM1"));
                 System.out.println("po PAram 2 cha value " + arrObj.getJSONObject(i).getString("PARAM2"));
                 obj.setParam1(arrObj.getJSONObject(i).getString("PARAM1"));
-                obj.setParam2(arrObj.getJSONObject(i).getString("PARAM2"));
+                //obj.setParam2(arrObj.getJSONObject(i).getString("PARAM2"));
+                obj.setParam4(arrObj.getJSONObject(i).getDouble("PARAM2"));
                 //obj.setParam3(10000);
                 genericTable_po.add(obj);
                 System.out.println("Arraylist Value genericTable inside for loop " + genericTable_po);
@@ -420,17 +512,54 @@ public class ResultControl {
         } catch (JSONException e) {
             System.out.println("Exception occureed " + e);
         }
+        }
         System.out.println("PO Before retrn");
-        return genericTable_po;*/
-        return null;
+        return genericTable_po;
+        
     }
     //ENd of PO Back LOG
     
-    
+    public ArrayList<GenericObject> getAccTurnover() 
+           {
+              // //System.out.println("Inside Revenue method");
+               ArrayList<GenericObject> genericTable;
+               genericTable = new ArrayList<GenericObject>();
+               GenericObject obj = new GenericObject();
+               GenericObject obj1 = new GenericObject();
+               GenericObject obj2 = new GenericObject();
+               GenericObject obj3 = new GenericObject();
+               
+               obj.setParam3(61);
+               //obj.setParam3(826190);
+               obj.setParam1("1-30 Days");
+               
+               obj1.setParam3(21);
+               //obj1.setParam3(748299);
+               obj1.setParam1("31-60 Days");
+               
+               obj2.setParam3(6);
+               //obj2.setParam3(971930);
+               obj2.setParam1("61-90 Days");
+               
+               
+               obj3.setParam3(12);
+               //obj3.setParam3(204830);
+               obj3.setParam1("91+ Days");
+               
+               genericTable.add(obj);
+               genericTable.add(obj1);
+               genericTable.add(obj2);
+               genericTable.add(obj3);
+               
+               
+               //obj.setParam2("South");
+               return genericTable;
+           }    
+
     //Start of Booked Order Report 
     public ArrayList<GenericObject> getResultData_BookedOrder() {
 
-       /* System.out.println("Inside getResultData_BookedOrder ******* " +
+        System.out.println("Inside getResultData_BookedOrder ******* " +
                            AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.KPI_SHIP1_OUT}"));
         String p_jsonArray =
             AdfmfJavaUtilities.getELValue("#{applicationScope.ResultKpiBean.KPI_SHIP1_OUT}").toString();
@@ -471,8 +600,7 @@ public class ResultControl {
             System.out.println("Exception occurred " + e);
         }
         System.out.println("PO Before retrn");
-        return generic_KPI_SHIP1_OUT;*/
-        return null;
+        return generic_KPI_SHIP1_OUT;
     }
     //ENd of Booked Order Report
     
@@ -593,8 +721,11 @@ public class ResultControl {
         return disCustBarRend;
     }
 
+
     public void setGetActualValue(String getActualValue) {
+        String oldGetActualValue = this.getActualValue;
         this.getActualValue = getActualValue;
+        _propertyChangeSupport.firePropertyChange("getActualValue", oldGetActualValue, getActualValue);
     }
 
     public String getGetActualValue() {
@@ -611,4 +742,17 @@ public class ResultControl {
         return dispayBarRend;
     }
 
+
+    public void setPropertyChangeSupport(PropertyChangeSupport _propertyChangeSupport) {
+        PropertyChangeSupport oldPropertyChangeSupport = this._propertyChangeSupport;
+        this._propertyChangeSupport = _propertyChangeSupport;
+        _propertyChangeSupport.firePropertyChange("propertyChangeSupport", oldPropertyChangeSupport,
+                                                  _propertyChangeSupport);
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return _propertyChangeSupport;
+    }
+
+    
 }

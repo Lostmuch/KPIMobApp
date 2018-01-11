@@ -27,9 +27,9 @@
       <managed-bean-class>xxxx.mobile.ResultControl</managed-bean-class>
       <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
-    <managed-bean id="__21">
-      <managed-bean-name>ResultKPIBean1</managed-bean-name>
-      <managed-bean-class>xxxx.mobile.ResultControl</managed-bean-class>
+    <managed-bean id="__27">
+      <managed-bean-name>LoginBean</managed-bean-name>
+      <managed-bean-class>xxxx.mobile.service.LoginService</managed-bean-class>
       <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
     <view id="Login">
@@ -85,6 +85,10 @@
         <from-outcome>*showNotif</from-outcome>
         <to-activity-id>Notifications</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>callResult</from-outcome>
+        <to-activity-id>resultPG</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
       <from-activity-id>EditKPI</from-activity-id>
@@ -96,6 +100,10 @@
         <from-outcome>callresultPG</from-outcome>
         <to-activity-id>resultPG</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__29">
+        <from-outcome>callHome</from-outcome>
+        <to-activity-id>Home</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__9">
       <from-activity-id>proc_KPI1</from-activity-id>
@@ -106,6 +114,10 @@
       <control-flow-case id="__22">
         <from-outcome>*proc_back</from-outcome>
         <to-activity-id>proc_KPI1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__31">
+        <from-outcome>callHome</from-outcome>
+        <to-activity-id>Home</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
@@ -145,6 +157,10 @@
       <control-flow-case id="__19">
         <from-outcome>callResultPG</from-outcome>
         <to-activity-id>resultPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome>callHome</from-outcome>
+        <to-activity-id>Home</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

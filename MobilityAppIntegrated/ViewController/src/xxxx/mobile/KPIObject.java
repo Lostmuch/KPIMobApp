@@ -350,4 +350,17 @@ public class KPIObject implements Comparable<KPIObject>{
     public Boolean getShowEndDate() {
         return showEndDate;
     }
+    
+    //Added by Shaswat
+    private editKPIParam defParam;
+
+    public void setDefParam(editKPIParam defParam) {
+        editKPIParam oldDefParam = this.defParam;
+        this.defParam = defParam;
+        _propertyChangeSupport.firePropertyChange("defParam", oldDefParam, defParam);
+    }
+
+    public editKPIParam getDefParam() {
+        return defParam;
+    }
 }

@@ -76,11 +76,17 @@ public class login_control {
     } else if (pwdcheck.equals("No")) {
         String userName = AdfmfJavaUtilities.getELValue("#{pageFlowScope.username}").toString();
         if (!userName.equals(""))
+        {
+            System.out.println("Inside username if condition");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.loginMessage}", "Enter Password");
+        }
         else
+        {
+            System.out.println("Inside username else condition");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.loginMessage}", "Enter Username/Password");
+        }
     }
-    System.out.println("LoginIn_buttonClick end");
+    System.out.println("LoginIn_buttonClick end........."+AdfmfJavaUtilities.getELValue("#{pageFlowScope.loginMessage}"));
     // AdfmfJavaUtilities.setELValue("#{pageFlowScope.loginMessage}", "");
     }
 

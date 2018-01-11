@@ -2,31 +2,77 @@
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
-    <amx:image id="i1" inlineStyle="margin-left:5px; margin-top:5px;" source="/resources/images/deloitte.png"/>
-    <amx:commandButton id="cb1" icon="/resources/images/House_Large_NEG_lo.png" styleClass="DetailsBut"/>
-  
-        <amx:tableLayout id="tl1" halign="center" width="90%" cellPadding="10">
-          <amx:rowLayout id="rl1">
-            <amx:cellFormat id="cf1" halign="start" valign="middle" width="30%" height="100%">
-              <amx:image id="i2" source="/resources/images/Inventory.png" />
-     
+  <amx:facet name="header">
+      <amx:panelGroupLayout id="pgl9" styleClass="ResultPg1">
+        <amx:tableLayout id="tl2" width="100%" halign="center">
+          <amx:rowLayout id="rl2">
+            <amx:cellFormat id="cf3" width="10%" halign="start" valign="middle">
+              <amx:commandLink id="cl1" action="__back">
+                <amx:outputHtml id="oh1" styleClass="fa fa-home  fa-2x" inlineStyle="color:#ffffff;"/>
+              </amx:commandLink>
             </amx:cellFormat>
-             <amx:cellFormat id="cf2" halign="start" valign="middle" width="70%" height="100%">
-             <amx:outputText value="Current Stock Value Reached to 100 " id="ot1"/>
-     
+            <amx:cellFormat id="cf5" width="400%" halign="center" valign="middle">
+              <amx:outputText value="Notifications" id="ot7" styleClass="headertextwhite"/>
             </amx:cellFormat>
           </amx:rowLayout>
         </amx:tableLayout>
-        
-                <amx:tableLayout id="tl2" halign="center" width="90%" cellPadding="10">
-          <amx:rowLayout id="rl2">
-            <amx:cellFormat id="cf3" halign="start" valign="middle" width="30%" height="100%">
-              <amx:image id="i3" source="/resources/images/planning.png" />
+      </amx:panelGroupLayout>
+    </amx:facet>  
+        <amx:tableLayout id="tl1" halign="center" width="90%" cellPadding="15" inlineStyle="margin-top:5%">
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1" halign="start" valign="middle" width="15%" height="100%">
+              <amx:image id="i2" source="/resources/images/Notification_icon.png" />
      
             </amx:cellFormat>
-             <amx:cellFormat id="cf4" halign="start" valign="middle" width="70%" height="100%">
-             <amx:outputText value="Forest Accuracy increased to 90%" id="ot2"/>
+             <amx:cellFormat id="cf2" halign="start" valign="middle" width="85%" height="100%">
+             <amx:outputText value="Credit Limit for Customer EDEN PRODUCTS LTD is saturated." id="ot1"
+                             styleClass="xxOpenSansMed"/>
+             <amx:outputText value="3 mins ago" id="ot3" styleClass="xxOpenSansS" inlineStyle="color: grey;"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl3">
+            <amx:cellFormat id="cf6" halign="start" valign="middle" width="15%" height="100%">
+              <amx:image id="i3" source="/resources/images/Notification_icon.png" />
      
+            </amx:cellFormat>
+             <amx:cellFormat id="cf4" halign="start" valign="middle" width="85%" height="100%">
+             <amx:outputText value="Item ABC is running below Safety level in the Derby Warehouse." id="ot2"/>
+             <amx:outputText value="1 hour ago" id="ot4" styleClass="xxOpenSansS" inlineStyle="color: grey;"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl4">
+            <amx:cellFormat id="cf7" halign="start" valign="middle" width="15%" height="100%">
+              <amx:image id="i1" source="/resources/images/Notification_icon.png" />
+     
+            </amx:cellFormat>
+             <amx:cellFormat id="cf8" halign="start" valign="middle" width="85%" height="100%">
+             <amx:outputText value="Order Booked Equivalent to $85.20M against the target of $100M  " id="ot5"/>
+             <amx:outputText value="5 hours ago" id="ot6" styleClass="xxOpenSansS" inlineStyle="color: grey;"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl5">
+            <amx:cellFormat id="cf10" halign="start" valign="middle" width="15%" height="100%">
+              <amx:image id="i4" source="/resources/images/Notification_icon.png" />   
+            </amx:cellFormat>
+             <amx:cellFormat id="cf9" halign="start" valign="middle" width="85%" height="100%">
+             <amx:outputText value="Revenue from Top 5 selling products decreased by 8% from last quarter." id="ot9"/>
+             <amx:outputText value="Yesterday" id="ot8" styleClass="xxOpenSansS" inlineStyle="color: grey;"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+           <amx:rowLayout id="rl6">
+            <amx:cellFormat id="cf11" halign="start" valign="middle" width="15%" height="100%">
+              <amx:image id="i5" source="/resources/images/Notification_icon.png" />   
+            </amx:cellFormat>
+             <amx:cellFormat id="cf12" halign="start" valign="middle" width="85%" height="100%">
+             <amx:outputText value="378 units of Item ABC under lot Number 12.4.5 of Warehouse Derby will expire in 23 days." id="ot10"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl7">
+            <amx:cellFormat id="cf13" halign="start" valign="middle" width="15%" height="100%">
+              <amx:image id="i6" source="/resources/images/Notification_icon.png" />   
+            </amx:cellFormat>
+             <amx:cellFormat id="cf14" halign="start" valign="middle" width="85%" height="100%">
+             <amx:outputText value="AMC for conveyer belts at Masquerade Unit 3 will expire in 57 days." id="ot12"/>
             </amx:cellFormat>
           </amx:rowLayout>
         </amx:tableLayout>

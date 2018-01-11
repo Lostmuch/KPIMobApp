@@ -2,6 +2,7 @@ package xxxx.mobile.service;
 
 import java.util.ArrayList;
 
+import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONException;
 import oracle.adfmf.json.JSONObject;
@@ -33,7 +34,10 @@ public class LegalEntityService {
             int bsize = buArray.length();
             
             System.out.println("ASSIGNING DEFAULT");
-            String dvalue = "Select Legal Entity";
+            //String dvalue = "Select Legal Entity";
+            String dvalue =null;
+            dvalue = "GLOBAL";
+            
             LegalEntity dobject = new LegalEntity(dvalue);
             LegalEntityList.add(dobject);
             

@@ -15,6 +15,8 @@ public class editKPIParam {
     private String timeRadio = null;
     private String scopeRadioValue1 = null;
     private String scopeRadioValue2 = null;
+    private String current_timeRadio; //Added by Shaswat
+    private String target_type; //Added by Shaswat
 
     public void setScopeRadioValue1(String scopeRadioValue1) {
         String oldScopeRadioValue1 = this.scopeRadioValue1;
@@ -129,7 +131,9 @@ public class editKPIParam {
         }
 
     public void setTimeRadio(String timeRadio) {
+        String oldTimeRadio = this.timeRadio;
         this.timeRadio = timeRadio;
+        _propertyChangeSupport.firePropertyChange("timeRadio", oldTimeRadio, timeRadio);
     }
 
     public String getTimeRadio() {
@@ -137,10 +141,33 @@ public class editKPIParam {
     }
 
     public void setTarget(String target) {
+        String oldTarget = this.target;
         this.target = target;
+        _propertyChangeSupport.firePropertyChange("target", oldTarget, target);
     }
 
     public String getTarget() {
         return target;
+    }
+
+//Added by Shaswat
+    public void setCurrent_timeRadio(String current_timeRadio) {
+        String oldCurrent_timeRadio = this.current_timeRadio;
+        this.current_timeRadio = current_timeRadio;
+        _propertyChangeSupport.firePropertyChange("current_timeRadio", oldCurrent_timeRadio, current_timeRadio);
+    }
+
+    public String getCurrent_timeRadio() {
+        return current_timeRadio;
+    }
+
+    public void setTarget_type(String target_type) {
+        String oldTarget_type = this.target_type;
+        this.target_type = target_type;
+        _propertyChangeSupport.firePropertyChange("target_type", oldTarget_type, target_type);
+    }
+
+    public String getTarget_type() {
+        return target_type;
     }
 }

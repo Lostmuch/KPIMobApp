@@ -9,8 +9,6 @@
       <property
          name="x">-42.5</property>
       <property
-         name="start">false</property>
-      <property
          name="description">&lt;html>&lt;p>&lt;b>resultPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="y">307.5918</property>
@@ -101,11 +99,11 @@
       <property
          name="activityId">proc_KPI1</property>
       <property
-         name="x">-39.5</property>
+         name="x">-33.5</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>proc_KPI1&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">64.48828</property>
+         name="y">128.78711</property>
       <property
          name="page">/proc_KPI1.amx</property>
       <property
@@ -183,7 +181,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R50,0.273605,307.2412,499.01855,304.64355,L50</property>
+         name="sdm:polyPoints">R50,2.2655718,307.24124,497.66202,304.64352,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -197,7 +195,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">B56,-294.0,117.24121,-83.5,300.2412,L42</property>
+         name="sdm:polyPoints">B58,-292.64343,118.59778,-84.85658,292.67154,L33</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -211,7 +209,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R34,-1.5,293.2412,252.6875,152.34473,L50</property>
+         name="sdm:polyPoints">R28,-0.14344978,287.81497,251.331,152.34473,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -225,7 +223,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">L50,-86.12212,307.2412,-301.0,120.41339,B44</property>
+         name="sdm:polyPoints">L44,-88.39919,302.38467,-302.35657,123.09535,B42</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -239,7 +237,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">R50,-256.5,63.24121,-80.5,64.137695,L50</property>
+         name="sdm:polyPoints">R50,-255.14343,63.24121,-75.85659,128.43654,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -253,7 +251,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R42,-0.1651634,300.2412,451.36816,187.34473,L50</property>
+         name="sdm:polyPoints">R39,1.6671805,297.5281,450.0116,187.34473,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -267,7 +265,7 @@
       <property
          name="fromsrcid">__1</property>
       <property
-         name="sdm:polyPoints">R50,-705.5,65.29297,-563.5,63.643555,L50</property>
+         name="sdm:polyPoints">R50,-704.14343,65.29296,-564.8566,63.64357,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -281,7 +279,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R58,-0.52334857,314.2412,495.69434,406.0459,L50</property>
+         name="sdm:polyPoints">R61,1.181778,316.95438,494.3378,406.0459,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -295,7 +293,7 @@
       <property
          name="fromsrcid">__9</property>
       <property
-         name="sdm:polyPoints">B50,-39.5,118.137695,-35.5,249.6894,T61</property>
+         name="sdm:polyPoints">B50,-33.5,182.43652,-35.5,253.24121,T61</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -309,7 +307,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">L58,-83.5,314.2412,-485.31934,315.2412,R50</property>
+         name="sdm:polyPoints">L67,-92.92192,321.81094,-483.96277,315.2412,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -337,7 +335,7 @@
       <property
          name="fromsrcid">__4</property>
       <property
-         name="sdm:polyPoints">R50,-481.5,63.643555,-338.5,63.24121,L50</property>
+         name="sdm:polyPoints">R39,-478.53964,53.930435,-339.85657,58.384647,L44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -351,7 +349,7 @@
       <property
          name="fromsrcid">__9</property>
       <property
-         name="sdm:polyPoints">T44,-43.0,10.137695,-36.0,10.137695,T56</property>
+         name="sdm:polyPoints">T44,-37.0,74.43652,-30.0,74.43652,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -361,7 +359,7 @@
       <property
          name="fromOutcome">showBookedOrder</property>
       <property
-         name="sdm:polyPoints">R66,-1.5,321.2412,495.35547,514.3447,L50</property>
+         name="sdm:polyPoints">R72,-0.14344978,326.6675,493.99887,514.3447,L50</property>
    </ControlFlowCase>
    <View
       id="View32">
@@ -397,5 +395,45 @@
          name="fromOutcome">callResultPG</property>
       <property
          name="sdm:polyPoints">T39,-49.5,253.24121,-42.5,253.24121,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase31"
+      from="View30"
+      to="View28">
+      <property
+         name="fromOutcome">callResult</property>
+      <property
+         name="sdm:polyPoints">R61,-480.1435,73.356705,-91.529144,312.0978,L56</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase32"
+      from="View39"
+      to="View30">
+      <property
+         name="fromOutcome">callHome</property>
+      <property
+         name="sdm:polyPoints">L56,-340.01242,68.09778,-478.6938,63.64357,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase34"
+      from="View28"
+      to="View30">
+      <property
+         name="fromOutcome">callHome</property>
+      <property
+         name="sdm:polyPoints">L50,-91.418686,307.24124,-477.39072,68.50014,R56</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="View35"
+      to="View30">
+      <property
+         name="fromOutcome">callHome</property>
+      <property
+         name="sdm:polyPoints">L54,-75.37099,131.93652,-478.2889,63.643555,R50</property>
    </ControlFlowCase>
 </SDM>

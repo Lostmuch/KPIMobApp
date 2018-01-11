@@ -7,24 +7,14 @@
             <amx:panelGroupLayout id="pgl1"  rendered="true" >
                 <amx:image id="i1" source="/Images/Image_small.png" rendered="true"
                            inlineStyle="width:80%" styleClass="LoginImage1"/>
-                <amx:outputText value="Personalized Business App" id="ot2"
-                                inlineStyle="font-size:x-large; text-align:center; margin-left:10%; margin-right:1%; color:#ffffff; font-weight:bolder;"/>
+                <amx:outputText value="My Business Insights" id="ot2"
+                                inlineStyle="font-size:x-large; text-align:center; margin-left:22%; margin-right:1%; color:#ffffff; font-weight:bolder;"/>
             </amx:panelGroupLayout>
         </amx:flexLayout>
         <!--amx:spacer id="s1" height="10"/-->
         <amx:panelFormLayout id="pfl1" rendered="true" fieldHalign="center" fieldWidth="99%" labelWidth="1%"
                              labelPosition="end" showHorizontalDividers="false" maxColumns="1"                        
-                          inlineStyle="background-color:black; border:none;">
-             <amx:panelLabelAndMessage label="" id="plam3" showRequired="false" rendered="true">
-                        <amx:tableLayout id="tl3_t1" width="100%" styleClass="result_cri">
-                            <amx:rowLayout id="rl3_r1">
-                                <amx:cellFormat id="cf3_c1" width="90%">
-                                    <amx:outputText value="#{pageFlowScope.loginMessage}" id="ot1"
-                                                    inlineStyle="color:Red;"/>
-                                </amx:cellFormat>
-                            </amx:rowLayout>
-                        </amx:tableLayout>
-                    </amx:panelLabelAndMessage>                 
+                          inlineStyle="background-color:black; border:none;">                 
             <amx:panelLabelAndMessage id="plam1" rendered="true" showRequired="false" styleClass="panelmsg">
                 <amx:tableLayout id="tl1" halign="center" width="100%" borderWidth="0" cellPadding="5" layout="fixed">
                     <amx:rowLayout id="rl1">
@@ -49,22 +39,28 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="" id="plam3" showRequired="false" rendered="true">
+                            <amx:outputText value="#{pageFlowScope.loginMessage}" id="ot1"
+                                            inlineStyle="font-size:small; text-align:leftr; margin-left:5%; margin-right:1%; color:blue;"/>
+            </amx:panelLabelAndMessage>
         </amx:panelFormLayout>
-        <amx:selectBooleanCheckbox id="sbc1" label="  Remember User  Name" styleClass="loginchkb"
+        <amx:selectBooleanCheckbox id="sbc1" label=" Remember User  Name" styleClass="loginchkb"
                                    value="#{pageFlowScope.rememberMe}"
                                    valueChangeListener="#{login_control.rememberMeChanged}"/>
-        <amx:tableLayout id="tl4" cellPadding="2" layout="weighted" halign="center" width="100%">
+        <amx:tableLayout id="tl4" cellPadding="0" layout="weighted" halign="center" width="100%">
             <amx:rowLayout id="rl4">
-                <amx:cellFormat id="cf5" width="5%"/>
+                <amx:cellFormat id="cf5" width="2%"/>
                 <amx:cellFormat id="cf4" halign="center" valign="middle" width="90%" height="40%">
                     <amx:commandButton text="Log In" id="cb1"
                                        inlineStyle="width:100%; height:auto; font-size:xx-large; background-color:#86BC25; border-radius: 25px;"
-                                       styleClass="buttonsLarge" action="showHome"/>
+                                       styleClass="buttonsLarge"
+                                       actionListener="#{login_control.loginButtonClick}"
+                                       action="#{login_control.loginNav}"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf6" width="5%"/>
             </amx:rowLayout>
         </amx:tableLayout>
         <amx:goLink text="Forgot your password ? " id="gl1"
-                    inlineStyle="font-size:medium; text-decoration:none; margin-left:5px; margin-top:20px; color:#ffffff; "/>
+                    inlineStyle="font-size:medium; text-decoration:none; margin-left:5px; margin-top:2px; color:#ffffff; "/>
     </amx:panelPage>
 </amx:view>

@@ -20,7 +20,7 @@
 }
 .headertextwhite {
     color: #ffffff !important;
-    font-size: 38px;
+    font-size: 25px;
     font-family: "Open Sans";
 }
 .amx-selectManyCheckbox.page2selectmany, .amx-selectManyCheckbox.page2selectmany .selectItemsContainer{
@@ -92,7 +92,7 @@ html[dir=rtl] .amx-selectManyCheckbox.page2selectmany .checkbox-text {
 }
 .amx-selectBooleanCheckbox.loginchkb .field-label{
     float:right;
-    margin-right:55%;
+    margin-right:45%;
     padding-left:2px;
     padding-top:16px;
     color:White;
@@ -181,6 +181,9 @@ div.wrap.amx-wrap-active, div.wrap{
     background-color:white;
 }
 
+.amx-selectOneRadio .selectItemsContainer {
+	background: #ffffff;
+}
 .amx-selectOneRadio .field-value{
     overflow:visible ;
 }
@@ -190,12 +193,55 @@ div.wrap.amx-wrap-active, div.wrap{
   border-top : none ;
 }
 
+#KPIPanel .amx-selectOneRadio .field-value {
+    font-size: 14px;
+    font-family: "Open Sans";
+}
+
+#pp1_res .amx-panelPage-footer .amx-outputText
+{
+    white-space: normal;
+    overflow: initial;
+    font-size: 15px;
+}
+
+#pp1_res .amx-panelPage-footer {
+    height: 150px;
+    background-color: #ffffff;
+    border-top:none;
+}
+
+#pp1
+.amx-panelPage-footer {
+    height: 60px;
+    background-color: #000000;
+    border-top:none;
+}
+
+#KPIPanel
+.amx-panelPage-footer {
+    height: 60px;
+    background-color: #000000;
+    border-top:none;
+}
+
+#KPIPanel .amx-inputText .field-value input, .amx-inputText .field-value textarea
+{
+    border:inset;
+}
+
 #KPIPanel .amx-selectOneRadio .amx-selectItem div.checkmark
 {
-margin-right: 10px;
-margin-left: -7px;
-margin-top: -18px;
+    margin-right: 10px;
+    margin-left: -7px;
+    margin-top: -18px;
 }
+
+
+#KPIPanel .amx-selectOneRadio .selectItemsContainer {
+    width: 50%;
+}
+
 
 #KPIPanel #soc2, #KPIPanel #soc3 ,#KPIPanel #soc4, #KPIPanel #soc5{
     padding-left:50px;
@@ -212,11 +258,6 @@ margin-top: -18px;
 
 #KPIPanel #soc3 .field-value select,#KPIPanel #soc4 .field-value select ,#KPIPanel #soc2 .field-value select,#KPIPanel #soc5 .field-value select{
     -webkit-appearance: menulist-button;
-}
-
-#pp1_res .amx-commandButton-icon {
-   width:30%;
-   height:60%;
 }
 
 .PanelProc
@@ -259,6 +300,12 @@ padding-left: 0% !important;
 {
     padding-left: 25px;
 }
+
+.amx-commandButton-icon {
+    width: 60px;
+    height: 60px;
+}
+
 .EditKPIPanel
 {
   width:100%;
@@ -275,7 +322,7 @@ padding-left: 0% !important;
 }
 .xxSubHeaderRes {
     font-family: "Open Sans";
-    font-size: x-large;
+    font-size: large;
     color: #000000;
     margin-top: 10px;
     font-weight:bold;
@@ -322,6 +369,11 @@ padding-left: 0% !important;
     color: #000000;
 }
 
+.xxOpenSansxS {
+    font-family: "Open Sans";
+    font-size: x-small;
+    color: #000000;
+}
 
 .EditKPIPanel img
 {
@@ -491,3 +543,7 @@ opacity:1;
     height:75px;
     border-radius:10px;
 }
+
+.amx-selectOneRadio .selectItemsContainer {
+	background: #fff;
+} 

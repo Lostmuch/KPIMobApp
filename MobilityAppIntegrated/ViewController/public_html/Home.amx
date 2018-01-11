@@ -5,35 +5,61 @@
         <amx:flexLayout id="fl1" orientation="vertical" itemAlignment="center" itemFlexibility="flexible"
                         itemJustification="center" styleClass="DBBackground">
             <amx:panelGroupLayout id="pgl3" styleClass="LoginImage" >
-                <amx:image id="i1" source="/Images/Dashboard_user.png" inlineStyle="width:75%;  height:75%" />
+                <amx:image id="i1" source="/resources/images/Capture.JPG" inlineStyle="width:75%;  height:75%" />
             </amx:panelGroupLayout>
         </amx:flexLayout>
         <amx:panelGroupLayout id="pgl2" styleClass="HomeButton">
-        <amx:tableLayout id="tl1" halign="center" width="100%" cellPadding="10" >
+        <amx:tableLayout id="tl1" halign="center" width="100%" cellPadding="2" >
         <amx:rowLayout id="rl1">
-                    <amx:cellFormat id="cf1" halign="center" valign="middle" width="100%" height="100%" inlineStyle="border-bottom-style:groove; border-width: 1px">
-                    <amx:commandButton id="cb-dashboard" inlineStyle="width:60%; height:100%; border-color:White; background-color:White;" icon="/resources/images/Dashboard_mydashboard.png"/>
+                    <amx:cellFormat id="cf1" halign="center" valign="middle" width="100%" height="100%" >
+                    <amx:commandButton id="cb-dashboard" inlineStyle="width:60%; height:100%; border-color:White; background-color:White;" icon="/resources/images/Dashboard_mydashboard.png"
+                                       action="#{LoginBean.getLoginCount}"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf2" halign="center" inlineStyle="border-bottom-style:groove; border-width: 1px" valign="middle" width="100%" height="100%">
+                    <amx:cellFormat id="cf2" halign="center" valign="middle" width="100%" height="100%">
                         <amx:outputText value="My Dashboard" id="ot1" styleClass="MainText"/>
                     </amx:cellFormat>
         </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:tableLayout id="tl2" halign="center" width="100%" cellPadding="2" >
+        <amx:rowLayout id="rl3">
+        <amx:cellFormat id="cf3" halign="center" valign="middle" width="100%" height="100%" inlineStyle="border-bottom-style:groove; border-width: 1px">
+                        <amx:outputText value="Choose the KPI's for your Business purpose" id="ot4" styleClass="xxOpenSansMed"/>
+        </amx:cellFormat>
+        </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:tableLayout id="tl3" halign="center" width="100%" cellPadding="2" >
         <amx:rowLayout id="rl2">
-        <amx:cellFormat id="cf4" halign="center" valign="middle" width="100%" height="100%" inlineStyle="border-bottom-style:groove; border-width: 1px">
+        <amx:cellFormat id="cf4" halign="center" valign="middle" width="100%" height="100%" >
                     <amx:commandButton id="cb-kpi" icon="/resources/images/Dasboard_KPI.png" inlineStyle="width:60%; height:100%" action="EditKPI"/>
         </amx:cellFormat>
-                    <amx:cellFormat id="cf5"  halign="center" valign="middle" width="100%" height="100%" inlineStyle="border-bottom-style:groove; border-width: 1px">
-                        <amx:outputText value="Select KPIs" id="ot2" styleClass="MainText"/>
-                    </amx:cellFormat>
-        </amx:rowLayout>
-        <amx:rowLayout id="rl4">
-        <amx:cellFormat id="cf6" halign="center" valign="middle" width="100%" height="100%" inlineStyle="border-bottom-style:groove; border-width: 1px">
-                   <amx:commandButton id="cb-notif" icon="/resources/images/Dashboard_Notifs.png"
-                               inlineStyle="width:60%; height:100%"/>
+        <amx:cellFormat id="cf5"  halign="center" valign="middle" width="100%" height="100%" >
+                    <amx:outputText value="Select KPIs" id="ot2" styleClass="MainText"/>
         </amx:cellFormat>
-        <amx:cellFormat id="cf7"  halign="center" valign="middle" width="100%" height="100%" inlineStyle="border-bottom-style:groove; border-width: 1px">
+        </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:tableLayout id="tl4" halign="center" width="100%" cellPadding="2" >
+        <amx:rowLayout id="rl5">
+        <amx:cellFormat id="cf8" halign="center" valign="middle" width="100%" height="100%" inlineStyle="border-bottom-style:groove; border-width: 1px">
+                        <amx:outputText value="Get the Insights and Gauge the Performance" id="ot5" styleClass="xxOpenSansMed"/>
+        </amx:cellFormat>
+        </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:tableLayout id="tl5" halign="center" width="100%" cellPadding="2" >
+        <amx:rowLayout id="rl4">
+        <amx:cellFormat id="cf6" halign="center" valign="middle" width="100%" height="100%" >
+                   <amx:commandButton id="cb-notif" icon="/resources/images/Dashboard_Notifs.png"
+                               inlineStyle="width:60%; height:100%" action="*showNotif"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf7"  halign="center" valign="middle" width="100%" height="100%" >
                         <amx:outputText value="Notifications" id="ot3" styleClass="MainText"/>
                     </amx:cellFormat>
+        </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:tableLayout id="tl6" halign="center" width="100%" cellPadding="2" >
+        <amx:rowLayout id="rl6">
+        <amx:cellFormat id="cf9" halign="center" valign="middle" width="100%" height="100%" inlineStyle="border-bottom-style:groove; border-width: 1px">
+                        <amx:outputText value="Get notified with alerts on the selected KPI's" id="ot6" styleClass="xxOpenSansMed"/>
+        </amx:cellFormat>
         </amx:rowLayout>
         </amx:tableLayout>
         </amx:panelGroupLayout>
