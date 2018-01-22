@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE PDefViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<PDefViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="KPIObject"
+  Version="12.2.1.22.33">
+  <DesignTime>
+    <Attr Name="_DCName" Value="xxxx.mobile.DataControls.EditKpiControl"/>
+    <Attr Name="_SDName" Value="xxxx.mobile.KPIObject"/>
+  </DesignTime>
+</PDefViewObject>
