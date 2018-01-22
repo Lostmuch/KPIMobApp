@@ -1,0 +1,598 @@
+@charset "windows-1252";
+@import url('../font-awesome-4.6.3/css/font-awesome.css');
+
+ .amx-panelPage-header {
+    border-bottom-color: #86BC25;
+    background-color: #000000;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.amx-panelPage-header .amx-outputText
+{
+        font-size: 27px;
+}
+ .amx-panelPage.loginpage
+{
+    background-size:100% 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-color: #000000; 
+}
+.headertextwhite {
+    color: #ffffff !important;
+    font-size: 25px;
+    font-family: "Open Sans";
+}
+.amx-selectManyCheckbox.page2selectmany, .amx-selectManyCheckbox.page2selectmany .selectItemsContainer{
+    border:none ;
+    background-color: rgba(0,0,0,0);
+}
+.amx-selectManyCheckbox.page2selectmany  .selectItemsContainer .amx-selectItem {
+    font-weight:700;
+    font-size:x-large;
+    color:red;
+    border:none;
+    min-height:80px;
+    width : 200px;
+}
+.page2selectmany
+{
+    height:100%;
+}
+
+.amx-selectManyCheckbox.page2selectmany .checkbox-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: red;
+  padding: 15px 16px;
+}
+
+.amx-commandButton.edit_kpi .amx-commandButton-icon
+{
+
+
+padding-bottom: 2px;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 80px;
+  height: 80px;
+
+}
+
+
+.amx-commandButton.notifications .amx-commandButton-icon
+{
+
+height: 20px;
+ padding-bottom: 2px;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 80px;
+  height: 80px;
+
+}
+
+html[dir=ltr] .amx-selectManyCheckbox.page2selectmany .checkbox {
+  float: left;
+}
+html[dir=rtl] .amx-selectManyCheckbox.page2selectmany .checkbox {
+  float: right;
+}
+html[dir=ltr] .amx-selectManyCheckbox.page2selectmany .checkbox-text {
+  text-align: center;
+}
+html[dir=rtl] .amx-selectManyCheckbox.page2selectmany .checkbox-text {
+  text-align: center;
+}
+
+.amx-selectBooleanCheckbox.loginchkb {
+    width:90%;
+    margin-top:0px;
+    margin-left:5%;
+}
+.amx-selectBooleanCheckbox.loginchkb .field-label{
+    float:right;
+    margin-right:45%;
+    padding-left:2px;
+    padding-top:16px;
+    color:White;
+}
+.amx-selectBooleanCheckbox.loginchkb .field-value{
+    width:50px;
+    float:left;
+    margin-left:-15px;
+}
+html[dir=ltr] .amx-selectBooleanCheckbox.loginchkb {
+  float: left;
+}
+html[dir=rtl] .amx-selectBooleanCheckbox.loginchkb {
+  float: right;
+}
+html[dir=ltr] .amx-selectBooleanCheckbox.loginchkb .checkbox-text {
+    text-align: center;
+    font-weight: bold; 
+    padding: 15px 16px;
+}
+html[dir=rtl] .amx-selectBooleanCheckbox.loginchkb .checkbox-text {
+  text-align: center;
+  font-weight: bold;
+   padding: 15px 16px;
+}
+
+.amx-commandButton.buttonsLarge {
+    margin: 10px 5px 10px 5px;
+    border: 1px;
+    padding: 10px 10px;
+    display: inline-block;
+    outline: 0;
+    border-radius: 1px;
+    background-image: none;
+    font-size: xx-large;
+    color: White; 
+    border-color: #002173; 
+    font-weight: bold; 
+}
+
+
+
+.amx-commandButton.buttonsLarge .amx-commandButton-label {
+  font-size: 20px;
+}
+div.wrap.amx-wrap-active, div.wrap{
+    border-bottom:none !important;
+}
+#plam1 .field-label, #plam2 .field-label{
+    padding-left:0px;
+    padding-right:0px;
+}
+#plam1 .field-value, #plam2 .field-value{
+    width:91%;
+    margin-left:4%;
+    float:left;
+    padding-left:0px;
+    padding-right:0px;
+}
+#plam1 .field-value td, #plam2 .field-value td,  #cf4{                       
+  border-radius :5px;
+}
+
+
+
+#pgl9
+{ 
+  float:right;
+}
+
+.selectItemsContainer{
+  display: -webkit-inline-box;
+  border: none !important;
+}
+
+.selectItemsContainer .field-value{
+    overflow:visible ;
+}
+
+.amx-listView-divider {
+    background-color:white;   
+
+}
+
+.amx-listItem.amx-listItem-selected, .amx-listItem:active {
+    background-color:white;
+}
+
+.amx-selectOneRadio .selectItemsContainer {
+	background: #ffffff;
+}
+.amx-selectOneRadio .field-value{
+    overflow:visible ;
+}
+.amx-selectOneRadio .selectItemsContainer .amx-selectItem{
+  background-color:white;
+  padding:3% 0% 0% 0% !important;
+  border-top : none ;
+}
+
+#KPIPanel .amx-selectOneRadio .field-value {
+    font-size: 14px;
+    font-family: "Open Sans";
+}
+
+#pp1_res .amx-panelPage-footer .amx-outputText
+{
+    white-space: normal;
+    overflow: initial;
+    font-size: 15px;
+}
+
+#pp1_res .amx-panelPage-footer {
+    height: 150px;
+    background-color: #ffffff;
+    border-top:none;
+}
+
+#pp1
+.amx-panelPage-footer {
+    height: 60px;
+    background-color: #000000;
+    border-top:none;
+}
+
+#KPIPanel
+.amx-panelPage-footer {
+    height: 60px;
+    background-color: #000000;
+    border-top:none;
+}
+
+#KPIPanel .amx-inputText .field-value input, .amx-inputText .field-value textarea
+{
+    border:inset;
+}
+
+#KPIPanel .amx-selectOneRadio .amx-selectItem div.checkmark
+{
+    margin-right: 10px;
+    margin-left: -7px;
+    margin-top: -18px;
+}
+
+
+#KPIPanel .amx-selectOneRadio .selectItemsContainer {
+    width: 50%;
+}
+
+
+#KPIPanel #soc2, #KPIPanel #soc3 ,#KPIPanel #soc4, #KPIPanel #soc5{
+    padding-left:50px;
+    width:80%;
+}
+
+#KPIPanel #soc3 .field-label, #KPIPanel #soc4 .field-label ,#KPIPanel #soc2 .field-label, #KPIPanel #soc5 .field-label{
+    padding:0px;
+}
+#KPIPanel #soc3 .field-value, #KPIPanel #soc4 .field-value ,#KPIPanel #soc2 .field-value, #KPIPanel #soc5 .field-value{
+    width:200px;
+    border:1px solid grey;
+}
+
+#KPIPanel #soc3 .field-value select,#KPIPanel #soc4 .field-value select ,#KPIPanel #soc2 .field-value select,#KPIPanel #soc5 .field-value select{
+    -webkit-appearance: menulist-button;
+}
+
+.PanelProc
+{
+    margin-left : 8px;
+    margin-top : 6%;
+}
+
+.ProcRadio
+{
+    margin-top : 4px;
+    font-family: "Open Sans";
+    font-size: medium;
+    color: #000000;
+}
+
+.ProcChoice
+{
+    margin-top : 6px;
+    font-family: "Open Sans";
+    font-size: medium;
+    color: #000000;
+}
+
+.field-label{
+padding-left: 0% !important; 
+}
+
+.EditKPIHomePanel
+{ 
+  float:right;
+}
+
+.LoginImage
+{
+    padding-left: 2px;
+}
+
+.LoginImage1
+{
+    padding-left: 25px;
+}
+
+.amx-commandButton-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.EditKPIPanel
+{
+  width:100%;
+  float:left;
+  text-align:center;
+  margin-top: 5%;
+}
+
+.xxSubHeader {
+    font-family: "Open Sans";
+    font-size: large;
+    color: #000000;
+    margin-top: 10px;
+}
+.xxSubHeaderRes {
+    font-family: "Open Sans";
+    font-size: large;
+    color: #000000;
+    margin-top: 10px;
+    font-weight:bold;
+}
+.XXtablegroove{
+    border-bottom-style:groove; 
+    border-width: 1px;
+    padding-left: 10px;
+}
+.XXcellgroove{
+    border-bottom-style:groove; 
+    border-width: 1px;
+    padding-left: 10px;
+}
+.XXicontable{
+    padding-left: 10px;
+    margin-top: 2%;
+}
+
+.xxOpenSansLarge {
+    font-family: "Open Sans";
+    font-size: large;
+    color: #000000;
+    font-weight: bold;
+    margin-top:3%;
+}
+
+.xxOpenSansMed {
+    font-family: "Open Sans";
+    font-size: medium;
+    color: #000000;
+}
+
+.xxOpenSansMedRes {
+    font-family: "Open Sans";
+    font-size: medium;
+    color: #000000;
+    font-weight: bold; 
+}
+
+.xxOpenSansS {
+    font-family: "Open Sans";
+    font-size: small;
+    color: #000000;
+}
+
+.xxOpenSansxS {
+    font-family: "Open Sans";
+    font-size: x-small;
+    color: #000000;
+}
+
+.EditKPIPanel img
+{
+  width:100%;
+  height : auto;
+}
+.HomeButton
+{
+  margin-top: 15px;
+  margin-left: 15px;
+  width:90%;
+  height : 100%;
+}
+.HomeButton img
+{
+  width: 70%;
+  height : 75px;
+}
+.MainText
+{
+  font-family: "Open Sans";
+  font-size: 20px;
+}
+
+.TextImage
+{
+
+  font-family: "Open Sans";
+  font-size: 20px;
+  color: white;
+  display: inline;
+  }
+
+
+.DBBackground
+{
+  background-image: url('../images/Background.png');
+  background-repeat: repeat;
+  background-size:100% 110%;
+}
+
+.DBBackground1
+{
+  background-color: black;
+
+}
+.EditKPIInvTab
+{
+  padding-top: 25px; 
+}
+
+
+.EditKPIButton
+{
+      width: 40%;
+      margin-top: 10px;
+      border-radius: 25px;
+      margin-right: 10px;
+}
+
+.ProcButton
+{
+   width: 40%;
+   margin-top: 10px;
+   margin-right: 10px;
+   border-radius: 25px;
+   color:White; 
+   background-color:#86BC25;
+}
+
+.EditKPIopct
+{
+opacity:0.2;
+}
+
+.ProcMain
+{
+ margin-top : 10px;
+}
+.EditKPIorg
+{
+opacity:1;
+}
+
+.DetailInv
+{
+        width: 20%;
+}
+
+
+.DetailsBut
+{
+    float : right;
+    width: 27%;
+    height: 11%;
+}
+.DetailsBut img
+{
+    width: 86%;
+    height: 76%;
+}
+
+.DetailsPanel
+{
+    float:left;
+} 
+
+.ProcIttarget .field-value{
+    border:1px solid grey;
+    width: 115px;
+    margin-right: 152px;
+    display: -webkit-inline-box;
+}
+
+.ProcIttarget .field-label
+{
+    font-size :16px;
+    padding: 6px 0px 17px 1px !important;
+    font-family: "Open Sans";
+}
+
+.ResultPg
+{
+    float: right;
+    text-align: center;
+    width: 15%;
+    margin-right: 6px;
+    margin-top: 4px;
+    
+}
+
+.ResultPg1
+{
+    float: right;
+    width: 100%;
+    text-align: center;     
+    margin-right: 5px;
+    margin-top: 4px;
+}
+
+.ResultPg1 img 
+{
+    margin-left: 15px;
+}
+.ResultInv
+{
+    padding-top: 17px !important;
+    padding-left: 5px !important;
+}
+
+.Result_Shipping
+{
+        padding-left: 6px !important;
+
+}
+
+.result_cri table
+{
+    width :100%;
+    border:none!important;
+}
+
+ .result_cri td
+ {
+     text-align : center;
+ }
+  .result_cri tr:first-child td {
+    text-align:left;
+    padding-left:5px;
+    font-size: 20px;
+  }
+
+.result_cri
+{
+        margin-top: 5px;
+        margin-bottom: 5px;
+}
+
+#cb-dashboard, #cb-kpi, #cb-notif{
+    min-height: 85px;
+}
+
+#cb-dashboard img, #cb-kpi img, #cb-notif img { 
+    height:75px;
+    border-radius:10px;
+}
+
+.amx-selectOneRadio .selectItemsContainer {
+	background: #fff;
+} 
+#pglNetProfitByProd{
+    height: 73.0%;
+}
+#pglNetProfitByProd > div, #barChartNetProfitByProd{
+    height: 100.0%;
+}
+
+#pgNetProfitByProdHeader > div{
+    padding-top: 6%;
+}
+
+#pgl23 > div,#pgl32 > div ,#pgl35 > div,#pgl42 > div{
+   padding-top: 2%;
+}
+
+#pgl12 {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+#pgl12 > table > tbody > tr > td{
+    vertical-align: top;
+}
+
+#pgl12 > table > tbody > tr > td> div{
+    width: 90px
+}
+
+#pgl33 > yAxis {
+font-weight : bold;
+}
