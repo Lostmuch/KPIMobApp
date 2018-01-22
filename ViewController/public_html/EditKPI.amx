@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1"
+                   inlineStyle="border-left-color:InfoText; border-left-width:medium; border-left-style:solid; border-right-color:InfoText; border-right-style:solid; background-color:White; min-height:0%;">
+        <amx:facet name="header">
+            <amx:panelGroupLayout id="pgl9" styleClass="EditKPIHomePanel">
+                <amx:tableLayout id="tl2" width="100%" halign="center">
+                    <amx:rowLayout id="rl2">
+                        <amx:cellFormat id="cf3" width="10%" halign="start" valign="middle">
+                            <amx:commandLink id="cl1" action="callHome">
+                                <amx:outputHtml id="oh1" styleClass="fa fa-home  fa-2x" inlineStyle="color:#ffffff;"/>
+                            </amx:commandLink>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf5" width="110%" halign="center" valign="middle">
+                            <amx:outputText value="KPI" id="ot7" styleClass="headertextwhite"
+                                            />
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+        </amx:facet>
+        <amx:panelGroupLayout id="pgl6" styleClass="EditKPIPanel">
+            <amx:tableLayout id="tl3" width="90%" halign="center" styleClass="XXtablegroove" >
+                <amx:rowLayout id="rl8">
+                    <amx:cellFormat id="cf10" width="90%" halign="start" valign="middle">
+                        <amx:outputText value="Inventory" id="ot18" styleClass="xxSubHeader"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+       <amx:panelGroupLayout id="pgl12" layout="horizontal" halign="start" inlineStyle="width:100%;" >
+            <amx:panelGroupLayout id="pgl17" layout="vertical" halign="center" inlineStyle="width:100%;" scrollPolicy="scroll" > 
+            <amx:tableLayout id="tl4" width="150%" halign="start" styleClass="XXicontable">
+                <amx:rowLayout id="rl9">
+                    <amx:cellFormat id="cf19" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb7" action="#{pageFlowScope.toggleBean.changeInventOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnInvntopa}"
+                                           inlineStyle="width:60%; height:100%" icon="/resources/images/Icon1.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf6" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb9" action="#{pageFlowScope.toggleBean.changeStkOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnStkopa}"
+                                           inlineStyle="width:60%; height:100%" icon="/resources/images/Icon2.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf7" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb10" action="#{pageFlowScope.toggleBean.changeObsoloteOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnObsoleteopa}"
+                                           inlineStyle="width:60%; height:100%" icon="/resources/images/Icon3.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf4" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb5" 
+                                           inlineStyle="width:60%; height:100%" icon="/resources/images/Percent_1.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf59" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb28" 
+                                           inlineStyle="width:60%; height:100%" icon="/resources/images/Picture9.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf60" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb29" 
+                                           inlineStyle="width:60%; height:100%" icon="/resources/images/Picture10.png"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl111">
+                    <amx:cellFormat id="cf21" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Inventory Turnover" id="ot8" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf22" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Stock Out" id="ot10" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf23" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Inventory Value" id="ot11" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf36" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Goods Sold Throughput" id="ot5" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf61" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Storage Utilization" id="ot32" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf62" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Damaged Inventory Cost" id="ot33" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl7" styleClass="EditKPIPanel">
+            <amx:tableLayout id="tl5" width="90%" halign="center" styleClass="XXtablegroove">
+                <amx:rowLayout id="rl3">
+                    <amx:cellFormat id="cf8" width="90%" halign="start" valign="middle">
+                        <amx:outputText value="Order Management" id="ot2" styleClass="xxSubHeader"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="start" inlineStyle="width:100%;" >
+            <amx:panelGroupLayout id="pgl4" layout="vertical" halign="center" inlineStyle="width:100%;" scrollPolicy="scroll" >
+            <amx:tableLayout id="tl6" width="150%" halign="start" styleClass="XXicontable">
+                <amx:rowLayout id="rl4">
+                    <amx:cellFormat id="cf9" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb12" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Icon4.png"
+                                           action="#{pageFlowScope.toggleBean.chnInvSalesOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnInvSalesopa}"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf12" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb13" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Icon5.png"
+                                           action="#{pageFlowScope.toggleBean.chnInvSalesOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnInvSalesopa}"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf37" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb6" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Asset_1.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf45" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb18" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Picture2.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf55" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb26" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Picture7.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf56" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb27" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Picture8.png"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl112">
+                    <amx:cellFormat id="cf24" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Top 5 Customers" id="ot14" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf25" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Top 5 Sales Products" id="ot15" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf38" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Order Processing Time" id="ot6" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf46" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Best Seller Products by Sales Revenue" id="ot21" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf57" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Backorder Dollars/Units" id="ot30" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf58" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Unit Cost: Order Fulfillment" id="ot31" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl8" layout="horizontal" styleClass="EditKPIPanel">
+            <amx:tableLayout id="tl7" width="90%" halign="center" styleClass="XXtablegroove">
+                <amx:rowLayout id="rl5">
+                    <amx:cellFormat id="cf15" width="90%" halign="start" valign="middle">
+                        <amx:outputText value="Financials" id="ot16" styleClass="xxSubHeader"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl5" layout="horizontal" halign="start" inlineStyle="width:100%;" >
+            <amx:panelGroupLayout id="pgl10" layout="vertical" halign="center" inlineStyle="width:100%;" scrollPolicy="scroll" >
+            <amx:tableLayout id="tl8" width="175%" halign="start" styleClass="XXicontable">
+                <amx:rowLayout id="rl10">
+                    <amx:cellFormat id="cf13" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb14" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Bills_1.png"
+                                           action="#{pageFlowScope.toggleBean.changeOutSuppOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnSuppOpa}"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf14" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb16" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Icon7.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf11" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb15" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Icon8.png"
+                                           action="#{pageFlowScope.toggleBean.changeDisCustOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnDisCustOpa}"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf1" height="25%" width="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb4" icon="/resources/images/Icon6.png"
+                                           action="#{pageFlowScope.toggleBean.changePendCustPayOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnpendCustpayOpa}"
+                                           inlineStyle="width:60%; height:100%"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf47" height="25%" width="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb22" icon="/resources/images/Picture4.png"
+                                           inlineStyle="width:60%; height:100%"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf51" height="25%" width="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb24" icon="/resources/images/Picture5.png"
+                                           inlineStyle="width:60%; height:100%"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf52" height="25%" width="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb25" icon="/resources/images/Picture6.png"
+                                           inlineStyle="width:60%; height:100%"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl113">
+                    <amx:cellFormat id="cf26" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Top 10 AP Suppliers" id="ot17" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf27" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="AP Aging Buckets" id="ot20" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf28" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Disputed Customer Payments" id="ot19" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf2" height="25%" width="25%" halign="center" valign="middle">
+                        <amx:outputText value="Pending Customer Payments" id="ot4" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf48" height="25%" width="25%" halign="center" valign="middle">
+                        <amx:outputText value="Account Receivables Turnover" id="ot22" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf53" height="25%" width="25%" halign="center" valign="middle">
+                        <amx:outputText value="Net Profit" id="ot24" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf54" height="25%" width="25%" halign="center" valign="middle">
+                        <amx:outputText value="Refunds Pending Approval" id="ot29" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl1" styleClass="EditKPIPanel">
+            <amx:tableLayout id="tl9" width="90%" halign="center" styleClass="XXtablegroove">
+                <amx:rowLayout id="rl6">
+                    <amx:cellFormat id="cf16" width="90%" halign="start" valign="middle">
+                        <amx:outputText value="Shipping" id="ot25" styleClass="xxSubHeader"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl11" layout="horizontal" halign="start" inlineStyle="width:100%;" >
+            <amx:panelGroupLayout id="pgl13" layout="vertical" halign="center" inlineStyle="width:100%;" scrollPolicy="scroll" >
+            <amx:tableLayout id="tl10" width="150%" halign="start" styleClass="XXicontable">
+                <amx:rowLayout id="rl7">
+                    <amx:cellFormat id="cf17" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb19" inlineStyle="width:60%; height:100%"
+                                                                                     icon="/resources/images/Icon11.png"
+                                           action="#{pageFlowScope.toggleBean.changeOrdersYTDOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnYTDOpa}"
+                                           />
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf18" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb20" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Icon9.png"
+                                           />
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf20" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb21" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Icon10.png" />
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf43" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb17" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Truck.png" />
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf63" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb30" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Picture11.png" />
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf64" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:commandButton id="cb31" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Picture12.png" />
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl114">
+                    <amx:cellFormat id="cf29" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Booked Orders" id="ot26" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf30" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Back-log Summary" id="ot27" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf31" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="On-Time Delivery" id="ot28" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf44" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Freight Cost" id="ot13" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf65" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Late Shipments" id="ot34" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf66" width="25%" height="25%" halign="center" valign="middle">
+                        <amx:outputText value="Transit Time" id="ot35" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl3" styleClass="EditKPIPanel">
+            <amx:tableLayout id="tl19" width="90%" halign="center" styleClass="XXtablegroove">
+                <amx:rowLayout id="rl19">
+                    <amx:cellFormat id="cf33" width="90%" halign="start" valign="middle">
+                        <amx:outputText value="Procurement" id="ot1" styleClass="xxSubHeader"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl14" layout="horizontal" halign="start" inlineStyle="width:100%;" >
+            <amx:panelGroupLayout id="pgl15" layout="vertical" halign="center" inlineStyle="width:100%;" scrollPolicy="scroll" >
+            <amx:tableLayout id="tl1" width="150%" halign="start" styleClass="XXicontable">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat id="cf34" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:commandButton id="cb3" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Icon9.png"
+                                           action="#{pageFlowScope.toggleBean.changepoBackLogOpacity}"
+                                           styleClass="#{pageFlowScope.toggleBean.chnpoBackLogOpa}"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf39" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:commandButton id="cb8" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/PieChart.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf40" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:commandButton id="cb11" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Sort_Desc.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf49" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:commandButton id="cb23" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Picture3.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf67" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:commandButton id="cb32" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Picture13.png"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf68" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:commandButton id="cb33" inlineStyle="width:60%; height:100%"
+                                           icon="/resources/images/Picture14.png"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl11">
+                    <amx:cellFormat id="cf35" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:outputText value="PO Backlog" id="ot3" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf41" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:outputText value="Total Spend - Item Category" id="ot9" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf42" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:outputText value="Top 5 Low Perf Customer" id="ot12" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf50" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:outputText value="Non-Contract Purchase Rate" id="ot23" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf69" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:outputText value="Supplier Performance" id="ot36" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf70" width="25%" height="100%" halign="center" valign="middle">
+                        <amx:outputText value="Payment Processing Time" id="ot37" styleClass="xxOpenSansS"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+     </amx:panelGroupLayout>
+        <amx:facet name="footer">
+        <amx:panelGroupLayout id="pg20" styleClass="EditKPIPanel" inlineStyle = "margin-top:0%">
+            <amx:tableLayout id="tl11" width="100%" halign="center">
+                <amx:rowLayout id="rl30">
+                    <amx:cellFormat id="cf32" width="100%" halign="center" valign="middle">
+                        <amx:commandButton text="Cancel" id="cb1" inlineStyle="color:White; background-color:#86BC25;"
+                                           action="__back" styleClass="EditKPIButton"/>
+                        <amx:commandButton text="Submit" id="cb2" inlineStyle="color:White; background-color:#86BC25;"
+                                           action="*show_proc_kpi" styleClass="EditKPIButton"
+                                           actionListener="#{pageFlowScope.toggleBean.onSubmit}"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        </amx:facet>
+    </amx:panelPage>
+</amx:view>

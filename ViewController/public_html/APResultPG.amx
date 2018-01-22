@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+          <amx:facet name="header">
+            <amx:panelGroupLayout id="pgl9" styleClass="EditKPIHomePanel">
+                <amx:tableLayout id="tl2" width="100%" halign="center">
+                    <amx:rowLayout id="rl2">
+                        <amx:cellFormat id="cf3" width="10%" halign="start" valign="middle">
+                            <amx:commandLink id="cl1" action="__back">
+                                <amx:outputHtml id="oh1" styleClass="fa fa-home  fa-2x" inlineStyle="color:#ffffff;"/>
+                            </amx:commandLink>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf5" width="110%" halign="center" valign="middle">
+                            <amx:outputText value="Top 10 Outstanding Suppliers" id="ot7" styleClass="headertextwhite" inlineStyle="font-size=15px  "/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelGroupLayout>
+        </amx:facet>
+    <amx:spacer id="s1" height="20" width="20"/>
+    <amx:panelGroupLayout id="pgl2" inlineStyle="background-color:#C3D2EB;" rendered="false">
+      <amx:listView var="row" value="#{bindings.supplierList.collectionModel}"
+                    fetchSize="#{bindings.supplierList.rangeSize}"
+                    selectedRowKeys="#{bindings.supplierList.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.supplierList.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.supplierList.collectionModel.makeCurrent}"
+                    showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
+                    inlineStyle="background-color:#C3D2EB;">
+        <amx:listItem id="li1" inlineStyle="background-color:#C3D2EB;">
+          <amx:outputText value="#{row.element}" id="ot2"/>
+        </amx:listItem>
+      </amx:listView>
+      <amx:listView var="row" value="#{bindings.supplierList1.collectionModel}"
+                    fetchSize="#{bindings.supplierList1.rangeSize}"
+                    selectedRowKeys="#{bindings.supplierList1.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.supplierList1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.supplierList1.collectionModel.makeCurrent}"
+                    showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2"
+                    inlineStyle="background-color:#C3D2EB;" dividerMode="all">
+        <amx:listItem id="li2" inlineStyle="background-color:#C3D2EB;">
+          <amx:tableLayout id="tl1" width="100%">
+            <amx:rowLayout id="rl1">
+              <amx:cellFormat id="cf1" halign="start" width="70%">
+                <amx:outputText value="#{row.supplier_name}" id="ot4" inlineStyle="font-weight:bolder;"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf10" width="10%">
+                <amx:spacer id="s2" height="20" width="30" inlineStyle="margin-right: 200px"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf2" halign="start" width="20%">
+                <amx:outputText value="#{row.supp_amt}" id="ot5"
+                                inlineStyle="font-weight:bolder; color:Red;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:listItem>
+      </amx:listView>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl3" rendered="true" inlineStyle="background-color:#FFFFFF;">
+      <amx:tableLayout id="tl4" width="100%" inlineStyle="border-collapse: collapse" borderWidth="1">
+      <amx:rowLayout id="rl4" >
+          <amx:cellFormat id="cf7" width="72%" inlineStyle="background-color:#86BC25;">
+              <amx:outputText value="Supplier Name" id="ot1"
+                              inlineStyle="font-weight:normal; font-size:large;
+                              color:White;background-color:#86BC25;margin:2%"
+                              styleClass="xxSubHeader"/>
+          </amx:cellFormat>
+
+          <amx:cellFormat id="cf9" width="28%" inlineStyle="background-color:#86BC25;">
+              <amx:outputText value="Amt. in $" id="ot8"
+                              inlineStyle="font-weight:normal; font-size:large;
+                              color:White;background-color:#86BC25;margin:2%"
+                              styleClass="xxSubHeader"/>
+          </amx:cellFormat>
+      </amx:rowLayout>
+  </amx:tableLayout>
+      <amx:listView var="row" value="#{bindings.resultData.collectionModel}"
+                    fetchSize="#{bindings.resultData.rangeSize}"
+                    selectedRowKeys="#{bindings.resultData.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.resultData.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.resultData.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                    bufferStrategy="viewport" id="lv3" inlineStyle="background-color:#FFFFFF;">
+        <amx:listItem id="li3" inlineStyle="background-color:#FFFFFF;padding-top:0px;padding-bottom:0px;min-height:0px;border-bottom:solid 0px;border-top: solid 0px;top: 0px; 
+    margin-bottom: 0px;">
+          <amx:tableLayout id="tl3" width="100%" inlineStyle="border-collapse: collapse" borderWidth="0">
+            <amx:rowLayout id="rl3">
+              <amx:cellFormat id="cf4" width="75%">
+                <amx:outputText value="#{row.param1}" id="ot3" inlineStyle="font-weight:normal; font-size:small;"
+                styleClass="xxSubHeader"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf8">
+                <amx:spacer id="s3" height="5" width="5"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf6" width="25%">
+                <amx:outputText value="#{row.param2}" id="ot6"
+                                inlineStyle="font-weight:normal; color:Black; font-size:small;" styleClass="xxSubHeader"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:listItem>
+      </amx:listView>
+    </amx:panelGroupLayout>
+     <amx:facet name="footer">
+        <amx:panelGroupLayout id="pg289" styleClass="EditKPIPanel" inlineStyle = "margin-top:0%">
+            <amx:tableLayout id="tl11" width="100%" halign="center">
+                <amx:rowLayout id="rl31">
+                    <amx:cellFormat id="cf325" width="100%" halign="center" valign="middle"> 
+                        <amx:commandButton text="Back" id="cb1" action="__back" styleClass="ProcButton"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        </amx:facet>
+  </amx:panelPage>
+</amx:view>
