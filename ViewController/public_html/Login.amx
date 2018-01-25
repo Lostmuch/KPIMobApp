@@ -21,7 +21,7 @@
                         <amx:cellFormat id="cf1" halign="center" valign="middle" height="60%" width="100%"
                                         inlineStyle="background-color:#e7e7e7;">
                             <amx:inputText id="it3" hintText="User Name" inputType="text"
-                                           value="#{pageFlowScope.username}" required="true" showClear="on"
+                                           value="#{applicationScope.username}" required="true" showClear="on"
                                            valueChangeListener="#{login_control.usernameChanged}"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
@@ -33,7 +33,7 @@
                         <amx:cellFormat id="cf2" halign="center" valign="middle" height="60%" width="100%"
                                         inlineStyle="background-color:#e7e7e7;">
                             <amx:inputText id="it4" hintText="Password" inputType="text" secret="true"
-                                           value="#{pageFlowScope.password}" required="true" showClear="on"
+                                           value="#{applicationScope.password}" required="true" showClear="on"
                                            valueChangeListener="#{login_control.passwordChanged}"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
@@ -43,10 +43,26 @@
                             <amx:outputText value="#{pageFlowScope.loginMessage}" id="ot1"
                                             inlineStyle="font-size:small; text-align:leftr; margin-left:5%; margin-right:1%; color:blue;"/>
             </amx:panelLabelAndMessage>
+                        <amx:panelLabelAndMessage id="plam4">
+                <amx:tableLayout id="tl3" halign="start" borderWidth="0" cellPadding="0" width="100%">
+                    <amx:rowLayout id="rl3">
+                        <amx:cellFormat id="cf3" halign="start" width="10%">
+                            <amx:selectBooleanCheckbox id="sbc2"
+                                                       valueChangeListener="#{applicationScope.login_control.rememberMeChanged}"
+                                                       value="#{applicationScope.rememberMe}"
+                                                       inlineStyle="text-align:start; text-decoration:White;"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf7" width="90%" halign="start">
+                            <amx:outputText value="Remember credentials" id="ot5"
+                                            inlineStyle="font-size:medium; text-decoration:none; margin-left:5px; margin-top:2px; color:#ffffff;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:panelLabelAndMessage>
         </amx:panelFormLayout>
         <amx:selectBooleanCheckbox id="sbc1" label=" Remember User  Name" styleClass="loginchkb"
                                    value="#{pageFlowScope.rememberMe}"
-                                   valueChangeListener="#{login_control.rememberMeChanged}"/>
+                                   valueChangeListener="#{login_control.rememberMeChanged}" rendered="false"/>
         <amx:tableLayout id="tl4" cellPadding="0" layout="weighted" halign="center" width="100%">
             <amx:rowLayout id="rl4">
                 <amx:cellFormat id="cf5" width="2%"/>
