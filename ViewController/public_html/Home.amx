@@ -5,8 +5,17 @@
         <amx:flexLayout id="fl1" orientation="vertical" itemFlexibility="flexible" styleClass="DBBackground1"
                         itemJustification="center" itemAlignment="center">
             <amx:panelGroupLayout id="pgl3" styleClass="LoginImage" halign="start">
-                <amx:image id="i1" source="/resources/images/Capture.JPG" inlineStyle="width:55%;  height:55% display:inline;" />
-                 <amx:outputText value="Welcome Nisha" id="otHi" styleClass="TextImage"/>
+            <amx:tableLayout id="tl111" halign="center" width="100%" cellPadding="2" >
+              <amx:rowLayout id="rl111">
+                    <amx:cellFormat id="cf111" halign="start" valign="middle" width="50%" height="100%" >
+                       <amx:image id="i1" source="/resources/images/Capture.JPG" inlineStyle="width:100%;  height:100% display:inline;" />
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf10" halign="center" valign="middle" width="50%" height="100%" >
+                       <amx:outputText value="Welcome Joe Rick " id="otHi" styleClass="TextImage"/>
+                       <amx:outputText value="Retail VP" id="ot7" styleClass="TextImage"/>
+                    </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
             </amx:panelGroupLayout>
         </amx:flexLayout>
         <amx:panelGroupLayout id="pgl2" styleClass="HomeButton">
