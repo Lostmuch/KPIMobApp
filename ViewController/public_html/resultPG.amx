@@ -192,6 +192,8 @@
                 <dvtm:yAxis id="ya2" title="Amount"/>
             </dvtm:barChart>
         </amx:panelGroupLayout>
+        
+        
         <amx:panelGroupLayout id="pgl8" rendered="#{pageFlowScope.priority==14}">
             <amx:spacer id="s5" width="100" height="1"/>
         </amx:panelGroupLayout>
@@ -367,6 +369,7 @@
                 </amx:rowLayout>
             </amx:tableLayout>
         </amx:panelGroupLayout>
+		
         <amx:panelGroupLayout id="pgl28" rendered="#{pageFlowScope.priority==1}">
             <dvtm:pieChart id="pieChart2" var="row" value="#{bindings.accTurnover.collectionModel}"
                            inlineStyle="height:350px">
@@ -376,6 +379,9 @@
                 </amx:facet>
             </dvtm:pieChart>
         </amx:panelGroupLayout>
+		
+		
+		
         <amx:panelGroupLayout id="pgl31" rendered="#{pageFlowScope.priority==99}">
             <amx:spacer id="s8" width="100" height="1"/>
         </amx:panelGroupLayout>
@@ -439,6 +445,44 @@
             </dvtm:barChart>
         </amx:panelGroupLayout>
        
+	   <amx:panelGroupLayout id="pgTotalSalesByDivision"
+                              inlineStyle="border-style:groove;height:18%;border-width: 1px;width:90%;margin-left:5%;margin-bottom:5%;background-color:#002147;"
+                              valign="middle" rendered="#{pageFlowScope.priority==10}">
+            <amx:tableLayout id="tTotalSalesByDivision" width="90%" halign="center">
+                <amx:rowLayout id="rTotalSalesByDivision">
+                    <amx:cellFormat id="cTotalSalesByDivision" width="100%" inlineStyle="padding:2%;" halign="center"
+                                    valign="middle">
+                        <amx:outputText value="Sales By Division" id="otTotalSalesByDivision"
+                                        inlineStyle="font-weight:bold;margin-top:5%;color:#ffffff;"
+                                        styleClass="xxOpenSansLarge"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        
+        <amx:panelGroupLayout id="pgbcTotalSalesByDivision" rendered="#{pageFlowScope.priority==10}">
+        <dvtm:barChart id="barChartTotalSalesByDivision" var="row" value="#{bindings.totalSalesByDivision.collectionModel}" inlineStyle="height:300px; fill:no-fill;">
+                <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                <dvtm:legend id="l12" position="top" >
+                <legendSection id="lsTotalSalesByDivision" source= "agTotalSalesByDivision">
+                        <?audit suppress oracle.ide.xml.validation-warning?>
+                    </legendSection>
+                </dvtm:legend>
+            <amx:facet name="seriesStamp">
+              <dvtm:seriesStyle series="#{bindings.totalSalesByDivision.hints.param4.label}" 
+            displayInLegend="off" id="ssTotalSalesByDivision"/>
+            </amx:facet>    
+            <amx:facet name="dataStamp" >
+                <dvtm:chartDataItem id="di10" series="#{bindings.totalSalesByDivision.hints.param4.label}"
+                                    value="#{row.param4}" group="#{row.param1}" markerDisplayed="true"
+                                    labelPosition="aboveMarker" label="#{row.param4}">
+                  <dvtm:attributeGroups id='agTotalSalesByDivision' type="color" value="#{row.param1}" />
+                
+                </dvtm:chartDataItem>                     
+            </amx:facet>
+             <dvtm:yAxis id="yaTotalSalesByDivision" title="$"></dvtm:yAxis>
+        </dvtm:barChart>
+         </amx:panelGroupLayout>
         <amx:panelGroupLayout id="pgl35" rendered="#{pageFlowScope.priority==97}"
                               inlineStyle="border-style:groove;height:18%;border-width: 1px;width:90%;margin-left:5%;margin-bottom:5%;background-color:#002147;"
                               valign="middle">
@@ -608,6 +652,16 @@
                             <amx:setPropertyListener id="spl11" from="1" to="#{pageFlowScope.priority}" type="action"/>
                         </amx:commandButton>
                         <amx:outputText value="Account Receivables Turnover" id="ot33" rendered="true"
+                                        styleClass="xxOpenSansxS"/>
+                    </amx:panelGroupLayout>
+					
+                    <amx:panelGroupLayout id="pgltotalSalesByDivision" layout="vertical" halign="start"
+                                          inlineStyle="">
+                        <amx:commandButton id="cbtotalSalesByDivision" actionListener="#{ResultKpiBean.resultKpi}"
+                                           icon="/resources/images/TotalSalesByDivision.png" rendered="true">
+                            <amx:setPropertyListener id="sptotalSalesByDivision" from="10" to="#{pageFlowScope.priority}" type="action"/>
+                        </amx:commandButton>
+                        <amx:outputText value="Sales By Division" id="ot51" rendered="true"
                                         styleClass="xxOpenSansxS"/>
                     </amx:panelGroupLayout>
                     

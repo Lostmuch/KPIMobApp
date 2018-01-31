@@ -574,6 +574,9 @@ opacity:1;
 #pgNetProfitByProdHeader > div{
     padding-top: 6%;
 }
+#pgTotalSalesByDivision > div{
+ padding-top: 6%;
+}
 
 #pgl23 > div,#pgl32 > div ,#pgl35 > div,#pgl42 > div{
    padding-top: 2%;

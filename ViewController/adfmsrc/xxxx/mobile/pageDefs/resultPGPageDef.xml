@@ -52,6 +52,9 @@
                       DataControl="ResultControl1" BeanClass="xxxx.mobile.GenericObject" id="avgSalesPSFIterator"/>
     <accessorIterator MasterBinding="ResultControl1Iterator" Binds="CLV" RangeSize="-1" DataControl="ResultControl1"
                       BeanClass="xxxx.mobile.GenericObject" id="CLVIterator"/>
+    <accessorIterator MasterBinding="ResultControlIterator" Binds="totalSalesByDivision" RangeSize="-1"
+                      DataControl="ResultControl" BeanClass="xxxx.mobile.GenericObject"
+                      id="totalSalesByDivisionIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="addedKPISIterator" id="addedKPIS">
@@ -201,6 +204,14 @@
           <Item Value="param4"/>
           <Item Value="param1"/>
           <Item Value="param3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="totalSalesByDivisionIterator" id="totalSalesByDivision" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="xxxx.mobile.GenericObject" Name="totalSalesByDivision">
+        <AttrNames>
+          <Item Value="param4"/>
+          <Item Value="param1"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

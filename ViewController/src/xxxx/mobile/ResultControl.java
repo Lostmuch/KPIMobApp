@@ -764,7 +764,39 @@ public class ResultControl {
                   
           return genericTable;
       }
+    public ArrayList<GenericObject> getTotalSalesByDivision() 
+      {
+          System.out.println("Inside getTotalSalesByDivision method");
+          ArrayList<GenericObject> genericTable;
+          genericTable = new ArrayList<GenericObject>();
+          GenericObject obj = new GenericObject();
+          GenericObject obj1 = new GenericObject();
+          GenericObject obj2 = new GenericObject();
+          GenericObject obj3 = new GenericObject();          
+          
+                     
+          obj.setParam4(900000.00);
+          obj.setParam1("R Fresh");
 
+          obj1.setParam4(700000.00);
+          obj1.setParam1("R Trends");
+   
+        
+          obj2.setParam4(1100000.00);
+          obj2.setParam1("R Digital");
+  
+          
+          obj3.setParam4(500000.00);
+          obj3.setParam1("R Jewels");
+       
+          
+          genericTable.add(obj);
+          genericTable.add(obj1);
+          genericTable.add(obj2);
+          genericTable.add(obj3);
+                  
+          return genericTable;
+      }
     public ArrayList<GenericObject> getCLV() 
                 {
                     System.out.println("Inside GET CLV method");
