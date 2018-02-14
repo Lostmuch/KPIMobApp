@@ -596,7 +596,7 @@
                                            icon="/resources/images/Icon12.png" rendered="true">
                             <amx:setPropertyListener id="spl12" from="99" to="#{pageFlowScope.priority}" type="action"/>
                         </amx:commandButton>
-                        <amx:outputText value="Average Customer Spend" id="ot37" rendered="true"
+                        <amx:outputText value="Average Customer Spend" id="ot378" rendered="true"
                                         styleClass="xxOpenSansxS"/>
                     </amx:panelGroupLayout>
                     <amx:panelGroupLayout id="p1" layout="vertical" halign="start"

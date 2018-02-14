@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:panelGroupLayout id="pgl2" layout="vertical" scrollPolicy="scroll">
+        <amx:tableLayout id="tl1" width='100%'>
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1" width="100%" halign="center" valign="middle">
+             <amx:outputText value="Industry" id="ot1" styleClass="headertextwhite"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:panelGroupLayout>
+    </amx:facet>
+
+        <amx:panelGroupLayout id="pgl1" halign="center" layout="vertical" 
+                              inlineStyle="padding:8px 8px 8px 8px;">         
+                <amx:commandButton text="Retial and FMGC" id="cb1" action="EditKPI"
+                                   inlineStyle="background-color:#001852; font-size:x-large;" styleClass="industryButtons"/>
+            
+                <amx:commandButton text="Industrial Products" id="cb2" action="EditKPI"
+                                   inlineStyle="background-color:#002173; font-size:x-large;" styleClass="industryButtons"/>
+                <amx:commandButton text="Technology" id="cb3" action="EditKPI"
+                                   inlineStyle="background-color:#002173; font-size:x-large;" styleClass="industryButtons"/>
+                <amx:commandButton text="Media and Telecommunication" id="cb4" action="EditKPI"
+                                   inlineStyle="background-color:#003194; font-size:x-large;" styleClass="industryButtons"/>                  
+                <amx:commandButton text="Life Science and Healthcare" id="cb5" action="EditKPI"
+                                   inlineStyle="font-size:x-large; background-color:#005229;" styleClass="industryButtons"/>                  
+                <amx:commandButton text="Oil, Gas and Energy" id="cb6" action="EditKPI"
+                                   inlineStyle="background-color:#006331; font-size:x-large;" styleClass="industryButtons"/>                  
+                <amx:commandButton text="Aerospace and Defence" id="cb7" action="EditKPI"
+                                   inlineStyle="background-color:#008442; font-size:x-large;" styleClass="industryButtons"/>                   
+         </amx:panelGroupLayout>                          
+
+  </amx:panelPage>
+</amx:view>

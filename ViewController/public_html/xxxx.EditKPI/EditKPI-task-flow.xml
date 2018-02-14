@@ -68,6 +68,9 @@
     <view id="BacklogSummaryPG">
       <page>/BacklogSummaryPG.amx</page>
     </view>
+    <view id="IndustryKPI">
+      <page>/IndustryKPI.amx</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>Login</from-activity-id>
       <control-flow-case id="__2">
@@ -77,10 +80,6 @@
     </control-flow-rule>
     <control-flow-rule id="__4">
       <from-activity-id>Home</from-activity-id>
-      <control-flow-case id="__5">
-        <from-outcome>EditKPI</from-outcome>
-        <to-activity-id>EditKPI</to-activity-id>
-      </control-flow-case>
       <control-flow-case id="__13">
         <from-outcome>*showNotif</from-outcome>
         <to-activity-id>Notifications</to-activity-id>
@@ -88,6 +87,10 @@
       <control-flow-case id="__21">
         <from-outcome>callResult</from-outcome>
         <to-activity-id>resultPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>showIndustry</from-outcome>
+        <to-activity-id>IndustryKPI</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
@@ -161,6 +164,13 @@
       <control-flow-case id="__30">
         <from-outcome>callHome</from-outcome>
         <to-activity-id>Home</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id>IndustryKPI</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>EditKPI</from-outcome>
+        <to-activity-id>EditKPI</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

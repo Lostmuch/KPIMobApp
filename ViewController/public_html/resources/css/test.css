@@ -1,5 +1,5 @@
 @charset "windows-1252";
-@import url('../font-awesome-4.6.3/css/font-awesome.css');
+@import url('../font-awesome-4.headertextwhite.3/css/font-awesome.css');
 
  .amx-panelPage-header {
     border-bottom-color: #86BC25;
@@ -598,4 +598,16 @@ opacity:1;
 
 #pgl33 > yAxis {
 font-weight : bold;
+}
+
+.industryButtons{
+width : 100%;
+height : 70px;
+
+}
+
+.industryButtons > label{
+ font-size: 100%;
+ color: white;
+ overflow-wrap: break-word;
 }
